@@ -59,6 +59,16 @@ public class Menu {
 
     }
     public void orangutanStepsOnWeakTile(){
+        //létrehozzuk a szükséges objektumokat
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        WeakTile t2 = new WeakTile();
+
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "WeakTile", "t2");
 
     }
 }
