@@ -22,11 +22,12 @@ public class Menu {
                 +"15. Kilépés\n"
                 +"A választott use-case: ");
     }
+
     public void manageUseCase(int chosenUseCase){
-        switch(chosenUseCase) {			//A válasznak megfelelő eset indítása
-            case 1:
+        switch(chosenUseCase) {            //A válasznak megfelelő eset indítása
+            case 1: orangutanStepsOnTile();
                 break;
-            case 2:
+            case 2: orangutanStepsOnWeakTile();
                 break;
             case 3:
                 break;
@@ -53,13 +54,11 @@ public class Menu {
             case 14:
                 break;
         }
+    }
+    public void orangutanStepsOnTile(){
 
-        public void orangutanStepsOnTile(){
-
-        }
-        public void orangutanStepsOnWeakTile(){
-
-        }
+    }
+    public void orangutanStepsOnWeakTile(){
 
     }
 }

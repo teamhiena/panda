@@ -1,4 +1,4 @@
-public abstract class Animal {
+public abstract class Animal implements Steppable{
     String name;
     boolean isfollowedBy;
     boolean isFollowing;
