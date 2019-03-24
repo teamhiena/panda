@@ -4,8 +4,7 @@ public abstract class Panda extends Animal{
 	protected Animal following=null;
 	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
 	protected GameMap map; //todo:inicializálni
-	protected String hatesEntity;
-	
+	protected GameMap.Key hatesEntity;	
 	
 	//METODUSOK
 	public void affectedBy(Entity e) {
@@ -28,25 +27,25 @@ public abstract class Panda extends Animal{
 		following=a;
 	}
 	
-	@Override //hatesEntityket be kellene allitani
+    public boolean isFollowing() {
+    	return following!=null;
+    }
+	
+	@Override //meg mindig lehet ket allat egy helyen
 	public void step(Tile newTile) {
-		clearSubbedTiles();
-		tile.refreshSubs(this);
-		Entity newTileEntity=newTile.getEntity();
-		
-		if(newTileEntity==null) {
-			tile.releaseAnimal();
-			newTile.recieveAnimal(this);
-		}
-		else {
-			newTileEntity.stepIn(this);
-		}
-		
-		for(Tile newTileNeighbor:newTile.getNeighbors()) {
-			if(map.getSpecificTiles(hatesEntity).Contains(newTileNeighbor)) {
-				addSubbedTile(newTileNeighbor);
-				newTileNeighbor.addSubbedPanda(this);
+		if(newTile.recieveAnimal(this)) {
+			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
+			subbedTiles.clear(); //panda feliratkozasainak torlese
+			for(Tile newTileNeighbor:newTile.getNeighbors()) { 
+				if(map.getSpecificTiles(hatesEntity).contains(newTileNeighbor)) {
+					addSubbedTile(newTileNeighbor); //az uj helyen szomszedok felirasa pandara
+					newTileNeighbor.addSubbedPanda(this); //az uj helyen szomszedokra feliratkozasok					
+				}			
 			}
-		}
+			tile.setAnimal(null);
+			tile=newTile;			
+		}		
 	}
+
+
 }

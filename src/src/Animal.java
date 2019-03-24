@@ -1,7 +1,5 @@
 public abstract class Animal implements Steppable{
     private String name; //ezmi
-    protected boolean isFollowedBy;
-    protected boolean isFollowing;
     protected Tile tile;
     protected Tile nextTile=null;
     protected Panda followedBy=null;
@@ -31,12 +29,9 @@ public abstract class Animal implements Steppable{
     }
     
     public boolean isFollowedBy() {
-    	return isFollowedBy;
-    }
-    
-    public boolean isFollowing() {
-    	return isFollowing;
-    }
+    	return followedBy!=null;
+    }  
+
     
     public void releaseFollowerRecursively() {
     	
