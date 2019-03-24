@@ -18,9 +18,13 @@ public class Orangutan extends Animal {
         Logger.exit(this, "increaseScore", null);
     }
     
-    public void catchPanda(Panda p) {
-    	
+    /*public boolean catchAnimal(Panda p) {
+    	//miklos bitte
     }
+    
+    public boolean catchAnimal(Orangutan o) {
+    	return false;
+    }*/
     
     public int getPandaNum() {
         Logger.enter(this, "getPandaNum", new ArrayList<>());
