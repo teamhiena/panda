@@ -14,7 +14,6 @@ public class GameMap {
 		//who knows
 	}
 	
-	
 	static public GameMap instance() {
 		if (instance == null) instance = new GameMap();
 		return instance;
@@ -36,7 +35,6 @@ public class GameMap {
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
 		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
-		//TODO
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}

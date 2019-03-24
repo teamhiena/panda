@@ -4,7 +4,7 @@ public class Orangutan extends Animal {
     private int score = 0;
 
     @Override
-    public void step(Tile t) {
+    public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
     	Logger.enter(this, "step", par);
     	//TODO
@@ -17,14 +17,6 @@ public class Orangutan extends Animal {
         score += p;
         Logger.exit(this, "increaseScore", null);
     }
-    
-    /*public boolean catchAnimal(Panda p) {
-    	//miklos bitte
-    }
-    
-    public boolean catchAnimal(Orangutan o) {
-    	return false;
-    }*/
     
     public int getPandaNum() {
         Logger.enter(this, "getPandaNum", new ArrayList<>());

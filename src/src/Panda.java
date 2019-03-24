@@ -24,11 +24,12 @@ public abstract class Panda extends Animal{
 	}
 		
 	@Override
-	public void step(Tile newTile) {
+	public boolean step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
 		Logger.enter(this, "Panda::step", par);
 
-		if(newTile.recieveAnimal(this)) {
+		boolean success=newTile.recieveAnimal(this);
+		if(success) {
 			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
 			subbedTiles.clear(); //panda feliratkozasainak torlese
 			for(Tile newTileNeighbor:newTile.getNeighbors()) { 
@@ -41,7 +42,8 @@ public abstract class Panda extends Animal{
 			tile=newTile;			
 		}
 
-		Logger.exit(this, "Panda::step", null);
+		Logger.exit(this, "Panda::step", success);
+		return success;
 	}
 
 	@Override

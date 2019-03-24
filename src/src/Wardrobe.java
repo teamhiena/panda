@@ -13,14 +13,20 @@ public class Wardrobe extends Entity {
 	public boolean stepIn(Orangutan o) {
 		if(o.getTile()!=entrance)
 			return false;
+		boolean success;
 		do{
-			//boolean success=o.step(map.getRandomWardrobeExitTile());
-		}while
+			Tile exit=map.getRandomWardrobeExitTile();
+			success=o.step(exit);
+			if(success)
+				previousExitTile=exit;
+				
+		}while(!success);
+		return true;
 	}
 	
 	@Override
 	public boolean stepIn(Panda p) {
-		
+		//todo
 	}
 	
 	public void setPreviousExitTile(Tile t) {
