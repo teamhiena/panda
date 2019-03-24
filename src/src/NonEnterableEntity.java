@@ -1,7 +1,13 @@
 
 public abstract class NonEnterableEntity extends Entity{
 
-	public boolean stepIn(Animal a) {
+	@Override
+	public boolean stepIn(Orangutan o) {
+		return false;
+	}
+	
+	@Override
+	public boolean stepIn(Panda p) {
 		return false;
 	}
 	

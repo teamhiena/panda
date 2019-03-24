@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public abstract class Panda extends Animal{
 	protected Animal following=null;
 	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	private Map map; //todo:inicializálni
+	protected Map map; //todo:inicializálni
+	protected abstract String hatesEntity;
 	
+	//KONSTRUKTOROK todo
 	
 	//METODUSOK
 	public void affectedBy(Entity e) {
@@ -27,8 +29,25 @@ public abstract class Panda extends Animal{
 		following=a;
 	}
 	
-	@Override
-	public void step(Tile t) {
+	@Override //hatesEntityket be kellene allitani
+	public void step(Tile newTile) {
+		clearSubbedTiles();
+		tile.refreshSubs(this);
+		Entity newTileEntity=newTile.getEntity();
 		
+		if(newTileEntity==null) {
+			tile.releaseAnimal();
+			newTile.recieveAnimal(this);
+		}
+		else {
+			newTileEntity.stepIn(this);
+		}
+		
+		for(Tile newTileNeighbor:newTile.getNeighbors()) {
+			if(map.getSpecificTiles(hatesEntity).Contains(newTileNeighbor)) {
+				addSubbedTile(newTileNeighbor);
+				newTileNeighbor.addSubbedPanda(this);
+			}
+		}
 	}
 }

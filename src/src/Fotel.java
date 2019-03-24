@@ -22,4 +22,10 @@ public class Fotel extends Entity{
 	public void resetTime() {
 		timeLeft=/*vitathato*/;
 	}
+	
+    public Panda getRandomSubbedPanda(){
+    	//full nem emlekszem ez mire jo (G)
+    	Random vel=new Random();
+    	return subbedPandas.get(vel.nextInt(subbedPandas.size()-1));    	
+    } 
 }

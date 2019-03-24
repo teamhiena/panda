@@ -8,18 +8,13 @@ public class Wardrobe extends Entity {
 	public Wardrobe(Tile e) {
 		entrance=e;
 	}
-	
-	/* overrideolni kell a stepIn(Animal)-t, de itt kette kene agaznia, stepIn(Panda), stepIn(Orangutan)
-	 * nem tudom overrideolni csak ugyanolyan parameterrel, ha meg nem override akkor sir h 
-	 * overrideolatlan methodus van es implementaljam
-	 * szedjuk kette az absztrakt osztalyban?
-	 * */
 	 
-
+	@Override
 	public boolean stepIn(Orangutan o) {
 		
 	}
 	
+	@Override
 	public boolean stepIn(Panda p) {
 		
 	}

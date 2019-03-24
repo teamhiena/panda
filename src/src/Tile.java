@@ -34,9 +34,11 @@ public class Tile {
     	subbedPandas.remove(p);
     }
     
-    public Panda getRandomSubbedPanda(){
-    	//full nem emlekszem ez mire jo (G)
-    	Random vel=new Random();
-    	return subbedPandas.get(vel.nextInt(subbedPandas.size()-1));    	
-    }     
+    public Entity getEntity() {
+    	return entity;
+    } 
+    
+    public ArrayList<Tile> getNeighbors(){
+    	return neighbors;
+    }
 }
