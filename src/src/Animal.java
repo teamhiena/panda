@@ -11,7 +11,7 @@ public abstract class Animal implements Steppable{
     	tile=t;
     	name=n;
     }
-    
+
     public Animal() {
     	tile=null;
     	name="";
