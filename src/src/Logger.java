@@ -24,15 +24,15 @@ public class Logger {
          * Eltolás
          */
         String tab = "";
-        for(int i=0; i<depth; ++i){
-            tab += "    ";
+        for(int i=0; i<depth; i++){
+            tab += "  ";
         }
         depth++; //értelemszerűen növelnünk kell a mélységet amikor valaki belép
 
         /**
          * Paraméterlista megvalósítása.
          */
-        String param =  "";
+        String param = "";
         for(Object i : parameters) {
             param += ", "; //elválasztáshoz
 
@@ -54,8 +54,8 @@ public class Logger {
     public static void exit(Object o, String funcName, Object returnValue){
         if(!enabled) return;
 
-        String tab="";
         depth--; //ha valaki belép, csökkentenünk kell a mélységet
+        String tab="";
         for (int i=0; i<depth; i++){
             tab+="  ";
         }

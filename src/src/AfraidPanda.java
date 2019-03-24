@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 
 public class AfraidPanda extends Panda {
-	public AfraidPanda() {
-		hatesEntity=GameMap.Key.Arcade;
-	}
 
 	//KONSTRUKTOROK
 	public AfraidPanda(GameMap gm){
 		map = gm;
+		hatesEntity=GameMap.Key.Arcade;
+	}
+	public AfraidPanda(){
+		hatesEntity=GameMap.Key.Arcade;
 	}
 
 	//METÓDUSOK

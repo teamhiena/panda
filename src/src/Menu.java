@@ -26,7 +26,7 @@ public class Menu {
     }
 
     public void manageUseCase(int chosenUseCase){
-        switch(chosenUseCase) {            //A válasznak megfelelő eset indítása
+        switch(chosenUseCase) {            //A valasznak megfelelo eset inditasa
             case 1: orangutanStepsOnTile();
                 break;
             case 2: orangutanStepsOnWeakTile();
@@ -104,26 +104,26 @@ public class Menu {
     }
     //4.
     public void orangutanCannotEnterTile(){
-        //létrehozzuk a szükséges objektumokat
+        //letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Arcade a = new Arcade(); 
         Tile t2 = new WeakTile();
 
-        //Loggerbe regisztrálás
-        Logger.enable();;
+        //Loggerbe regisztralas
+        Logger.enable();
         Logger.register(o, "Orangutan", "o");
         Logger.register(a, "Entity", "t1");
         Logger.register(t2, "WeakTile", "t2");
     }
     //5.
     public void orangutanCatchesItsFirstPanda(){
-        //létrehozzuk a szükséges objektumokat
+        //letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         Tile t2 = new Tile();
         AfraidPanda p = new AfraidPanda();
 
-        //Loggerbe regisztrálás
+        //Loggerbe regisztralas
         Logger.enable();;
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");

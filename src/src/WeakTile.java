@@ -13,7 +13,7 @@ public class WeakTile extends Tile {
     	}
     	return false; //csak tesztelÃ©s miatt
     }
-	//Ezt nem igazán vágom mi történik, de ebbe meg kéne hívni a reducenumofsteps()-et
+	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
     public boolean recieveAnimal(Panda p) {
     	if(animal!=null) //ha van ott allat akk fix off
     		return false;
