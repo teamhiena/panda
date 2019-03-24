@@ -3,19 +3,19 @@ public class Map {
 	public Tile getRandomWardrobeExitTile() {
 		
 	}
-	public List<Tile> getWeakTiles() {
+	public ArrayList<Tile> getWeakTiles() {
 		
 	}
-	public List<Tile> getAutomatTiles(){
+	public ArrayList<Tile> getAutomatTiles(){
 		
 	}
-	public List<Tile> getFotelTiles(){
+	public ArrayList<Tile> getFotelTiles(){
 		
 	}
-	public List<Tile> getArcadeTiles(){
+	public ArrayList<Tile> getArcadeTiles(){
 		
 	}
-	public List<Tile> getWardrobeTiles(){
+	public ArrayList<Tile> getWardrobeTiles(){
 		
 	}
 	public Tile getExitTile() {
