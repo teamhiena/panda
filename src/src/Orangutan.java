@@ -1,20 +1,30 @@
-import java.util.ArrayList;
-
 public class Orangutan extends Animal {
-    private int Score = 0;
-    Tile tile;
+    private int score = 0;
+    //private Tile tile; szerintem ez nem kell (G)
+   
 
     @Override
-    public void Step(Tile t) {
-         //paramétert hozzáadjuk a paramtéterlistához
-        ArrayList<Object> par = new ArrayList<>();
-        par.add(t);
-
-        Logger.enter(this, "Step", par);
-        tile.releaseAnimal();
-        t.receiveAnimal(this);
-
-
-
+    public void step(Tile t) {
+    	
+    }
+    
+    public void increaseScore(int p) {
+    	score+=p;
+    }
+    
+    public void catchPanda(Panda p) {
+    	
+    }
+    
+    public int getPandaNum() {
+    	//return mindfuck recursive fuggveny
+    }
+    
+    public void goToEntry() {
+    	
+    }
+    
+    public int getScore() {
+    	return score;
     }
 }

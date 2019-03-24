@@ -1,6 +1,10 @@
 public class AfraidPanda extends Panda {
     @Override
-    public void Step(Tile t) {
-
+    public void step(Tile t) {
+    	
+    }
+    
+    public void affectedBy(Arcade a) {
+    	
     }
 }

@@ -1,3 +1,3 @@
 public interface Steppable {
-    public void Step(Tile t);
+    public void step(Tile t); //atirtam kicsi s-re (G)
 }
