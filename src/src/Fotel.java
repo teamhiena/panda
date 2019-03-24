@@ -17,7 +17,7 @@ public class Fotel extends Entity{
 	}
 	
 	public boolean isEmpty() {
-		return tile.animal==null;
+		return tile.getAnimal()==null;
 	}
 	
 	public void decrTimeLeft() {
@@ -31,7 +31,7 @@ public class Fotel extends Entity{
     public Panda getRandomSubbedPanda(){
     	//full nem emlekszem ez mire jo (G)
     	Random vel=new Random();
-    	return subbedPandas.get(vel.nextInt(subbedPandas.size()-1));    	
+    	return tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size()-1));    	
     } 
 }
 

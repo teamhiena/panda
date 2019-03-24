@@ -12,9 +12,13 @@ public class Orangutan extends Animal {
     	score+=p;
     }
     
-    public void catchPanda(Panda p) {
-    	
+    /*public boolean catchAnimal(Panda p) {
+    	//miklos bitte
     }
+    
+    public boolean catchAnimal(Orangutan o) {
+    	return false;
+    }*/
     
     public int getPandaNum() {
     	//return mindfuck recursive fuggveny

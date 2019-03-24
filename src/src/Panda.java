@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public abstract class Panda extends Animal{
-	protected Animal following=null;
-	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	protected GameMap map; //TODO:inicializalni
-	protected GameMap.Key hatesEntity;	
+	//private Animal following=null;
+	private ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
+	private GameMap map; //TODO:inicializalni
+	private GameMap.Key hatesEntity;	
 	
 	//METODUSOK
 	public void affectedBy(Entity e) {
@@ -18,19 +18,7 @@ public abstract class Panda extends Animal{
 	public void clearSubbedTiles() {
 		subbedTiles.clear();
 	}
-	
-	public void setTile(Tile t) {
-		tile=t;
-	}
-	
-	public void setFollowing(Animal a) {
-		following=a;
-	}
-	
-    public boolean isFollowing() {
-    	return following!=null;
-    }
-	
+		
 	@Override
 	public void step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);

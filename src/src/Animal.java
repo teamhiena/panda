@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public abstract class Animal implements Steppable{
     protected Tile tile;
-    protected Tile nextTile=null;
-    protected Panda followedBy=null;
+    private Tile nextTile=null;
+    private Animal followedBy=null;
+    private Animal following=null;
     
     //KONSTRUKTOROK
     public Animal(Tile t) {
@@ -20,6 +21,18 @@ public abstract class Animal implements Steppable{
 
         Logger.exit(this, "die", null);
 
+    }
+    
+	public void setTile(Tile t) {
+		tile=t;
+	}
+    
+	public void setFollowing(Animal a) {
+		following=a;
+	}
+	
+    public boolean isFollowing() {
+    	return following!=null;
     }
     
     public void setFollowedBy(Panda p) {
@@ -42,5 +55,13 @@ public abstract class Animal implements Steppable{
         Logger.enter(this, "releaseFollowerRecursively", new ArrayList<>());
 
         Logger.exit(this, "releaseFollowerRecursively", null);
+    }
+    
+    public boolean getCoughtBy(Panda p) {
+    	return false;
+    }
+    
+    public boolean getCoughtBy(Orangutan o) {
+    	//MIKLOS
     }
 }

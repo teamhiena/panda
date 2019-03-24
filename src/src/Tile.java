@@ -6,9 +6,9 @@ public class Tile {
      * Kilépteti a rajta található állatot.
      */
 	private Entity entity=null;
-	protected Animal animal=null;
-	protected ArrayList<Tile> neighbors=new ArrayList<Tile>();
-	protected ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
+	private Animal animal=null;
+	private ArrayList<Tile> neighbors=new ArrayList<Tile>();
+	private ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
 	
     public void releaseAnimal(){
     	animal=null;
@@ -18,18 +18,25 @@ public class Tile {
     	animal=a;
     }
     
-    public boolean recieveAnimal(Animal a) {
+    public boolean recieveAnimal(Panda p) {
     	if(animal!=null) //ha van ott allat akk fix off
     		return false;
     	else if (entity!=null) { //ha van ott entity akkor attol fugg
-    		if (entity.stepIn(a)) { //bele lehet lepni
-				animal=a;
+    		if (entity.stepIn(p)) { //bele lehet lepni
+				animal=p;
 				return true;   
 			} 		
     	}
     	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
     	//pl nonenterableentity vagy egy hasznalatban levo fotel
     	return false;
+    }
+    
+    public boolean recieveAnimal(Orangutan o) {
+    	if(animal.getCoughtBy(o))
+    	{
+    		
+    	}
     }
     
     public void removePandaFromNeighborSubbedPandas(Panda p) {
@@ -52,4 +59,12 @@ public class Tile {
     public ArrayList<Tile> getNeighbors(){
     	return neighbors;
     }
+
+	public ArrayList<Panda> getSubbedPandas() {
+		return subbedPandas;
+	}
+
+	public Animal getAnimal() {
+		return animal;
+	}
 }
