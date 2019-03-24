@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public abstract class Animal implements Steppable{
     protected Tile tile;
     private Tile nextTile=null;
-    private Animal followedBy=null;
+    protected Animal followedBy=null;
     private Animal following=null;
+    private  boolean isFollowedBy = false;
+    private boolean isFollowing = false;
     
     //KONSTRUKTOROK
     public Animal(Tile t) {
@@ -34,8 +36,12 @@ public abstract class Animal implements Steppable{
     public boolean isFollowing() {
     	return following!=null;
     }
+
+    public void setIsFollowing(boolean f){
+        isFollowing = f;
+    }
     
-    public void setFollowedBy(Panda p) {
+    public void setFollowedBy(Animal a) {
         ArrayList<Object> par = new ArrayList<>(); par.add(p);
         Logger.enter(this, "setFollowedBy", par);
         followedBy = p;
@@ -48,7 +54,11 @@ public abstract class Animal implements Steppable{
         if(followedBy!=null) ret = true;
         Logger.exit(this, "isFollowedBy", ret);
     	return ret;
-    }  
+    }
+
+    public void setIsFollowedBy(boolean f){
+        isFollowedBy = f;
+    }
 
     
     public void releaseFollowerRecursively() {
@@ -57,11 +67,11 @@ public abstract class Animal implements Steppable{
         Logger.exit(this, "releaseFollowerRecursively", null);
     }
     
-    public boolean getCoughtBy(Panda p) {
-    	return false;
+    public boolean getCaughtBy(Panda p){
+        ArrayList<Object> par = new ArrayList<>(); par.add(p);
+        Logger.enter(this, "getCaughtBy", par);
+        Logger.exit(this, "getCaughtBy", false);
+        return false;
     }
-    
-    public boolean getCoughtBy(Orangutan o) {
-    	//MIKLOS
-    }
+    public abstract boolean getCaughtBy(Orangutan o);
 }

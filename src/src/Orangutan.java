@@ -48,4 +48,12 @@ public class Orangutan extends Animal {
         Logger.exit(this, "getScore", ret);
     	return ret;
     }
+
+    @Override
+    public boolean getCaughtBy(Orangutan o) {
+        ArrayList<Object> par = new ArrayList<>(); par.add(o);
+        Logger.enter(this, "getCaughtBy", par);
+        Logger.exit(this, "getCaughtBy", false);
+        return false;
+    }
 }
