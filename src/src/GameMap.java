@@ -1,6 +1,18 @@
-package src.src;
 
 public class GameMap {
+	private static GameMap instance = null;
+	private GameMap() {}
+	/*
+	 * Ezzel kell példányt létrehozni
+	 * GameMap gm = GameMap.instance();
+	 */
+	static public GameMap instance() {
+		if (instance == null) instance = new GameMap();
+		return instance;
+	}
+	public void finalize() {
+		instance = null;
+	}
 	public Tile getRandomWardrobeExitTile() {
 		
 	}
@@ -18,7 +30,7 @@ public class GameMap {
 	}
 	public ArrayList<Tile> getWardrobeTiles(){*/
 		
-	}
+	//}
 	public Tile getExitTile() {
 		
 	}
