@@ -6,7 +6,7 @@ public class Tile {
      * Kilépteti a rajta található állatot.
      */
 	private Entity entity=null;
-	private Animal animal=null;
+	protected Animal animal=null;
 	private ArrayList<Tile> neighbors=new ArrayList<Tile>();
 	private ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
 	

@@ -63,7 +63,16 @@ public class Menu {
     }
     //1.
     public void orangutanStepsOnTile(){
+        //létrehozzuk a szükséges objektumokat
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        Tile t2 = new Tile();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
     }
     //2.
     public void orangutanStepsOnWeakTile(){
@@ -81,23 +90,54 @@ public class Menu {
     }
     //3.
     public void orangutanStepsOnBrokenTile(){
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        WeakTile t2 = new WeakTile();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "WeakTile", "t2");
+        
+        o.step(t2);
     }
     //4.
     public void orangutanCannotEnterTile(){
+        //létrehozzuk a szükséges objektumokat
+        Orangutan o = new Orangutan();
+        Arcade a = new Arcade(); 
+        Tile t2 = new WeakTile();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(a, "Entity", "t1");
+        Logger.register(t2, "WeakTile", "t2");
     }
     //5.
     public void orangutanCatchesItsFirstPanda(){
+        //létrehozzuk a szükséges objektumokat
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        Tile t2 = new Tile();
+        AfraidPanda p = new AfraidPanda();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
+        Logger.register(p, "AfraidPanda", "p");
     }
     //6.
     public void orangutanCatches(){
-
+    	//?
     }
     //7.
     public void orangutanEntersWardrobe(){
-
+        Orangutan o = new Orangutan();
+        Tile exit = new Tile();
     }
     //8.
     public void orangutanWon(){

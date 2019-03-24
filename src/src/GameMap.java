@@ -11,19 +11,14 @@ public class GameMap {
 	
 	//KONSTRUKTOROK
 	private GameMap() {
-		listGetterMap.put(Key.WeakTile, new ArrayList<Tile>());
-		listGetterMap.put(Key.Arcade, new ArrayList<Tile>());
-		listGetterMap.put(Key.Automat, new ArrayList<Tile>());
-		listGetterMap.put(Key.Fotel, new ArrayList<Tile>());
-		listGetterMap.put(Key.Wardrobe, new ArrayList<Tile>());
-		listGetterMap.put(Key.WardrobeExit, new ArrayList<Tile>());
+		//who knows
 	}
 	
 	static public GameMap instance() {
 		if (instance == null) instance = new GameMap();
 		return instance;
 	}
-
+	
 	public void finalize() {
 		instance = null;
 	}
@@ -36,11 +31,11 @@ public class GameMap {
 		Wardrobe,
 		WardrobeExit
 	}
-
-	//METÓDUSOK
+	
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
 		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
+		//TODO
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}
@@ -67,9 +62,5 @@ public class GameMap {
 		ArrayList<Tile> ret = listGetterMap.get(key);
 		Logger.exit(this, "getSpecificTiles", ret);
 		return ret;
-	}
-
-	public void addSpecificTile(GameMap.Key key, Tile t){
-		listGetterMap.get(key).add(t);
 	}
 }
