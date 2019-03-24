@@ -9,7 +9,8 @@ public class Wardrobe extends Entity {
 		entrance=e;
 		map = gm;
 	}
-	 
+
+	//METODUSOK
 	@Override
 	public boolean stepIn(Orangutan o) {
 		if(o.getTile()!=entrance)

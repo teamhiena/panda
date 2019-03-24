@@ -2,14 +2,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Tile {
-    /**
-     * Kilépteti a rajta található állatot.
-     */
 	protected Entity entity=null;
 	protected Animal animal=null;
 	private ArrayList<Tile> neighbors=new ArrayList<Tile>();
 	private ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
-	
+
+	//METODUSOK
     public void releaseAnimal(){
     	Logger.enter(this, "releaseAnimal", new ArrayList<>());
     	animal=null;
@@ -42,7 +40,7 @@ public class Tile {
 		return true;
     }
     
-    public boolean recieveAnimal(Orangutan o) {
+    public boolean receiveAnimal(Orangutan o) {
     	if(animal!=null && animal.getCaughtBy(o))
     	if(animal.getCaughtBy(o))
     	{
