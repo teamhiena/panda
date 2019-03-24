@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Panda extends Animal{
 	protected Animal following=null;
 	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	private Map map; //todo:inicializálni
+	protected Map map; //todo:inicializálni
 	
 	
 	//METODUSOK
@@ -27,8 +27,4 @@ public abstract class Panda extends Animal{
 		following=a;
 	}
 	
-	@Override
-	public void step(Tile t) {
-		
-	}
 }
