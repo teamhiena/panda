@@ -125,6 +125,30 @@ public class Menu {
     }
     //14.
     public void pandaSteps(){
+        //Letrehozzuk a szukseges objektumokat
+        GameMap gm = GameMap.instance();
+        AfraidPanda p = new AfraidPanda(gm);
+        Tile oldt = new Tile(); //Itt all most
+        Tile newt = new Tile(); //Ide lep
+        Tile nt = new Tile();
+        Tile newnt = new Tile();
+
+        //Inicializálás
+        p.setTile(oldt);
+        oldt.getNeighbors().add(nt);
+        newt.getNeighbors().add(newnt);
+
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(p, "AfraidPanda", "p");
+        Logger.register(oldt, "Tile", "oldt");
+        Logger.register(newt, "Tile", "newt");
+        Logger.register(nt, "Tile", "nt");
+        Logger.register(newnt, "Tile", "newnt");
+
+        //Metodus meghivasa
+        p.step(newt);
 
     }
     //15.

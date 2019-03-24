@@ -38,6 +38,7 @@ public class Tile {
     	{
     		
     	}
+    	return false; //csak tesztelés miatt
     }
     
     public void removePandaFromNeighborSubbedPandas(Panda p) {

@@ -5,8 +5,9 @@ public class Wardrobe extends Entity {
 	private GameMap map; //todo init
 	
 	//KONSTRUKTOROK
-	public Wardrobe(Tile e) {
+	public Wardrobe(Tile e, GameMap gm) {
 		entrance=e;
+		map = gm;
 	}
 	 
 	@Override
@@ -26,7 +27,8 @@ public class Wardrobe extends Entity {
 	
 	@Override
 	public boolean stepIn(Panda p) {
-		//todo
+		//TODO
+		return false; //csak teszteléshez
 	}
 	
 	public void setPreviousExitTile(Tile t) {

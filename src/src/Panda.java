@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public abstract class Panda extends Animal{
 	//private Animal following=null;
 	private ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	private GameMap map; //TODO:inicializalni
-	private GameMap.Key hatesEntity;	
-	
+	protected GameMap map; //TODO:inicializalni
+	protected GameMap.Key hatesEntity;
+
 	//METODUSOK
 	public void affectedBy(Entity e) {
 		//el tudom lepzelni hogy ennek ssemmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
@@ -26,7 +26,7 @@ public abstract class Panda extends Animal{
 	@Override
 	public boolean step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
-		Logger.enter(this, "Panda::step", par);
+		Logger.enter(this, "step", par);
 
 		boolean success=newTile.recieveAnimal(this);
 		if(success) {

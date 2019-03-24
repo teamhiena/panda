@@ -46,9 +46,9 @@ public abstract class Animal implements Steppable{
     }
     
     public void setFollowedBy(Animal a) {
-        ArrayList<Object> par = new ArrayList<>(); par.add(p);
+        ArrayList<Object> par = new ArrayList<>(); par.add(a);
         Logger.enter(this, "setFollowedBy", par);
-        followedBy = p;
+        followedBy = a;
         Logger.exit(this, "setFollowedBy", null);
     }
     

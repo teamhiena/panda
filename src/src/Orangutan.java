@@ -9,6 +9,7 @@ public class Orangutan extends Animal {
     	Logger.enter(this, "step", par);
     	//TODO
     	Logger.exit(this, "step", null);
+    	return false; //csak teszteleshez
     }
     
     public void increaseScore(int p) {

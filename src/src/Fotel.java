@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Fotel extends Entity{
 	private Tile enteredFrom=null;
-	private long timeLeft=0; //vitathato
+	private long timeLeft=100; //vitathato
 	
 
 	public boolean stepIn(Orangutan o) {
@@ -29,7 +29,7 @@ public class Fotel extends Entity{
 	}
 	
 	public void resetTimeLeft() {
-		timeLeft=/*vitathato*/;
+		timeLeft=100;
 	}
 	
     public Panda getRandomSubbedPanda(){
