@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 
-public class Automat extends NonEnterableEntity{	
+public class Automat extends NonEnterableEntity{
 	@Override
 	public void makeEffect() {
-		// TODO Auto-generated method stub
-		
+		Logger.enter(this, "makeEffect", new ArrayList<>());
+
+		Logger.exit(this, "makeEffect", null);
 	}	
 }

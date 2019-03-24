@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Panda extends Animal{
 	protected Animal following=null;
 	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	protected GameMap map; //todo:inicializálni
+	protected GameMap map; //TODO:inicializalni
 	protected GameMap.Key hatesEntity;	
 	
 	//METODUSOK
@@ -31,8 +31,11 @@ public abstract class Panda extends Animal{
     	return following!=null;
     }
 	
-	@Override //meg mindig lehet ket allat egy helyen
+	@Override
 	public void step(Tile newTile) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
+		Logger.enter(this, "Panda::step", par);
+
 		if(newTile.recieveAnimal(this)) {
 			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
 			subbedTiles.clear(); //panda feliratkozasainak torlese
@@ -44,7 +47,9 @@ public abstract class Panda extends Animal{
 			}
 			tile.setAnimal(null);
 			tile=newTile;			
-		}		
+		}
+
+		Logger.exit(this, "Panda::step", null);
 	}
 
 

@@ -7,14 +7,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int chosenUseCase = 0;
 
-        System.out.println("Üdv a tesztprogramunkban! Kilépés '15'-tel\n");
+        System.out.println("Udv a tesztprogramunkban! Kilepes '15'-tel\n");
 
-        while (chosenUseCase != 15) {
+        do {
             mainMenu.show();
             chosenUseCase = Integer.parseInt(scanner.nextLine());
-            System.out.println(chosenUseCase);
-        }
-        System.out.println("Viszlát!");
+        } while (chosenUseCase != 0);
+        scanner.close();
+        System.out.println("Viszlat!");
         /**
          * Minden osztálynak van egy String name változója, melyben a saját nevét tárolja.
          */
