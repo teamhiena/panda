@@ -3,10 +3,9 @@ import java.util.ArrayList;
 public abstract class Panda extends Animal{
 	protected Animal following=null;
 	protected ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	protected Map map; //todo:inicializálni
-	protected abstract String hatesEntity;
+	protected GameMap map; //todo:inicializálni
+	protected String hatesEntity;
 	
-	//KONSTRUKTOROK todo
 	
 	//METODUSOK
 	public void affectedBy(Entity e) {

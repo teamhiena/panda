@@ -1,4 +1,5 @@
-package src.src;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameMap {
 	public Tile getRandomWardrobeExitTile() {
@@ -16,16 +17,16 @@ public class GameMap {
 	public ArrayList<Tile> getArcadeTiles(){
 		
 	}
-	public ArrayList<Tile> getWardrobeTiles(){*/
+	public ArrayList<Tile> getWardrobeTiles(){
 		
-	}
+	}*/
 	public Tile getExitTile() {
 		
 	}
 	public Tile getEntryTile() {
 		
 	}
-	private Map<String,ArrayList<Tile>> listGetterMap=new HashMap<String,ArrayList<Tile>>();
+	private HashMap<String,ArrayList<Tile>> listGetterMap=new HashMap<String,ArrayList<Tile>>();
 	
 	public ArrayList<Tile> getSpecificTiles(String key){
 		return listGetterMap.get(key);
