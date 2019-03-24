@@ -1,42 +1,20 @@
-import java.util.ArrayList;
-import java.util.Random;
-
-public class Tile {
-    /**
-     * Kilépteti a rajta található állatot.
-     */
-	private Entity entity=null;
-	protected Animal animal=null;
-	protected ArrayList<Tile> neighbors=new ArrayList<Tile>();
-	protected ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
-	
-    public void releaseAnimal(){
-    	animal=null;
-    }
-    
-    public void setAnimal(Animal a) {
-    	animal=a;
-    }
-    
-    public boolean recieveAnimal(Animal a) {
-    	//a visszateresi erteke prfect lehet false ha van itt valami
-    }
-    
-    public void refreshSubs(Panda p) {
-    	
-    }
-    
-    public void addSubbedPanda(Panda p) {
-    	subbedPandas.add(p);
-    }
-    
-    public void removeSubbedPanda(Panda p) {
-    	subbedPandas.remove(p);
-    }
-    
-    public Panda getRandomSubbedPanda(){
-    	//full nem emlekszem ez mire jo (G)
-    	Random vel=new Random();
-    	return subbedPandas.get(vel.nextInt(subbedPandas.size()-1));    	
-    }     
+public class Timer{
+	public void Tick() {
+		
+	}
+	public void getTime() {
+		
+	}
+	public void addSteppable(Steppable s) {
+		
+	}
+	public void decreaseTime(int t) {
+		
+	}
+	public void increaseTime(int t) {
+		
+	}
+	public List<NonEnterableEntity> getEntities(){
+		
+	}
 }
