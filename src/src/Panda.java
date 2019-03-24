@@ -51,8 +51,6 @@ public abstract class Panda extends Animal{
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "getCaughtBy", par);
 
-		o.tile.releaseAnimal();
-		tile.releaseAnimal();
 		o.tile.setAnimal(this);
 		tile.setAnimal(o);
 		setIsFollowing(true);

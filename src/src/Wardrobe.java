@@ -17,8 +17,9 @@ public class Wardrobe extends Entity {
 		do{
 			Tile exit=map.getRandomWardrobeExitTile();
 			success=o.step(exit);
-			if(success)
-				previousExitTile=exit;
+			if(success) {
+				previousExitTile=exit;				
+			}
 				
 		}while(!success);
 		return true;
@@ -26,7 +27,16 @@ public class Wardrobe extends Entity {
 	
 	@Override
 	public boolean stepIn(Panda p) {
-		//todo
+		if(p.getTile()!=entrance)
+			return false;
+		boolean success;
+		do {
+			if(p.isFollowing())
+				success=p.step(previousExitTile);
+			else
+				success=p.step(map.getRandomWardrobeExitTile());
+		}while(!success);
+		return true;
 	}
 	
 	public void setPreviousExitTile(Tile t) {

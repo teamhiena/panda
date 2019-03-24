@@ -7,7 +7,9 @@ public class Orangutan extends Animal {
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
     	Logger.enter(this, "step", par);
-    	//TODO
+    	
+    	//TODO GOMBI
+    	
     	Logger.exit(this, "step", null);
     }
     

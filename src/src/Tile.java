@@ -33,11 +33,9 @@ public class Tile {
     }
     
     public boolean recieveAnimal(Orangutan o) {
-    	if(animal!=null && animal.getCaughtBy(o))
-    	if(animal.getCaughtBy(o))
-    	{
-    		
-    	}
+    	
+    	//TODO GOMBI
+    	
     }
     
     public void removePandaFromNeighborSubbedPandas(Panda p) {
