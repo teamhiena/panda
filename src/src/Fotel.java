@@ -13,7 +13,11 @@ public class Fotel extends Entity{
 		return false;
 	}	
 	public boolean stepIn(Panda p) {
-		
+		if (tile.getAnimal()!=null) return false; //valszeg nem kell de just to make sure
+		enteredFrom=p.getTile();
+		resetTimeLeft();
+		p.affectedBy(this);
+		return true;		
 	}
 	
 	public boolean isEmpty() {
@@ -24,7 +28,7 @@ public class Fotel extends Entity{
 		timeLeft--;
 	}
 	
-	public void resetTime() {
+	public void resetTimeLeft() {
 		timeLeft=/*vitathato*/;
 	}
 	

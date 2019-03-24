@@ -33,7 +33,7 @@ public class Tile {
     }
     
     public boolean recieveAnimal(Orangutan o) {
-    	if(animal.getCoughtBy(o))
+    	if(animal!=null && animal.getCoughtBy(o))
     	{
     		
     	}

@@ -7,4 +7,6 @@ public class Automat extends NonEnterableEntity{
 
 		Logger.exit(this, "makeEffect", null);
 	}	
+	
+	
 }

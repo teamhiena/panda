@@ -18,6 +18,10 @@ public abstract class Panda extends Animal{
 	public void clearSubbedTiles() {
 		subbedTiles.clear();
 	}
+	
+	public Tile getTile() {
+		return tile;
+	}
 		
 	@Override
 	public void step(Tile newTile) {
