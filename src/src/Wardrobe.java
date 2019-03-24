@@ -11,7 +11,11 @@ public class Wardrobe extends Entity {
 	 
 	@Override
 	public boolean stepIn(Orangutan o) {
-		
+		if(o.getTile()!=entrance)
+			return false;
+		do{
+			//boolean success=o.step(map.getRandomWardrobeExitTile());
+		}while
 	}
 	
 	@Override

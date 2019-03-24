@@ -6,6 +6,9 @@ public class Arcade extends NonEnterableEntity{
 	public void makeEffect() {
 		Logger.enter(this, "makeEffect", new ArrayList<>());
 
+		for(Panda sp: tile.getSubbedPandas())
+			sp.affectedBy(this);
+		
 		Logger.exit(this, "makeEffect", null);
 	}
 

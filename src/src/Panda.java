@@ -44,5 +44,22 @@ public abstract class Panda extends Animal{
 		Logger.exit(this, "Panda::step", null);
 	}
 
+	@Override
+	public boolean getCaughtBy(Orangutan o) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(o);
+		Logger.enter(this, "getCaughtBy", par);
 
+		o.tile.releaseAnimal();
+		tile.releaseAnimal();
+		o.tile.setAnimal(this);
+		tile.setAnimal(o);
+		setIsFollowing(true);
+		if(o.isFollowedBy()){
+			setIsFollowedBy(true);
+			setFollowedBy(o.followedBy);
+		}
+
+		Logger.exit(this, "getCaughtBy", true);
+		return true;
+	}
 }
