@@ -1,6 +1,6 @@
 public class TiredPanda extends Panda {
 	public TiredPanda() {
-		hatesEntity="Fotel";
+		hatesEntity=GameMap.Key.Fotel;
 	}
 	
     public void affectedBy(Fotel f) {

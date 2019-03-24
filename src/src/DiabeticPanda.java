@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DiabeticPanda extends Panda {
 	public DiabeticPanda() {
-		hatesEntity="Fotel";
+		hatesEntity=GameMap.Key.Automat;
 	}
     public void affectedBy(Automat a) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(a);
