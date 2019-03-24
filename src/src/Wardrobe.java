@@ -2,7 +2,7 @@
 public class Wardrobe extends Entity {
 	private Tile previousExitTile=null;
 	private Tile entrance;
-	private Map map; //todo init
+	private GameMap map; //todo init
 	
 	//KONSTRUKTOROK
 	public Wardrobe(Tile e) {

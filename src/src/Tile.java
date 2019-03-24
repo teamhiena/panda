@@ -19,11 +19,22 @@ public class Tile {
     }
     
     public boolean recieveAnimal(Animal a) {
-    	//a visszateresi erteke prfect lehet false ha van itt valami
+    	if(animal!=null) //ha van ott allat akk fix off
+    		return false;
+    	else if (entity!=null) { //ha van ott entity akkor attol fugg
+    		if (entity.stepIn(a)) { //bele lehet lepni
+				animal=a;
+				return true;   
+			} 		
+    	}
+    	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
+    	//pl nonenterableentity vagy egy hasznalatban levo fotel
+    	return false;
     }
     
-    public void refreshSubs(Panda p) {
-    	
+    public void removePandaFromNeighborSubbedPandas(Panda p) {
+    	for(Tile nt:neighbors)
+    		nt.removeSubbedPanda(p);
     }
     
     public void addSubbedPanda(Panda p) {
