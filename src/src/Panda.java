@@ -8,7 +8,7 @@ public abstract class Panda extends Animal{
 	
 	//METODUSOK
 	public void affectedBy(Entity e) {
-		//el tudom lepzelni hogy ennek semmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
+		//el tudom lepzelni hogy ennek ssemmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
 	}
 	
 	public void addSubbedTile(Tile t) {
