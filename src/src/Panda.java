@@ -7,28 +7,41 @@ public abstract class Panda extends Animal{
 	protected GameMap.Key hatesEntity;	
 	
 	//METODUSOK
-	public void affectedBy(Entity e) {
-		//el tudom lepzelni hogy ennek semmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
-	}
+	public abstract void affectedBy(Entity e);
 	
 	public void addSubbedTile(Tile t) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		Logger.enter(this, "addSubbedTile", par);
 		subbedTiles.add(t);
+		Logger.exit(this, "addSubbedTile", null);
 	}
 	
 	public void clearSubbedTiles() {
+		Logger.enter(this, "clearSubbedTiles", new ArrayList<>());
 		subbedTiles.clear();
+		Logger.exit(this, "clearSubbedTiles", null);
 	}
 	
 	public void setTile(Tile t) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		Logger.enter(this, "setTile", par);
 		tile=t;
+		Logger.exit(this, "setTile", null);
 	}
 	
 	public void setFollowing(Animal a) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(a);
+		Logger.enter(this, "setTile", par);
 		following=a;
+		Logger.exit(this, "setTile", null);
 	}
 	
     public boolean isFollowing() {
-    	return following!=null;
+		Logger.enter(this, "isFollowing", new ArrayList<>());
+		boolean ret = false;
+		if(following != null) ret = true;
+		Logger.exit(this, "isFollowing", ret);
+		return ret;
     }
 	
 	@Override
