@@ -1,4 +1,5 @@
 public class Wardrobe extends Entity {
+	// 
 	private Tile previousExitTile=null;
 	private Tile entrance;
 	private GameMap map; //todo init

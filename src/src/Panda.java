@@ -27,7 +27,7 @@ public abstract class Panda extends Animal{
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
 		Logger.enter(this, "step", par);
 
-		boolean success=newTile.receiveAnimal(this);
+		boolean success = newTile.receiveAnimal(this);
 		if(success) {
 			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
 			subbedTiles.clear(); //panda feliratkozasainak torlese

@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class GameMap {
 	private static GameMap instance = null;
 	private HashMap<GameMap.Key,ArrayList<Tile>> listGetterMap=new HashMap<GameMap.Key,ArrayList<Tile>>();
-	private HashMap<GameMap.Key,ArrayList<WeakTile>> weakTiles=new HashMap<GameMap.Key,ArrayList<WeakTile>>();
-	private HashMap<GameMap.Key,ArrayList<Tile>> orangutanTiles=new HashMap<GameMap.Key,ArrayList<Tile>>(); //Ez mire kell?
 	private EntryTile entry = new EntryTile();
 	private ExitTile exit = new ExitTile();
 	
@@ -18,7 +19,7 @@ public class GameMap {
 		listGetterMap.put(Key.Fotel, new ArrayList<>());
 		listGetterMap.put(Key.Wardrobe, new ArrayList<>());
 		listGetterMap.put(Key.WardrobeExit, new ArrayList<>());
-		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat //Ez mire kell??
+		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
 
 		//Ideiglenes, orangutan won-hoz egy Orangutant felolvas!
 		Tile t = new Tile(); t. setAnimal(new Orangutan());
@@ -43,11 +44,10 @@ public class GameMap {
 		WardrobeExit,
 		Orangutan
 	}
+	
 
 
-	/**
-	 * Visszater egy veletlenszeru szekreny kijarattal.
-	 */
+	//visszater egy veletlenszeru szekreny kijarattal
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
 
@@ -57,9 +57,7 @@ public class GameMap {
 		return t;
 	}
 
-	/**
-	 * Visszaadja az exit csempet.
-	 */
+	//visszaadja az exit csempet
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
 
@@ -69,9 +67,7 @@ public class GameMap {
 		return t;
 	}
 
-	/**
-	 * Visszaadja a bejarat csempet.
-	 */
+	//visszaadja a bejarat csempet
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
 
@@ -81,9 +77,7 @@ public class GameMap {
 		return t;
 	}
 
-	/**
-	 * Visszaadja az parameterkent kapott tipusu csempeket.
-	 */
+	//visszaadja az parameterkent kapott tipusu csempeket
 	public ArrayList<Tile> getSpecificTiles(GameMap.Key key){
 		ArrayList<Object> par = new ArrayList<>(); par.add(key);
 		Logger.enter(this, "getSpecificTiles", par);
@@ -91,20 +85,16 @@ public class GameMap {
 		Logger.exit(this, "getSpecificTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return ret;
 	}
-
-	/**
-	 * Ennek a segitsegevel lehet hozzaadni egy specialis csempet a Maphez.
-	 */
+<<<<<<< HEAD
+	
 	public void addSpecificTile(Tile t,Key key) {
 		listGetterMap.get(key).add(t);
+=======
 
-	/**
-	 * Visszaadja a gyenge csempeket.
-	 */
+	//visszaadja a gyenge csempeket
 	public ArrayList<WeakTile> getWeakTiles(){
-		ArrayList<WeakTile> weakTiles = new ArrayList<WeakTile>();
-		weakTiles = this.getSpecificTiles(Key.WeakTile);
-		//TODO: GOMBAS
-	 return new ArrayList<WeakTile>();
+	//TODO
+	return new ArrayList<WeakTile>();
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	}
 }
