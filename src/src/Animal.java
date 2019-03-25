@@ -21,8 +21,9 @@ public abstract class Animal implements Steppable{
     public void die(){
         Logger.enter(this, "die", new ArrayList<>());
 
-        Logger.exit(this, "die", null);
 
+
+        Logger.exit(this, "die", null);
     }
     
 	public void setTile(Tile t) {

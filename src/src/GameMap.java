@@ -8,6 +8,8 @@ import java.util.HashMap;
 public class GameMap {
 	private static GameMap instance = null;
 	private HashMap<GameMap.Key,ArrayList<Tile>> listGetterMap=new HashMap<GameMap.Key,ArrayList<Tile>>();
+	private EntryTile entry = new EntryTile();
+	private ExitTile exit = new ExitTile();
 	
 	//KONSTRUKTOROK
 	private GameMap() {
@@ -54,16 +56,18 @@ public class GameMap {
 	
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
-		Tile t = null;
-		//TODO
+
+		ExitTile t = exit;
+
 		Logger.exit(this, "getExitTile", t);
 		return t;
 	}
 	
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
-		Tile t = null;
-		//TODO
+
+		EntryTile t = entry;
+
 		Logger.exit(this, "getEntryTile", t);
 		return t;
 	}

@@ -12,10 +12,11 @@ public class Game{
 
 	public void main() {
 		Logger.enter(this, "main", new ArrayList<>());
-		//TODO: Mit csinal ez???
+		//TODO
 
 		Logger.exit(this, "main", null);
 	}
+
 	public void exiting(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "exiting", par);
