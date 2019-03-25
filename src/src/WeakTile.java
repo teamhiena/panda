@@ -2,11 +2,13 @@ import java.util.ArrayList;
 
 public class WeakTile extends Tile {
 	private int numOfSteps=20;
-	private boolean isBroke=false;
+	private boolean isBroken=false;
 
 	//METÓDUSOK
 	public void reduceNumOfSteps() {
 		numOfSteps--;
+		if(numOfSteps<=0)
+			isBroken=true;
 	}
     public boolean receieveAnimal(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
@@ -20,6 +22,10 @@ public class WeakTile extends Tile {
 
 		Logger.exit(this, "receiveAnimal", true);
     	return false; //csak tesztelés miatt
+    }
+    
+    public boolean isBroken() {
+    	return isBroken;
     }
 
 	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et

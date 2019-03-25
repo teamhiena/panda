@@ -36,6 +36,10 @@ public class Tile {
     	Logger.exit(this, "receiveAnimal", success);
 		return success;
     }
+    
+    public void setEntity(Entity e) {
+    	entity=e;
+    }
 
     
     public boolean receiveAnimal(Orangutan o) {

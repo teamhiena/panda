@@ -36,6 +36,8 @@ public class GameMap {
 		Wardrobe,
 		WardrobeExit
 	}
+	
+
 
 	//METÓDUSOK
 	public Tile getRandomWardrobeExitTile() {
@@ -68,5 +70,9 @@ public class GameMap {
 		ArrayList<Tile> ret = listGetterMap.get(key);
 		Logger.exit(this, "getSpecificTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return ret;
+	}
+	
+	public void addSpecificTile(Tile t,Key key) {
+		listGetterMap.get(key).add(t);
 	}
 }
