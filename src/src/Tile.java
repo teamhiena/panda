@@ -98,7 +98,7 @@ public class Tile {
 	public ArrayList<Panda> getSubbedPandas() {
 		return subbedPandas;
 	}
-	// Visszaadja a Tile-on allo allatot.
+	// Visszaadja a Tile-on allo allatot..
 	public Animal getAnimal() {
 		return animal;
 	}
