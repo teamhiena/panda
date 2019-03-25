@@ -143,7 +143,26 @@ public class Menu {
     }
     //8.
     public void orangutanWon(){
+        //Init
+        Game g = new Game();
+        GameMap gamemap = GameMap.instance();
 
+        //$FinitTime mode
+        System.out.println("FinitTime mode:");
+        //Init
+        g.setSelectedMode(Game.GameMode.FinitTime);
+        Timer t = Timer.instance(); t.setGamemap(gamemap); t.setGame(g);
+        //Time is over, megnézzük ki nyert, és mennyivel.TODO: Loggerkedés
+        t.increaseTime(60);
+
+        //$FinitPanda mode
+        System.out.println("\nFinitPanda mode:");
+        //Init
+        g.setSelectedMode(Game.GameMode.FinitPanda);
+        Orangutan o = new Orangutan();
+        o.setGame(g);
+        //Az egyik orangutannal meglepjuk FinitPanda mode-ban a gyozelemhez szukseges limitet TODO: Loggerkedés
+        o.increaseScore(25);
     }
     //9.
     public void orangutanTakesTheExit(){

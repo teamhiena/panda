@@ -39,7 +39,7 @@ public class Tile {
 
     
     public boolean receiveAnimal(Orangutan o) {
-    	ArrayList<Object> par = new ArrayList<>(); par.add(p);
+    	ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
 		
 		boolean success=false;

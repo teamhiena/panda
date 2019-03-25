@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Orangutan extends Animal {
     private int score = 0;
+    private Game game; //nem szep
 
     @Override
     public boolean step(Tile t) {
@@ -25,6 +26,13 @@ public class Orangutan extends Animal {
         Logger.enter(this, "increaseScore", par);
         score += p;
         Logger.exit(this, "increaseScore", null);
+
+        //Minden novelesnel megnezzuk, hogy elertuk-e a gyozelem szukseges pandaszamot
+        if(score >= 25 && game.getSelectedMode() == Game.GameMode.FinitPanda){
+            //Ha elértük, szólunk a játéknak hogy vége (viszont ehhez kell egy game referencia!)
+            game.SaveHighScore(score);
+            game.gameOver();
+        }
     }
     
     public int getPandaNum() {
@@ -58,5 +66,9 @@ public class Orangutan extends Animal {
         Logger.enter(this, "getCaughtBy", par);
         Logger.exit(this, "getCaughtBy", false);
         return false;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

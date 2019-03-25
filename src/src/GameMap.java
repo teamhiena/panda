@@ -17,6 +17,11 @@ public class GameMap {
 		listGetterMap.put(Key.Fotel, new ArrayList<>());
 		listGetterMap.put(Key.Wardrobe, new ArrayList<>());
 		listGetterMap.put(Key.WardrobeExit, new ArrayList<>());
+		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
+
+		//Ideiglenes, orangutan won-hoz egy Orangutant felolvas!
+		Tile t = new Tile(); t. setAnimal(new Orangutan());
+		listGetterMap.get(Key.Orangutan).add(t);
 	}
 	
 	static public GameMap instance() {
@@ -34,7 +39,8 @@ public class GameMap {
 		Automat,
 		Fotel,
 		Wardrobe,
-		WardrobeExit
+		WardrobeExit,
+		Orangutan
 	}
 
 	//METÓDUSOK

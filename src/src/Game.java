@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Game{
 	private int numberofplayers;
 	private GameMode selectedMode;
+	private GameMap map;
 
 	enum GameMode{
 		FinitPanda,
@@ -61,5 +62,13 @@ public class Game{
 		}
 
 		Logger.exit(this, "weakTilesAddlife", null);
+	}
+
+	public GameMode getSelectedMode() {
+		return selectedMode;
+	}
+
+	public void setSelectedMode(GameMode selectedMode) {
+		this.selectedMode = selectedMode;
 	}
 }
