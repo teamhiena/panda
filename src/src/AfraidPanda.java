@@ -20,7 +20,7 @@ public class AfraidPanda extends Panda {
     public void affectedBy(Arcade a) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(a);
 		Logger.enter(this, "affectedBy", par);
-		//TODO
+		//TODO rekurziv elengedik egymast
 		Logger.exit(this, "affectedBy", null);
 
     }

@@ -247,21 +247,28 @@ public class Menu {
     public void orangutanWon_FinitTime(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
-        GameMap gamemap = GameMap.instance();
+        GameMap gameMap = GameMap.instance();
 
         //Inicializalas
         g.setSelectedMode(Game.GameMode.FinitTime);
         Timer t = Timer.instance();
-        t.setGamemap(gamemap);
+        t.setGamemap(gameMap);
         t.setGame(g);
-        //Time is over, megnézzük ki nyert, és mennyivel.
+        //Time is over, megnezzuk ki nyert, es mennyivel.
         t.increaseTime(60);
 
         //Init
         g.setSelectedMode(Game.GameMode.FinitPanda);
         Orangutan o = new Orangutan();
         o.setGame(g);
-        //Az egyik orangutannal meglepjuk FinitPanda mode-ban a gyozelemhez szukseges limitet TODO: Loggerkedés
+        
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(g, "Game", "g");
+        Logger.register(gameMap, "GameMap", "gameMap");
+        Logger.register(o, "Orangutan", "o");
+        
+        //Az egyik orangutannal meglepjuk FinitPanda mode-ban a gyozelemhez szukseges limitet TODO: Loggerkedes
         o.increaseScore(25);
     }
     //9.
@@ -275,6 +282,8 @@ public class Menu {
         Timer t = Timer.instance();
         t.setGamemap(gamemap);
         t.setGame(g);
+        
+        //loggerbe TODO
     }
     //10.
     public void orangutanTakesTheExit(){
@@ -282,15 +291,93 @@ public class Menu {
     }
     //11.
     public void tiredPandaEntersFotel(){
-
+    	//Letrehozzuk a szukseges objektumokat
+    	GameMap gm=GameMap.instance();
+    	AfraidPanda ap=new AfraidPanda(gm);
+    	Tile t1=new Tile();
+    	Fotel f=new Fotel();
+    	Tile t2=new Tile();
+    	
+    	//Inicializalas
+    	t1.addNeighbor(t2);
+    	t2.addNeighbor(t1);    	
+    	t1.setEntity(f);
+    	f.setTile(t1);    	
+    	t2.setAnimal(ap);
+    	f.setTile(t2);
+    	t1.addSubbedPanda(ap);
+    	ap.addSubbedTile(t1);
+    	
+    	//Logger
+    	Logger.enable();
+    	Logger.register(t1, "Tile", "t1");
+    	Logger.register(t2, "Tile", "t2");
+    	Logger.register(f, "Fotel", "f");
+    	Logger.register(ap, "AfraidPanda", "ap");
+    	Logger.register(gm, "GameMap", "gm");
+    	
+    	//Metodus meghivasa
+    	f.makeEffect();    	
     }
     //12.
     public void afraidPandaGetsFrightened(){
-
+		//Letrehozzuk a szukseges objektumokat
+    	GameMap gm=GameMap.instance();
+    	AfraidPanda ap=new AfraidPanda(gm);
+    	Tile t1=new Tile();
+    	Arcade a=new Arcade();
+    	Tile t2=new Tile();
+    	
+    	//Inicializalas
+    	t1.addNeighbor(t2);
+    	t2.addNeighbor(t1);    	
+    	t1.setEntity(a);
+    	a.setTile(t1);    	
+    	t2.setAnimal(ap);
+    	ap.setTile(t2);
+    	t1.addSubbedPanda(ap);
+    	ap.addSubbedTile(t1);
+    	
+    	//Logger
+    	Logger.enable();
+    	Logger.register(t1, "Tile", "t1");
+    	Logger.register(t2, "Tile", "t2");
+    	Logger.register(a, "Arcade", "a");
+    	Logger.register(ap, "AfraidPanda", "ap");
+    	Logger.register(gm, "GameMap", "gm");
+    	
+    	//Metodus meghivasa
+    	a.makeEffect();    	
     }
     //13.
     public void diabeticPandaGetsFrightened(){
-
+    	//Letrehozzuk a szukseges objektumokat
+    	GameMap gm=GameMap.instance();
+    	DiabeticPanda dp=new DiabeticPanda(gm);
+    	Tile t1=new Tile();
+    	Automat a=new Automat();
+    	Tile t2=new Tile();
+    	
+    	//Inicializalas
+    	t1.addNeighbor(t2);
+    	t2.addNeighbor(t1);    	
+    	t1.setEntity(a);
+    	a.setTile(t1);    	
+    	t2.setAnimal(dp);
+    	dp.setTile(t2);
+    	t1.addSubbedPanda(dp);
+    	dp.addSubbedTile(t1);
+    	
+    	//Loggerbe rergisztralas
+    	Logger.enable();
+    	Logger.register(t1, "Tile", "t1");
+    	Logger.register(t2, "Tile", "t2");
+    	Logger.register(a, "Automat", "a");
+    	Logger.register(dp, "AfraidPanda", "ap");
+    	Logger.register(gm, "GameMap", "gm");
+    	
+    	//Metodus meghivasa
+    	a.makeEffect();    	
     }
     //14.
     public void pandaEntersWardrobe(){
@@ -333,7 +420,7 @@ public class Menu {
         Tile nt = new Tile();
         Tile newnt = new Tile();
 
-        //Inicializálás
+        //Inicializalas
         p.setTile(oldt);
         oldt.getNeighbors().add(nt);
         newt.getNeighbors().add(newnt);
@@ -364,8 +451,12 @@ public class Menu {
         WeakTile t2 = new WeakTile();
 
         //Inicializalas
-        for(int i = 30; i >= 0; i--)
-            t2.reduceNumOfSteps();
+        /*for(int i = 30; i >= 0; i--)
+            t2.reduceNumOfSteps();*/        
+
+        while(!t2.isBroken())
+        	t2.reduceNumOfSteps();
+        
         t1.setAnimal(p);
         p.setTile(t1);
 

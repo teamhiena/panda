@@ -109,4 +109,9 @@ public class Tile {
 	public Animal getAnimal() {
 		return animal;
 	}
+	
+	// Hozzaad egy szomszedos csempet a szomszedlistahoz
+	public void addNeighbor(Tile t) {
+		neighbors.add(t);
+	}
 }

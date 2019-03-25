@@ -10,6 +10,7 @@ public class WeakTile extends Tile {
 		if(numOfSteps<=0)
 			isBroken=true;
 	}
+	//este ranezek (G)
     public boolean receieveAnimal(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
@@ -29,6 +30,7 @@ public class WeakTile extends Tile {
     }
 
 	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
+    //este ranezek (G)
     public boolean recieveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);

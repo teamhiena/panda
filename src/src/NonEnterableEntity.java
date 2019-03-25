@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class NonEnterableEntity extends Entity{
+public abstract class NonEnterableEntity extends Entity implements MakesEffect{
 
 	@Override
 	public boolean stepIn(Orangutan o) {
@@ -16,6 +16,4 @@ public abstract class NonEnterableEntity extends Entity{
 		Logger.exit(this, "stepIn", false);
 		return false;
 	}
-	
-	public abstract void makeEffect();
 }
