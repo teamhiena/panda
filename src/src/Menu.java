@@ -65,7 +65,7 @@ public class Menu {
     }
     //1.
     public void orangutanStepsOnTile(){
-        //létrehozzuk a szükséges objektumokat
+        //Letrehozzuk a szukseges objektumokat.
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         Tile t2 = new Tile();
@@ -75,6 +75,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
+
     }
     //2.
     public void orangutanStepsOnWeakTile(){

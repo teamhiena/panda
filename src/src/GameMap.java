@@ -81,7 +81,7 @@ public class GameMap {
 	}
 
 	public ArrayList<WeakTile> getWeakTiles(){
-		//TODO
-		return new ArrayList<WeakTile>();
+	//TODO
+	return new ArrayList<WeakTile>();
 	}
 }

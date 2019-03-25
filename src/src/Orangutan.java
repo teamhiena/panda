@@ -4,6 +4,12 @@ public class Orangutan extends Animal {
     private int score = 0;
     private Game game; //nem szep
 
+    //METODUSOK
+    /**
+     *
+     * @param t(Tile): Errre a mezore szeretnenk leptetni az orangutant.
+     * @return Megadja, hogy sikerult-e a muvelet.
+     */
     @Override
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
@@ -18,7 +24,7 @@ public class Orangutan extends Animal {
     	}
     	
     	Logger.exit(this, "step", null);
-    	return success; //csak teszteleshez
+    	return success;
     }
     
     public void increaseScore(int p) {
