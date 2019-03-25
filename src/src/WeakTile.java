@@ -26,8 +26,13 @@ public class WeakTile extends Tile {
 		Logger.exit(this, "receiveAnimal", true);
     	return false; //csak tesztelés miatt
     }
-    
-    public boolean isBroken() {
+
+	/**
+	 * Az isBroken adattag getter fuggvenye.
+	 */
+	public boolean isBroken() {
+		Logger.enter(this, "isBroken", new ArrayList<>());
+		Logger.exit(this, "isBroken", isBroken);
     	return isBroken;
     }
 
@@ -50,6 +55,6 @@ public class WeakTile extends Tile {
     	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
     	//pl nonenterableentity vagy egy hasznalatban levo fotel
 		Logger.exit(this, "receiveAnimal", true);
-		return true; //csak tesztelés miatt
+		return true;
     }
 }
