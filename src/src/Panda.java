@@ -50,12 +50,7 @@ public abstract class Panda extends Animal{
 	public boolean getCaughtBy(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "getCaughtBy", par);
-
-		/*o.tile.setAnimal(this);
-		tile.setAnimal(o);
-		a pandában a step felelossege, biztos okkal,
-		legyen itt is a stepben
-		söt mar emlekszem*/
+		
 		if(isFollowing()) //mar elkapott pandat nem kapunk el
 		{
 			Logger.exit(this, "getCaughtBy", false);
@@ -68,10 +63,10 @@ public abstract class Panda extends Animal{
 		if(o.isFollowedBy()){
 			setIsFollowedBy(true);
 			setFollowedBy(o.followedBy);
-			followedBy.setFollowing(this);
-			
+			followedBy.setFollowing(this);			
 		}
 		o.setFollowedBy(this);
+		o.setIsFollowedBy(true);
 		
 		Logger.exit(this, "getCaughtBy", true);
 		return true;
