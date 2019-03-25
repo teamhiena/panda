@@ -21,8 +21,10 @@ public class Wardrobe extends Entity {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "stepIn", par);
 
-		if(o.getTile()!=entrance)
+		if(o.getTile()!= entrance) {
+			Logger.exit(this, "stepIn", false);
 			return false;
+		}
 		boolean success;
 		do{
 			Tile exit=map.getRandomWardrobeExitTile();
@@ -45,8 +47,10 @@ public class Wardrobe extends Entity {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "stepIn", par);
 
-		if(p.getTile()!=entrance)
+		if(p.getTile()!= entrance) {
+			Logger.exit(this, "stepIn", false);
 			return false;
+		}
 		boolean success;
 		do {
 			if(p.isFollowing())

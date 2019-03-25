@@ -6,10 +6,9 @@ public abstract class Panda extends Animal{
 	protected GameMap.Key hatesEntity;
 
 	//METODUSOK
-	public void affectedBy(Entity e) {
-		//el tudom lepzelni hogy ennek ssemmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
-	}
-
+	public void affectedBy(Arcade a){ }
+	public void affectedBy(Automat a) { }
+	public void affectedBy(Fotel f) { }
 	/**
 	 * Hozzaad egy csempet a panda subbedTiles listajahoz.
 	 */

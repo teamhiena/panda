@@ -219,14 +219,13 @@ public class Menu {
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
         Tile entrance = new Tile();
-        Tile t1=new Tile();
         Tile t2=new Tile(); //WardrobeTile
         Tile exit=new Tile();
         Wardrobe w=new Wardrobe(entrance,gm);
 
         //Inicializalas
-        t1.setAnimal(o);
-        o.setTile(t1);
+        entrance.setAnimal(o);
+        o.setTile(entrance);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
@@ -235,7 +234,7 @@ public class Menu {
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
     	Logger.register(o, "Orangutan", "o");
-        Logger.register(t1, "Tile", "t1");
+        Logger.register(entrance, "Tile", "entrance");
         Logger.register(t2, "Tile", "t2");
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");

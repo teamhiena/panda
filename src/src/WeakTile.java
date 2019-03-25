@@ -38,23 +38,37 @@ public class WeakTile extends Tile {
 
 	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
     //este ranezek (G)
+	//Megcsinaltam (M)
     public boolean recieveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);
+		if(!isBroken){
+			if(animal!=null) //ha van ott allat akk fix off
+			{
+				Logger.exit(this, "receiveAnimal", false);
+				return false;
+			}
+			else if (entity!=null) { //ha van ott entity akkor attol fugg
+				if (entity.stepIn(p)) { //bele lehet lepni
+					animal=p;
+				}
+				else{
+					Logger.exit(this, "receiveAnimal", true);
+					return false;
+				}
+			}
+			/*Nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
+			pl. nonenterableentity vagy egy hasznalatban levo fotel*/
 
-    	if(animal!=null) //ha van ott allat akk fix off
-		{
+			//Ilyenkor mar mindenkeppen be tudtunk lepni a csempere.
+			this.reduceNumOfSteps();
+			Logger.exit(this, "receiveAnimal", true);
+			return true;
+		}
+		else{
+			p.die();
 			Logger.exit(this, "receiveAnimal", false);
 			return false;
 		}
-    	else if (entity!=null) { //ha van ott entity akkor attol fugg
-    		if (entity.stepIn(p)) { //bele lehet lepni
-				animal=p;
-			} 		
-    	}
-    	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
-    	//pl nonenterableentity vagy egy hasznalatban levo fotel
-		Logger.exit(this, "receiveAnimal", true);
-		return true;
     }
 }
