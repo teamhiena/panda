@@ -26,7 +26,7 @@ public class Menu {
     }
 
     public void manageUseCase(int chosenUseCase){
-        switch(chosenUseCase) {            //A válasznak megfelelő eset indítása
+        switch(chosenUseCase) {            //A valasznak megfelelo eset inditasa
             case 1: orangutanStepsOnTile();
                 break;
             case 2: orangutanStepsOnWeakTile();
@@ -63,7 +63,16 @@ public class Menu {
     }
     //1.
     public void orangutanStepsOnTile(){
+        //létrehozzuk a szükséges objektumokat
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        Tile t2 = new Tile();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
     }
     //2.
     public void orangutanStepsOnWeakTile(){
@@ -81,23 +90,54 @@ public class Menu {
     }
     //3.
     public void orangutanStepsOnBrokenTile(){
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        WeakTile t2 = new WeakTile();
 
+        //Loggerbe regisztrálás
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "WeakTile", "t2");
+        
+        o.step(t2);
     }
     //4.
     public void orangutanCannotEnterTile(){
+        //letrehozzuk a szukseges objektumokat
+        Orangutan o = new Orangutan();
+        Arcade a = new Arcade(); 
+        Tile t2 = new WeakTile();
 
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(a, "Entity", "t1");
+        Logger.register(t2, "WeakTile", "t2");
     }
     //5.
     public void orangutanCatchesItsFirstPanda(){
+        //letrehozzuk a szukseges objektumokat
+        Orangutan o = new Orangutan();
+        Tile t1 = new Tile();
+        Tile t2 = new Tile();
+        AfraidPanda p = new AfraidPanda();
 
+        //Loggerbe regisztralas
+        Logger.enable();;
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
+        Logger.register(p, "AfraidPanda", "p");
     }
     //6.
     public void orangutanCatches(){
-
+    	//?
     }
     //7.
     public void orangutanEntersWardrobe(){
-
+        Orangutan o = new Orangutan();
+        Tile exit = new Tile();
     }
     //8.
     public void orangutanWon(){
@@ -125,6 +165,30 @@ public class Menu {
     }
     //14.
     public void pandaSteps(){
+        //Letrehozzuk a szukseges objektumokat
+        GameMap gm = GameMap.instance();
+        AfraidPanda p = new AfraidPanda(gm);
+        Tile oldt = new Tile(); //Itt all most
+        Tile newt = new Tile(); //Ide lep
+        Tile nt = new Tile();
+        Tile newnt = new Tile();
+
+        //Inicializálás
+        p.setTile(oldt);
+        oldt.getNeighbors().add(nt);
+        newt.getNeighbors().add(newnt);
+
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(p, "AfraidPanda", "p");
+        Logger.register(oldt, "Tile", "oldt");
+        Logger.register(newt, "Tile", "newt");
+        Logger.register(nt, "Tile", "nt");
+        Logger.register(newnt, "Tile", "newnt");
+
+        //Metodus meghivasa
+        p.step(newt);
 
     }
     //15.

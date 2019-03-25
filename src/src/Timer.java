@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Timer{
+	ArrayList<NonEnterableEntity> Entities = new ArrayList<>();
+
 	public void Tick() {
 		
 	}
@@ -17,6 +19,6 @@ public class Timer{
 		
 	}
 	public ArrayList<NonEnterableEntity> getEntities(){
-		
+		return Entities;
 	}
 }

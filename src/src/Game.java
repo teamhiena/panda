@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Game{
-	private int numberofplayers;
+	private int numberofplayers=1;
 	public void main() {
 		Logger.enter(this, "main", new ArrayList<>());
 		//TODO: Mit csinál ez?

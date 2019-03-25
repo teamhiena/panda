@@ -8,9 +8,16 @@ public class Orangutan extends Animal {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
     	Logger.enter(this, "step", par);
     	
-    	//TODO GOMBI
+    	boolean success=t.receiveAnimal(this);
+    	if(success)
+    	{
+    		t.setAnimal(this);
+			tile.setAnimal(null);
+			tile=t;	
+    	}
     	
     	Logger.exit(this, "step", null);
+    	return success; //csak teszteleshez
     }
     
     public void increaseScore(int p) {

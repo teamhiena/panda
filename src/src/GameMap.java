@@ -11,7 +11,12 @@ public class GameMap {
 	
 	//KONSTRUKTOROK
 	private GameMap() {
-		//who knows
+		listGetterMap.put(Key.WeakTile, new ArrayList<>());
+		listGetterMap.put(Key.Arcade, new ArrayList<>());
+		listGetterMap.put(Key.Automat, new ArrayList<>());
+		listGetterMap.put(Key.Fotel, new ArrayList<>());
+		listGetterMap.put(Key.Wardrobe, new ArrayList<>());
+		listGetterMap.put(Key.WardrobeExit, new ArrayList<>());
 	}
 	
 	static public GameMap instance() {
@@ -31,10 +36,12 @@ public class GameMap {
 		Wardrobe,
 		WardrobeExit
 	}
-	
+
+	//METÓDUSOK
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
 		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
+		//TODO
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}
@@ -59,7 +66,7 @@ public class GameMap {
 		ArrayList<Object> par = new ArrayList<>(); par.add(key);
 		Logger.enter(this, "getSpecificTiles", par);
 		ArrayList<Tile> ret = listGetterMap.get(key);
-		Logger.exit(this, "getSpecificTiles", ret);
+		Logger.exit(this, "getSpecificTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return ret;
 	}
 }

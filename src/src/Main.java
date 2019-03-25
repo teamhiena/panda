@@ -12,6 +12,7 @@ public class Main {
         do {
             mainMenu.show();
             chosenUseCase = Integer.parseInt(scanner.nextLine());
+            mainMenu.manageUseCase(chosenUseCase);
         } while (chosenUseCase != 0);
         scanner.close();
         System.out.println("Viszlat!");

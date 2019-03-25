@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
 public abstract class Panda extends Animal{
-	//private Animal following=null;
 	private ArrayList<Tile> subbedTiles=new ArrayList<Tile>();
-	private GameMap map; //TODO:inicializalni
-	private GameMap.Key hatesEntity;	
-	
+	protected GameMap map; //TODO:inicializalni
+	protected GameMap.Key hatesEntity;
+
 	//METODUSOK
 	public void affectedBy(Entity e) {
 		//el tudom lepzelni hogy ennek ssemmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
@@ -26,9 +25,9 @@ public abstract class Panda extends Animal{
 	@Override
 	public boolean step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
-		Logger.enter(this, "Panda::step", par);
+		Logger.enter(this, "step", par);
 
-		boolean success=newTile.recieveAnimal(this);
+		boolean success=newTile.receiveAnimal(this);
 		if(success) {
 			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
 			subbedTiles.clear(); //panda feliratkozasainak torlese
@@ -38,11 +37,12 @@ public abstract class Panda extends Animal{
 					newTileNeighbor.addSubbedPanda(this); //az uj helyen szomszedokra feliratkozasok					
 				}			
 			}
+			newTile.setAnimal(this);
 			tile.setAnimal(null);
 			tile=newTile;			
 		}
 
-		Logger.exit(this, "Panda::step", success);
+		Logger.exit(this, "step", success);
 		return success;
 	}
 
@@ -51,14 +51,28 @@ public abstract class Panda extends Animal{
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "getCaughtBy", par);
 
-		o.tile.setAnimal(this);
+		/*o.tile.setAnimal(this);
 		tile.setAnimal(o);
+		a pandában a step felelossege, biztos okkal,
+		legyen itt is a stepben
+		söt mar emlekszem*/
+		if(isFollowing()) //mar elkapott pandat nem kapunk el
+		{
+			Logger.exit(this, "getCaughtBy", false);
+			return false;
+		}
+		
+		
 		setIsFollowing(true);
+		setFollowing(o);
 		if(o.isFollowedBy()){
 			setIsFollowedBy(true);
 			setFollowedBy(o.followedBy);
+			followedBy.setFollowing(this);
+			
 		}
-
+		o.setFollowedBy(this);
+		
 		Logger.exit(this, "getCaughtBy", true);
 		return true;
 	}

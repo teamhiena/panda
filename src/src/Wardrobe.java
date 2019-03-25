@@ -1,14 +1,13 @@
-
 public class Wardrobe extends Entity {
 	private Tile previousExitTile=null;
 	private Tile entrance;
 	private GameMap map; //todo init
-	
-	//KONSTRUKTOROK
-	public Wardrobe(Tile e) {
-		entrance=e;
-	}
 	 
+	public Wardrobe(Tile e, GameMap gm) {
+		entrance=e;
+		map = gm;
+	}
+	
 	@Override
 	public boolean stepIn(Orangutan o) {
 		if(o.getTile()!=entrance)
@@ -22,7 +21,7 @@ public class Wardrobe extends Entity {
 			}
 				
 		}while(!success);
-		return true;
+		return success;
 	}
 	
 	@Override
