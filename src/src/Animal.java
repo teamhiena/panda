@@ -17,7 +17,7 @@ public abstract class Animal implements Steppable{
     	tile=null;
     }
         
-    //METODUSOK
+    //METODUSOKK
     public void die(){
         Logger.enter(this, "die", new ArrayList<>());
 
