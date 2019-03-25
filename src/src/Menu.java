@@ -11,7 +11,8 @@ public class Menu {
                 +"5. Orangutan catches its first panda\n"
                 +"6. Orangutan catches panda, while it already has panda(s)\n"
                 +"7. Orangutan enters wardrobe\n"
-                +"8. Orangutan won\n"
+                +"8. Orangutan won(FinitTime mode)\n"
+                +"9. "
                 +"9. Orangutan takes the exit with panda(s)\n"
                 +"10. TiredPanda enters fotel\n"
                 +"11. AfraidPanda gets frightened\n"
@@ -41,23 +42,25 @@ public class Menu {
                 break;
             case 7: orangutanEntersWardrobe();
                 break;
-            case 8: orangutanWon();
+            case 8: orangutanWon_FinitTime();
                 break;
-            case 9: orangutanTakesTheExit();
+            case 9: orangutanWon_FinitPanda();
                 break;
-            case 10: tiredPandaEntersFotel();
+            case 10: orangutanTakesTheExit();
                 break;
-            case 11: afraidPandaGetsFrightened();
+            case 11: tiredPandaEntersFotel();
                 break;
-            case 12: diabeticPandaGetsFrightened();
+            case 12: afraidPandaGetsFrightened();
                 break;
-            case 13: pandaEntersWardrobe();
+            case 13: diabeticPandaGetsFrightened();
                 break;
-            case 14: pandaSteps();
+            case 14: pandaEntersWardrobe();
                 break;
-            case 15: pandaInRowStepsOnBrokenTile();
+            case 15: pandaSteps();
                 break;
-            case 16: pandaInFreeroamStepsOnBrokenTile();
+            case 16: pandaInRowStepsOnBrokenTile();
+                break;
+            case 17: pandaInFreeroamStepsOnBrokenTile();
                 break;
             default: System.out.println("Érvénytelen számot adott meg!");
                 break;
@@ -216,17 +219,18 @@ public class Menu {
         Orangutan o = new Orangutan();
         Tile entrance = new Tile();
         Tile t1=new Tile();
-        Tile t2=new Tile();
+        Tile t2=new Tile(); //WardrobeTile
         Tile exit=new Tile();
-        
+        Wardrobe w=new Wardrobe(entrance,gm);
+
+        //Inicializalas
         t1.setAnimal(o);
         o.setTile(t1);
-        Wardrobe w=new Wardrobe(entrance,gm);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
-        o.step(t2);
-        
+
+        //Loggerbe regisztralas
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
     	Logger.register(o, "Orangutan", "o");
@@ -235,34 +239,24 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
-=======
-        Tile wt = new Tile(); //WardrobeTile
-        Wardrobe w1 = new Wardrobe(wt,gm);
-        
-        Logger.register(o, "Orangutan", "o");
-        Logger.register(gm, "GameMap", "gm");
-        Logger.register(wt, "Tile", "wt");
-        Logger.register(w1, "Wardrobe", "w1");
-        
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
-        
+
+        //Metodus meghivasa
+        o.step(t2);
     }
     //8.
-    public void orangutanWon(){
-        //Init
+    public void orangutanWon_FinitTime(){
+        //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
         GameMap gamemap = GameMap.instance();
 
-        //$FinitTime mode
-        System.out.println("FinitTime mode:");
-        //Init
+        //Inicializalas
         g.setSelectedMode(Game.GameMode.FinitTime);
-        Timer t = Timer.instance(); t.setGamemap(gamemap); t.setGame(g);
-        //Time is over, megnézzük ki nyert, és mennyivel.TODO: Loggerkedés
+        Timer t = Timer.instance();
+        t.setGamemap(gamemap);
+        t.setGame(g);
+        //Time is over, megnézzük ki nyert, és mennyivel.
         t.increaseTime(60);
 
-        //$FinitPanda mode
-        System.out.println("\nFinitPanda mode:");
         //Init
         g.setSelectedMode(Game.GameMode.FinitPanda);
         Orangutan o = new Orangutan();
@@ -271,39 +265,52 @@ public class Menu {
         o.increaseScore(25);
     }
     //9.
+    public void orangutanWon_FinitPanda(){
+        //Letrehozzuk a szukseges objektumokat
+        Game g = new Game();
+        GameMap gamemap = GameMap.instance();
+
+        //Inicializalas
+        g.setSelectedMode(Game.GameMode.FinitPanda);
+        Timer t = Timer.instance();
+        t.setGamemap(gamemap);
+        t.setGame(g);
+    }
+    //10.
     public void orangutanTakesTheExit(){
 
     }
-    //10.
+    //11.
     public void tiredPandaEntersFotel(){
 
     }
-    //11.
+    //12.
     public void afraidPandaGetsFrightened(){
 
     }
-    //12.
+    //13.
     public void diabeticPandaGetsFrightened(){
 
     }
-    //13.
+    //14.
     public void pandaEntersWardrobe(){
+        //Letrehozzuk a szukseges objektumokat
     	GameMap gm = GameMap.instance();
-<<<<<<< HEAD
         DiabeticPanda p = new DiabeticPanda(gm);
         Tile entrance = new Tile();
         Tile t1=new Tile();
-        Tile t2=new Tile();
+        Tile t2=new Tile(); //WardrobeTile
         Tile exit=new Tile();
-        
+
+        //Inicializalas
         t1.setAnimal(p);
         p.setTile(t1);
         Wardrobe w=new Wardrobe(entrance,gm);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
-        p.step(t2);
-        
+
+        //Loggerbe regisztralas
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
     	Logger.register(p, "Orangutan", "p");
@@ -312,18 +319,11 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
-=======
-        Orangutan o = new Orangutan();
-        Tile wt = new Tile(); //WardrobeTile
-        Wardrobe w1 = new Wardrobe(wt,gm);
-        
-        Logger.register(o, "Orangutan", "o");
-        Logger.register(gm, "GameMap", "gm");
-        Logger.register(wt, "Tile", "wt");
-        Logger.register(w1, "Wardrobe", "w1");
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
+
+        //Metodus meghivasa
+        p.step(t2);
     }
-    //14.
+    //15.
     public void pandaSteps(){
         //Letrehozzuk a szukseges objektumokat
         GameMap gm = GameMap.instance();
@@ -351,12 +351,32 @@ public class Menu {
         p.step(newt);
 
     }
-    //15.
+    //16.
     public void pandaInRowStepsOnBrokenTile(){
 
     }
-    //16.
+    //17.
     public void pandaInFreeroamStepsOnBrokenTile(){
+        //Letrehozzuk a szukeseges objektumokat
+        GameMap gm = GameMap.instance();
+        AfraidPanda p = new AfraidPanda(gm);
+        Tile t1 = new Tile();
+        WeakTile t2 = new WeakTile();
 
+        //Inicializalas
+        for(int i = 30; i >= 0; i--)
+            t2.reduceNumOfSteps();
+        t1.setAnimal(p);
+        p.setTile(t1);
+
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(p, "AfraidPanda", "p");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "WeakTile", "t2");
+
+        //Metodus meghivasa
+        p.step(t2);
     }
 }

@@ -62,21 +62,24 @@ public class Game{
 		ArrayList<Object> par = new ArrayList<>(); par.add(s);
 		Logger.enter(this, "SaveHighScore", par);
 
-		//itt meg csak kiirja a pontszamot
+		//Itt meg csak kiirja a pontszamot.
 		System.out.println("Current score: " + s);
 
 		Logger.exit(this, "SaveHighScore", null);
 	}
 
-	//a jatek vege, visszalep a fomenube
+	/**
+	 * A jatek vege, visszalep a fomenube.
+	 */
 	public void gameOver() {
 		Logger.enter(this, "gamaOver", new ArrayList<>());
 		//TODO
-
 		Logger.exit(this, "gameOver", null);
 	}
 
-	//noveli a gyenge csempek eleterejet
+	/**
+	 * Noveli a gyenge csempek eleterejet.
+	 */
 	public void weakTilesAddlife() {
 		Logger.enter(this, "weakTilesAddlife", new ArrayList<>());
 
@@ -88,12 +91,16 @@ public class Game{
 		Logger.exit(this, "weakTilesAddlife", null);
 	}
 
-	//visszaadja a valasztott jatekmodot
+	/**
+	 * Visszaadja a valasztott jatekmodot. A selectedMode adattag gettter fuggvenye.
+	 */
 	public GameMode getSelectedMode() {
 		return selectedMode;
 	}
 
-	//beallitja a valaszott jatekmodot
+	/**
+	 * Beallitja a valaszott jatekmodot. A selectedMode adattag setter fuggvenye.
+	 */
 	public void setSelectedMode(GameMode selectedMode) {
 		this.selectedMode = selectedMode;
 	}
