@@ -337,7 +337,7 @@ public class Menu {
         WeakTile t2 = new WeakTile();
         for(int i = 20; i >= 0; i--)
         	t2.reduceNumOfSteps();
-        t1.setAnimal(p);
+        t1.setAnimal(p); 
         p.setTile(t1);        
         p.step(t2);
 
