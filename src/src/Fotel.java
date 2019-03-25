@@ -9,7 +9,6 @@ public class Fotel extends Entity implements MakesEffect{
 	private long timeLeft=100; //Ennyi ido van meg hatra.(eddig ul meg ott a panda)
 
 	//METODUSOK
-
 	/**
 	 * Egy orangutan megprobal belepni a fotelbe. Ez termeszetesen nem lehetseges.
 	 * @param o
@@ -69,8 +68,8 @@ public class Fotel extends Entity implements MakesEffect{
 		}
 
 	/**
-	 * Visszater egy random pandaval, azert jo mert lehet h 
-	 * tobb panda van egyszerre fotel mellett, ilyenkor az egyik ul csak bele
+	 * Visszater egy random pandaval. Azert jo, mert lehet hogy
+	 * tobb panda van egyszerre fotel mellett, ilyenkor az egyik ul csak bele.
 	 */
     public Panda getRandomSubbedPanda(){
     	Logger.enter(this, "getRandomSubbedPanda", new ArrayList<>());

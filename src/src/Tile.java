@@ -4,11 +4,11 @@ import java.util.Random;
 public class Tile {
 	//A Tile-on all-e valamilyen entitas (arcade, automat stb). Null eseten nem talalhato ilyen.
 	protected Entity entity=null; 
-	//A Tile-on all-e Orangutan/Panda, null esetén nincs rajta semmi.
+	//A Tile-on all-e Orangutan/Panda, null eseten nincs rajta semmi.
 	protected Animal animal=null;
-	//A Tile szomszédos Tile-jait tároló lista
+	//A Tile szomszedos Tile-jait tarolo lista
 	private ArrayList<Tile> neighbors=new ArrayList<Tile>();
-	//A Tile-ra feliratkozott pandák.
+	//A Tile-ra feliratkozott pandak.
 	private ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
 
 	//METODUSOK
@@ -69,13 +69,13 @@ public class Tile {
     	ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
 		
-		boolean success=false;
-    	if(entity!=null)//ha van ott entiy akk megprobalok belelepni
-    		success=entity.stepIn(o); //ha nem enterable vagy panda ul benne akk false
-    	else if(animal!=null) {
+		boolean success=true;
+    	if(entity != null)//Ha van ott entiy akk megprobalok belelepni.
+    		success=entity.stepIn(o); //Ha nem enterable vagy panda ul benne akkor false.
+    	else if(animal != null) {
     		success=animal.getCaughtBy(o);
     	}
-    	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
+    	//Nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
     	//pl nonenterableentity vagy egy hasznalatban levo fotel
     	Logger.exit(this, "receiveAnimal", success);
 		return success;

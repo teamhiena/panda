@@ -9,16 +9,32 @@ public abstract class Panda extends Animal{
 	public void affectedBy(Entity e) {
 		//el tudom lepzelni hogy ennek ssemmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
 	}
-	
+
+	/**
+	 * Hozzaad egy csempet a panda subbedTiles listajahoz.
+	 */
 	public void addSubbedTile(Tile t) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		Logger.enter(this, "addSubbedTile", par);
 		subbedTiles.add(t);
+		Logger.exit(this, "addSubbedTile", null);
 	}
-	
+
+	/**
+	 * Kitorli a feliratkozott csempek listajat.
+	 */
 	public void clearSubbedTiles() {
+		Logger.enter(this, "clearSubbedTiles", new ArrayList<>());
 		subbedTiles.clear();
+		Logger.exit(this, "clearSubbedTiles", null);
 	}
-	
+
+	/**
+	 * A tile adattag getter fuggvenye.
+	 */
 	public Tile getTile() {
+		Logger.enter(this, "getTile", new ArrayList<>());
+		Logger.exit(this, "getTile", tile);
 		return tile;
 	}
 		
@@ -29,7 +45,7 @@ public abstract class Panda extends Animal{
 
 		boolean success = newTile.receiveAnimal(this);
 		if(success) {
-			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
+			tile.removePandaFromNeighborSubbedPandas(this); //Panda eltavolitasa a szomszedokrol.
 			subbedTiles.clear(); //panda feliratkozasainak torlese
 			for(Tile newTileNeighbor:newTile.getNeighbors()) { 
 				if(map.getSpecificTiles(hatesEntity).contains(newTileNeighbor)) {

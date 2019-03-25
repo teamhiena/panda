@@ -10,7 +10,6 @@ public abstract class Entity {
 	 * tile adattag setter fuggvenye
 	 */
 	public void setTile(Tile t) {
-
 		tile=t;
 	}
 }

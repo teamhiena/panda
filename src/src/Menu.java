@@ -12,15 +12,15 @@ public class Menu {
                 +"6. Orangutan catches panda, while it already has panda(s)\n"
                 +"7. Orangutan enters wardrobe\n"
                 +"8. Orangutan won(FinitTime mode)\n"
-                +"9. "
-                +"9. Orangutan takes the exit with panda(s)\n"
-                +"10. TiredPanda enters fotel\n"
-                +"11. AfraidPanda gets frightened\n"
-                +"12. DiabeticPanda gets frightened\n"
-                +"13. Panda enters wardrobe\n"
-                +"14. Panda steps\n"
-                +"15. Panda in row steps on BrokenTile\n"
-                +"16. Panda in freeroam steps on BrokenTile\n"
+                +"9. Orangutan won(FinitPanda mode)\n"
+                +"10. Orangutan takes the exit with panda(s)\n"
+                +"11. TiredPanda enters fotel\n"
+                +"12. AfraidPanda gets frightened\n"
+                +"13. DiabeticPanda gets frightened\n"
+                +"14. Panda enters wardrobe\n"
+                +"15. Panda steps\n"
+                +"16. Panda in row steps on BrokenTile\n"
+                +"17. Panda in freeroam steps on BrokenTile\n"
                 +"---\n"
                 +"0. Kilépés\n"
                 +"A választott UseCase: ");
@@ -244,6 +244,7 @@ public class Menu {
         o.step(t2);
     }
     //8.
+    //TODO
     public void orangutanWon_FinitTime(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
@@ -272,6 +273,7 @@ public class Menu {
         o.increaseScore(25);
     }
     //9.
+    //TODO
     public void orangutanWon_FinitPanda(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
@@ -286,6 +288,7 @@ public class Menu {
         //loggerbe TODO
     }
     //10.
+    //TODO
     public void orangutanTakesTheExit(){
 
     }

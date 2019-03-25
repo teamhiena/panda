@@ -83,10 +83,10 @@ public class Game{
 	public void weakTilesAddlife() {
 		Logger.enter(this, "weakTilesAddlife", new ArrayList<>());
 
-		ArrayList<WeakTile> weakTiles = GameMap.instance().getWeakTiles();
+		/*ArrayList<WeakTile> weakTiles = GameMap.instance().getWeakTiles();
 		for (WeakTile tl: weakTiles) {
 			tl.reduceNumOfSteps();
-		}
+		}*/
 
 		Logger.exit(this, "weakTilesAddlife", null);
 	}

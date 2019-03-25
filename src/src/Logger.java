@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A szkeletonhoz tartozó segédosztály, ennek segítségével egyszerűbben tudjuk kezelni a hívási láncot.
+ * A szkeletonhoz tartozó segedosztaly, ennek segitsegevel egyszerubben tudjuk kezelni a hivasi lancot.
  */
 public class Logger {
     private static Map<Object, Object_information> map = new HashMap<Object, Object_information>();
@@ -16,25 +16,25 @@ public class Logger {
 
     public static void enter(Object o, String funcName, List<Object> parameters){
         /**
-         * Ha a logolás nincsen engedélyezve, nem csinálunk semmit.
+         * Ha a logolas nincsen engedelyezve, nem csinalunk semmit.
          */
         if(!enabled) return;
 
         /**
-         * Eltolás
+         * Eltolas
          */
         String tab = "";
         for(int i=0; i<depth; i++){
             tab += "  ";
         }
-        depth++; //értelemszerűen növelnünk kell a mélységet amikor valaki belép
+        depth++; //Ertelemszeruen novelnunk kell a melyseget amikor valaki belep.
 
         /**
-         * Paraméterlista megvalósítása.
+         * Parameterlista megvalositasa.
          */
         String param = "";
         for(Object i : parameters) {
-            param += ", "; //elválasztáshoz
+            param += ", "; //elvalasztashoz
 
             if (i == null)
                 param += "null";
@@ -43,10 +43,10 @@ public class Logger {
             else
                 param += i.toString();
         }
-        if(param.length()>2) param = param.substring(2); //van az elején egy felesleges vessző + egy space
+        if(param.length()>2) param = param.substring(2); //Van az elejen egy felesleges vesszo + egy space
 
         /**
-         * Kiírás
+         * Kiiras
          */
         System.out.println(tab+"-> "+ "[" + map.get(o).getType() + "]" + map.get(o).getName() + "." + funcName +"(" + param +")");
 
@@ -54,14 +54,14 @@ public class Logger {
     public static void exit(Object o, String funcName, Object returnValue){
         if(!enabled) return;
 
-        depth--; //ha valaki belép, csökkentenünk kell a mélységet
+        depth--; //Ha valaki belep, csokkentenunk kell a melyseget.
         String tab="";
         for (int i=0; i<depth; i++){
             tab+="  ";
         }
 
         /**
-         * Visszatérési értékből String
+         * Visszateresi ertekbol String
          */
         String retVal = "";
         if(returnValue != null){
@@ -72,7 +72,7 @@ public class Logger {
         }
 
         /**
-         * Kiírás
+         * Kiiras
          */
         System.out.println(tab+"<- "+"["+map.get(o).getType()+"]"+map.get(o).getName()+"."+funcName+"("+")"+(retVal.equals("") ? "" : ("  [" + retVal + "]")));
 
