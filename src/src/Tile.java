@@ -51,14 +51,12 @@ public class Tile {
     	Logger.exit(this, "receiveAnimal", success);
 		return success;
     }
-<<<<<<< HEAD
     
     public void setEntity(Entity e) {
     	entity=e;
     }
 
     
-=======
     /*
      * Atveszi a Orangutant
      * Ha az adott Tile-on all allat, akkor nem veszi at az allatot
@@ -66,7 +64,7 @@ public class Tile {
      * (Fotel es Wardrobe eseten atveszi)
      * Ha nincs rajta semmi, akkor atveszi
      */
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
+
     public boolean receiveAnimal(Orangutan o) {
     	ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);

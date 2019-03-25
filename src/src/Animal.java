@@ -16,7 +16,6 @@ public abstract class Animal implements Steppable{
     	tile=null;
     }
         
-<<<<<<< HEAD
     //METODUSOKK
     public void die(){
         Logger.enter(this, "die", new ArrayList<>());
@@ -24,13 +23,10 @@ public abstract class Animal implements Steppable{
         Logger.exit(this, "die", null);
 
     }
-    
-=======
     //METODUSOK
     /**
      * Tile adattag getter/setter fuggvenye.
      */
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	public void setTile(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
         Logger.enter(this, "setTile", par);
@@ -61,8 +57,8 @@ public abstract class Animal implements Steppable{
         return ret;
     }
     public void setIsFollowing(boolean f){
-        ArrayList<Object> par = new ArrayList<>(); par.add(a);
-        Logger.enter(this, "setFollowing", par);
+       // ArrayList<Object> par = new ArrayList<>(); par.add(a);
+       // Logger.enter(this, "setFollowing", par);
         isFollowing = f;
     }
 
@@ -108,15 +104,6 @@ public abstract class Animal implements Steppable{
      */
     public boolean getCaughtBy(Panda p){
         return false;
-    }
-
-    /**
-     * Akkor hivodik meg, amikor az allat meghal.
-     */
-    public void die(){
-        Logger.enter(this, "die", new ArrayList<>());
-        //TODO
-        Logger.exit(this, "die", null);
     }
 
     /**
