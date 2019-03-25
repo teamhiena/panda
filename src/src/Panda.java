@@ -37,7 +37,10 @@ public abstract class Panda extends Animal{
 		Logger.exit(this, "getTile", tile);
 		return tile;
 	}
-		
+
+	/**
+	 * A pandat a parameterben megadott mezore mozgatjuk.
+	 */
 	@Override
 	public boolean step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
@@ -46,11 +49,11 @@ public abstract class Panda extends Animal{
 		boolean success = newTile.receiveAnimal(this);
 		if(success) {
 			tile.removePandaFromNeighborSubbedPandas(this); //Panda eltavolitasa a szomszedokrol.
-			subbedTiles.clear(); //panda feliratkozasainak torlese
+			subbedTiles.clear(); //Panda feliratkozasainak torlese
 			for(Tile newTileNeighbor:newTile.getNeighbors()) { 
 				if(map.getSpecificTiles(hatesEntity).contains(newTileNeighbor)) {
-					addSubbedTile(newTileNeighbor); //az uj helyen szomszedok felirasa pandara
-					newTileNeighbor.addSubbedPanda(this); //az uj helyen szomszedokra feliratkozasok					
+					addSubbedTile(newTileNeighbor); //Az uj helyen szomszedok felirasa pandara
+					newTileNeighbor.addSubbedPanda(this); //Az uj helyen szomszedokra feliratkozasok
 				}			
 			}
 			newTile.setAnimal(this);
@@ -62,12 +65,15 @@ public abstract class Panda extends Animal{
 		return success;
 	}
 
+	/**
+	 * A pandat "elkapja" a parameterben megadott orangutan.
+	 */
 	@Override
 	public boolean getCaughtBy(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "getCaughtBy", par);
 		
-		if(isFollowing()) //mar elkapott pandat nem kapunk el
+		if(isFollowing()) //Mar elkapott pandat nem kapunk el
 		{
 			Logger.exit(this, "getCaughtBy", false);
 			return false;

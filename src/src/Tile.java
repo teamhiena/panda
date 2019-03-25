@@ -82,24 +82,36 @@ public class Tile {
     }
     // Eltavolitja a Pandat a Tile szomszedos Tile-jainak feliratkozoi kozul
     public void removePandaFromNeighborSubbedPandas(Panda p) {
+    	ArrayList<Object> par = new ArrayList<>(); par.add(p);
+    	Logger.enter(this, "removePandaFromNeighborSubbedPandas", par);
     	for(Tile nt:neighbors)
     		nt.removeSubbedPanda(p);
+    	Logger.exit(this, "removePandaFromNeighborSubbedPandas", null);
     }
     // Panda feliratkozasa a Tile-ra
     public void addSubbedPanda(Panda p) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(p);
+		Logger.enter(this, "addSubbedPanda", par);
     	subbedPandas.add(p);
-    }
+		Logger.exit(this, "removePandaFromNeighborSubbedPandas", null);
+	}
     // Eltavolitja a pandat a feliratkozoi kozul
     public void removeSubbedPanda(Panda p) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(p);
+		Logger.enter(this, "removeSubbedPanda", par);
     	subbedPandas.remove(p);
+    	Logger.exit(this, "removeSubbedPanda", null);
     }
     // Visszaadja az entitast ami rajta all.
     public Entity getEntity() {
-    	return entity;
+    	Logger.enter(this, "getEntity", new ArrayList<>());
+		Logger.exit(this, "getEntity", null);
+		return entity;
     } 
     // Visszaadja a szomszedos Tile-okat
     public ArrayList<Tile> getNeighbors(){
-    	return neighbors;
+		Logger.enter(this, "getEntity", new ArrayList<>());
+		return neighbors;
     }
     // Visszaadja a feliratkozott pandakat
 	public ArrayList<Panda> getSubbedPandas() {

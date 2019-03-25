@@ -4,11 +4,13 @@ public class WeakTile extends Tile {
 	private int numOfSteps=20;
 	private boolean isBroken=false;
 
-	//METÓDUSOK
+	//METODUSOK
 	public void reduceNumOfSteps() {
+		Logger.enter(this, "reduceNumOfSteps", new ArrayList<>());
 		numOfSteps--;
 		if(numOfSteps<=0)
 			isBroken=true;
+		Logger.exit(this, "reduceNumOfSteps", null);
 	}
 	//este ranezek (G)
     public boolean receieveAnimal(Orangutan o) {
