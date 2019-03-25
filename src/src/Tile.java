@@ -43,7 +43,6 @@ public class Tile {
 		Logger.enter(this, "receiveAnimal", par);
 		
 		boolean success=false;
-    	//TODO GOMBI
     	if(entity!=null)//ha van ott entiy akk megprobalok belelepni
     		success=entity.stepIn(o); //ha nem enterable vagy panda ul benne akk false
     	else if(animal!=null) {
