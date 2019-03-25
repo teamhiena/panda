@@ -296,14 +296,6 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
-        Orangutan o = new Orangutan();
-        Tile wt = new Tile(); //WardrobeTile
-        Wardrobe w1 = new Wardrobe(wt,gm);
-        
-        Logger.register(o, "Orangutan", "o");
-        Logger.register(gm, "GameMap", "gm");
-        Logger.register(wt, "Tile", "wt");
-        Logger.register(w1, "Wardrobe", "w1");
     }
     //14.
     public void pandaSteps(){
@@ -339,6 +331,22 @@ public class Menu {
     }
     //16.
     public void pandaInFreeroamStepsOnBrokenTile(){
+    	GameMap gm = GameMap.instance();
+        AfraidPanda p = new AfraidPanda(gm);
+        Tile t1 = new Tile();
+        WeakTile t2 = new WeakTile();
+        for(int i = 20; i >= 0; i--)
+        	t2.reduceNumOfSteps();
+        t1.setAnimal(p);
+        p.setTile(t1);        
+        p.step(t2);
+
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(p, "AfraidPanda", "p");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "WeakTile", "t2");
 
     }
 }
