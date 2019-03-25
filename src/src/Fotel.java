@@ -73,8 +73,9 @@ public class Fotel extends Entity implements MakesEffect{
 	 */
     public Panda getRandomSubbedPanda(){
     	Logger.enter(this, "getRandomSubbedPanda", new ArrayList<>());
+    	int a = tile.getSubbedPandas().size();
     	Random vel=new Random();
-    	Panda ret=tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size()-1)); 
+    	Panda ret=tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size())); 
     	Logger.exit(this, "getRandomSubbedPanda", ret);
     	return ret;
     }
