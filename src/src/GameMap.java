@@ -8,6 +8,8 @@ import java.util.HashMap;
 public class GameMap {
 	private static GameMap instance = null;
 	private HashMap<GameMap.Key,ArrayList<Tile>> listGetterMap=new HashMap<GameMap.Key,ArrayList<Tile>>();
+	private EntryTile entry = new EntryTile();
+	private ExitTile exit = new ExitTile();
 	
 	//KONSTRUKTOROK
 	private GameMap() {
@@ -43,31 +45,37 @@ public class GameMap {
 		Orangutan
 	}
 
-	//METÓDUSOK
+	//visszater egy veletlenszeru szekreny kijarattal
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
+
 		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
-		//TODO
+
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}
-	
+
+	//visszaadja az exit csempet
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
-		Tile t = null;
-		//TODO
+
+		ExitTile t = exit;
+
 		Logger.exit(this, "getExitTile", t);
 		return t;
 	}
-	
+
+	//visszaadja a bejarat csempet
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
-		Tile t = null;
-		//TODO
+
+		EntryTile t = entry;
+
 		Logger.exit(this, "getEntryTile", t);
 		return t;
 	}
 
+	//visszaadja az parameterkent kapott tipusu csempeket
 	public ArrayList<Tile> getSpecificTiles(GameMap.Key key){
 		ArrayList<Object> par = new ArrayList<>(); par.add(key);
 		Logger.enter(this, "getSpecificTiles", par);
@@ -76,6 +84,7 @@ public class GameMap {
 		return ret;
 	}
 
+	//visszaadja a gyenge csempeket
 	public ArrayList<WeakTile> getWeakTiles(){
 		//TODO
 		return new ArrayList<WeakTile>();
