@@ -110,20 +110,27 @@ public class Tile {
     } 
     // Visszaadja a szomszedos Tile-okat
     public ArrayList<Tile> getNeighbors(){
-		Logger.enter(this, "getEntity", new ArrayList<>());
+		Logger.enter(this, "getNeighbors", new ArrayList<>());
+		Logger.exit(this, "getNeighbors", null);
 		return neighbors;
     }
     // Visszaadja a feliratkozott pandakat
 	public ArrayList<Panda> getSubbedPandas() {
+		Logger.enter(this, "getSubbedPandas", new ArrayList<>());
+		Logger.exit(this, "getSubbedPandas", null);
 		return subbedPandas;
 	}
 	// Visszaadja a Tile-on allo allatot.
 	public Animal getAnimal() {
+		Logger.enter(this, "getAnimal", new ArrayList<>());
+		Logger.exit(this, "getAnimal", animal);
 		return animal;
 	}
-	
 	// Hozzaad egy szomszedos csempet a szomszedlistahoz
 	public void addNeighbor(Tile t) {
+    	ArrayList<Object> par = new ArrayList<>(); par.add(t);
+    	Logger.enter(this, "addNeighbor", par);
 		neighbors.add(t);
+		Logger.exit(this, "addNeighbor", null);
 	}
 }
