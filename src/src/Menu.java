@@ -138,8 +138,17 @@ public class Menu {
     }
     //7.
     public void orangutanEntersWardrobe(){
+    	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
-        Tile exit = new Tile();
+        Tile wt = new Tile(); //WardrobeTile
+        Wardrobe w1 = new Wardrobe(wt,gm);
+        
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(wt, "Tile", "wt");
+        Logger.register(w1, "Wardrobe", "w1");
+        
+        
     }
     //8.
     public void orangutanWon(){
@@ -182,7 +191,15 @@ public class Menu {
     }
     //13.
     public void pandaEntersWardrobe(){
-
+    	GameMap gm = GameMap.instance();
+        Orangutan o = new Orangutan();
+        Tile wt = new Tile(); //WardrobeTile
+        Wardrobe w1 = new Wardrobe(wt,gm);
+        
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(wt, "Tile", "wt");
+        Logger.register(w1, "Wardrobe", "w1");
     }
     //14.
     public void pandaSteps(){
