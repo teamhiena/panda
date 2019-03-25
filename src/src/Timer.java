@@ -18,7 +18,7 @@ public class Timer {
 	}
 
 	public void Tick() {
-
+		//TODO
 		elapsedTime++;
 	}
 
@@ -38,6 +38,7 @@ public class Timer {
 		Entities.add(e);
 	}
 
+	//csokkenti az idot parameterkent kapott masodperccel
 	public void decreaseTime(int t) {
 		if (elapsedTime < t)
 			elapsedTime = 0;
@@ -45,19 +46,20 @@ public class Timer {
 			elapsedTime -= t;
 	}
 
+	//noveli az idot parameterkent kapott masodperccel
 	public void increaseTime(int t) {
 		elapsedTime += t;
 
-		//Minden eltelt Tick-re pollingoljuk, hogy lejárt-e az idő és hogy nyert-e az Orangutan
+		//Minden eltelt Tick-re pollingoljuk, hogy lejart-e az ido és hogy nyert-e az Orangutan
 		if (elapsedTime >= 60 && game.getSelectedMode() == Game.GameMode.FinitTime) {
-			//Orangutánok kinyerése
+			//Orangutanok kinyerese
 			ArrayList<Tile> orangutantiles = gamemap.getSpecificTiles(GameMap.Key.Orangutan);
 			ArrayList<Orangutan> orangutans = new ArrayList<>();
 			for (Tile item : orangutantiles) {
 				orangutans.add((Orangutan) item.getAnimal());
 			}
 
-			//Attól függően hogy hány játékos módban vagyunk állítjuk be a HighScore-t
+			//Attol fuggoen hogy hany jatekos modban vagyunk allitjuk be a HighScore-t
 			Orangutan[] oarray = new Orangutan[2];
 			if (orangutans.size() == 2) {
 				oarray[0] = orangutans.get(0);
@@ -68,15 +70,17 @@ public class Timer {
 				game.SaveHighScore(orangutans.get(0).getScore());
 			}
 
-			//És végül lejárt az idő, game-over.
+			//Es vegul lejart az ido, game-over.
 			game.gameOver();
 		}
 	}
 
+	//visszaadja a NonEnterableEntity interfeszu entitasokat
 	public ArrayList<NonEnterableEntity> getEntities() {
 		return Entities;
 	}
 
+	//visszaadja a steppable interfeszu entitasokat
 	public ArrayList<Steppable> getSteppables() {
 		return Steppable;
 	}
