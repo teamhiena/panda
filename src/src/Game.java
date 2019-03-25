@@ -5,40 +5,48 @@ public class Game{
 	private GameMode selectedMode;
 	private GameMap map;
 
-	//a jatekmodok
+	/**
+	 * A jatekmodok enumja.
+	 */
 	enum GameMode{
 		FinitPanda,
 		FinitTime
 	}
 
+	/**
+	 * Jelenleg nincsen funkcioja.
+	 */
 	public void main() {
 		Logger.enter(this, "main", new ArrayList<>());
 		//TODO
-
 		Logger.exit(this, "main", null);
 	}
 
-	//kezeli az orangutan kilepeset
+	/**
+	 * Kezeli az orangutan kilepeset.
+	 */
 	public void exiting(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "exiting", par);
 
-		int num = o.getPandaNum(); //az orangutant koveto pandak szama
-		if(num >= 5) 			   //ha tobb mint 5
+		int num = o.getPandaNum(); //Az orangutant koveto pandak szama.
+		if(num >= 5) 			   //Ha tobb mint 5.
 			this.reward();
-		o.increaseScore(num); 	   //noveli az orangutan pontjait
-		o.goToEntry(); 		  	   //a bejarathoz helyezi az orangutant
+		o.increaseScore(num); 	   //Noveli az orangutan pontjait.
+		o.goToEntry(); 		  	   //A bejarathoz helyezi az orangutant.
 
 		Logger.exit(this, "exiting", null);
 	}
 
-	//kezeli a jutalmat 5 kivitt panda utan
+	/**
+	 * Kezeli a jutalmat 5 kivitt panda utan.
+	 */
 	public void reward() {
 		Logger.enter(this, "reward", new ArrayList<>());
 
-		this.weakTilesAddlife(); 				  //noveli a gyenge csempek eleterejet
+		this.weakTilesAddlife(); 				  //Noveli a gyenge csempek eleterejet.
 
-		//jatekmodtol fuggoen vagy csokkenti, vagy noveli az idot
+		//Jatekmodtol fuggoen vagy csokkenti, vagy noveli az idot.
 		if(selectedMode == GameMode.FinitPanda)
 			Timer.instance().decreaseTime(5);
 		if(selectedMode == GameMode.FinitTime)
@@ -47,7 +55,9 @@ public class Game{
 		Logger.exit(this, "reward", null);
 	}
 
-	//az elert pontszamot menti el
+	/**
+	 * Az elert pontszamot menti el.
+	 */
 	public void SaveHighScore(int s) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(s);
 		Logger.enter(this, "SaveHighScore", par);

@@ -89,12 +89,10 @@ public class GameMap {
 	
 	public void addSpecificTile(Tile t,Key key) {
 		listGetterMap.get(key).add(t);
-=======
 
 	//visszaadja a gyenge csempeket
 	public ArrayList<WeakTile> getWeakTiles(){
 	//TODO
 	return new ArrayList<WeakTile>();
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	}
 }
