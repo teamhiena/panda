@@ -65,12 +65,19 @@ public class Menu {
     }
     //1.
     public void orangutanStepsOnTile(){
+<<<<<<< HEAD
+        //letrehozzuk a szukseges objektumokat
+=======
         //Letrehozzuk a szukseges objektumokat.
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         Tile t2 = new Tile();
+        o.setTile(t1);
+        t1.setAnimal(o);
+        o.step(t2);
 
-        //Loggerbe regisztrálás
+        //Loggerbe regisztralas
         Logger.enable();;
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
@@ -79,12 +86,17 @@ public class Menu {
     }
     //2.
     public void orangutanStepsOnWeakTile(){
-        //létrehozzuk a szükséges objektumokat
+        //letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
+        t1.setAnimal(o);
+        o.setTile(t1);
+        
+        o.step(t2);
+        
 
-        //Loggerbe regisztrálás
+        //Loggerbe regisztralas
         Logger.enable();;
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
@@ -93,11 +105,18 @@ public class Menu {
     }
     //3.
     public void orangutanStepsOnBrokenTile(){
+        //letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
+        
+        t1.setAnimal(o);
+        o.setTile(t1);
+        while(!t2.isBroken())
+        	t2.reduceNumOfSteps();
+        o.step(t2);
 
-        //Loggerbe regisztrálás
+        //Loggerbe regisztralas
         Logger.enable();;
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
@@ -110,24 +129,43 @@ public class Menu {
         //letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Arcade a = new Arcade(); 
-        Tile t2 = new WeakTile();
+        Tile t1=new Tile();
+        t1.setAnimal(o);
+        o.setTile(t1);
+        Tile t2 = new Tile();
+        t2.setEntity(a);
+        o.step(t2);
+        
+        
 
         //Loggerbe regisztralas
         Logger.enable();
+        
         Logger.register(o, "Orangutan", "o");
-        Logger.register(a, "Entity", "t1");
-        Logger.register(t2, "WeakTile", "t2");
+        Logger.register(a, "Entity", "a");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
     }
     //5.
     public void orangutanCatchesItsFirstPanda(){
         //letrehozzuk a szukseges objektumokat
+    	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
+        AfraidPanda p = new AfraidPanda(gm);        
+        
         Tile t1 = new Tile();
         Tile t2 = new Tile();
-        AfraidPanda p = new AfraidPanda();
-
+        t1.setAnimal(o);
+        o.setTile(t1);
+        t2.setAnimal(p);
+        p.setTile(t2);
+        
+        o.step(t2);
+        
+        
         //Loggerbe regisztralas
-        Logger.enable();;
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
@@ -135,12 +173,59 @@ public class Menu {
     }
     //6.
     public void orangutanCatches(){
-    	//?
+    	Orangutan o=new Orangutan();
+    	Tile t1=new Tile();
+    	Tile t2=new Tile();
+    	Tile t3=new Tile();
+    	GameMap gm = GameMap.instance();
+    	DiabeticPanda p1=new DiabeticPanda(gm);
+    	AfraidPanda p2=new AfraidPanda(gm);
+    	t1.setAnimal(o);
+    	o.setTile(t1);
+    	t2.setAnimal(p1);
+    	p1.setTile(t2);
+    	t3.setAnimal(p2);
+    	p2.setTile(t3);
+    	
+    	o.step(t2);
+    	o.step(t3);
+    	
+    	Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+    	Logger.register(o, "Orangutan", "o");
+    	Logger.register(p1, "DiabeticPanda", "p1");
+    	Logger.register(p2, "AfraidPanda", "p2");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
+        Logger.register(t3, "Tile", "t3");
     }
     //7.
     public void orangutanEntersWardrobe(){
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
+<<<<<<< HEAD
+        Tile entrance = new Tile();
+        Tile t1=new Tile();
+        Tile t2=new Tile();
+        Tile exit=new Tile();
+        
+        t1.setAnimal(o);
+        o.setTile(t1);
+        Wardrobe w=new Wardrobe(entrance,gm);
+        t2.setEntity(w);
+        w.setTile(t2);
+        gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
+        o.step(t2);
+        
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+    	Logger.register(o, "Orangutan", "o");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
+        Logger.register(exit, "Tile", "exit");
+        Logger.register(w, "Wardrobe", "w");
+        Logger.register(entrance, "Tile", "entrance");
+=======
         Tile wt = new Tile(); //WardrobeTile
         Wardrobe w1 = new Wardrobe(wt,gm);
         
@@ -149,6 +234,7 @@ public class Menu {
         Logger.register(wt, "Tile", "wt");
         Logger.register(w1, "Wardrobe", "w1");
         
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
         
     }
     //8.
@@ -193,6 +279,30 @@ public class Menu {
     //13.
     public void pandaEntersWardrobe(){
     	GameMap gm = GameMap.instance();
+<<<<<<< HEAD
+        DiabeticPanda p = new DiabeticPanda(gm);
+        Tile entrance = new Tile();
+        Tile t1=new Tile();
+        Tile t2=new Tile();
+        Tile exit=new Tile();
+        
+        t1.setAnimal(p);
+        p.setTile(t1);
+        Wardrobe w=new Wardrobe(entrance,gm);
+        t2.setEntity(w);
+        w.setTile(t2);
+        gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
+        p.step(t2);
+        
+        Logger.enable();
+        Logger.register(gm, "GameMap", "gm");
+    	Logger.register(p, "Orangutan", "p");
+        Logger.register(t1, "Tile", "t1");
+        Logger.register(t2, "Tile", "t2");
+        Logger.register(exit, "Tile", "exit");
+        Logger.register(w, "Wardrobe", "w");
+        Logger.register(entrance, "Tile", "entrance");
+=======
         Orangutan o = new Orangutan();
         Tile wt = new Tile(); //WardrobeTile
         Wardrobe w1 = new Wardrobe(wt,gm);
@@ -201,6 +311,7 @@ public class Menu {
         Logger.register(gm, "GameMap", "gm");
         Logger.register(wt, "Tile", "wt");
         Logger.register(w1, "Wardrobe", "w1");
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
     }
     //14.
     public void pandaSteps(){

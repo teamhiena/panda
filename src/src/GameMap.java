@@ -44,6 +44,8 @@ public class GameMap {
 		WardrobeExit,
 		Orangutan
 	}
+	
+
 
 	//visszater egy veletlenszeru szekreny kijarattal
 	public Tile getRandomWardrobeExitTile() {
@@ -83,10 +85,16 @@ public class GameMap {
 		Logger.exit(this, "getSpecificTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return ret;
 	}
+<<<<<<< HEAD
+	
+	public void addSpecificTile(Tile t,Key key) {
+		listGetterMap.get(key).add(t);
+=======
 
 	//visszaadja a gyenge csempeket
 	public ArrayList<WeakTile> getWeakTiles(){
 	//TODO
 	return new ArrayList<WeakTile>();
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	}
 }

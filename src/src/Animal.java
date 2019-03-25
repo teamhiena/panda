@@ -16,10 +16,21 @@ public abstract class Animal implements Steppable{
     	tile=null;
     }
         
+<<<<<<< HEAD
+    //METODUSOKK
+    public void die(){
+        Logger.enter(this, "die", new ArrayList<>());
+
+        Logger.exit(this, "die", null);
+
+    }
+    
+=======
     //METODUSOK
     /**
      * Tile adattag getter/setter fuggvenye.
      */
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	public void setTile(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
         Logger.enter(this, "setTile", par);
