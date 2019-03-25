@@ -1,5 +1,5 @@
 /**
- * A Map használatához szükséges segédosztály.
+ * A Loggerben talalhato Map hasznalatahoz szukseges segedosztaly.
  */
 public class Object_information {
     String type;

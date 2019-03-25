@@ -12,21 +12,22 @@ public class Menu {
                 +"6. Orangutan catches panda, while it already has panda(s)\n"
                 +"7. Orangutan enters wardrobe\n"
                 +"8. Orangutan won(FinitTime mode)\n"
-                +"9. "
-                +"9. Orangutan takes the exit with panda(s)\n"
-                +"10. TiredPanda enters fotel\n"
-                +"11. AfraidPanda gets frightened\n"
-                +"12. DiabeticPanda gets frightened\n"
-                +"13. Panda enters wardrobe\n"
-                +"14. Panda steps\n"
-                +"15. Panda in row steps on BrokenTile\n"
-                +"16. Panda in freeroam steps on BrokenTile\n"
+                +"9. Orangutan won(FinitPanda mode)\n"
+                +"10. Orangutan takes the exit with panda(s)\n"
+                +"11. TiredPanda enters fotel\n"
+                +"12. AfraidPanda gets frightened\n"
+                +"13. DiabeticPanda gets frightened\n"
+                +"14. Panda enters wardrobe\n"
+                +"15. Panda steps\n"
+                +"16. Panda in row steps on BrokenTile\n"
+                +"17. Panda in freeroam steps on BrokenTile\n"
                 +"---\n"
                 +"0. Kilépés\n"
                 +"A választott UseCase: ");
     }
 
     public void manageUseCase(int chosenUseCase){
+    	Logger.disable();
         switch(chosenUseCase) {            //A valasznak megfelelo eset inditasa
             case 1: orangutanStepsOnTile();
                 break;
@@ -218,14 +219,13 @@ public class Menu {
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
         Tile entrance = new Tile();
-        Tile t1=new Tile();
         Tile t2=new Tile(); //WardrobeTile
         Tile exit=new Tile();
         Wardrobe w=new Wardrobe(entrance,gm);
 
         //Inicializalas
-        t1.setAnimal(o);
-        o.setTile(t1);
+        entrance.setAnimal(o);
+        o.setTile(entrance);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
@@ -234,7 +234,7 @@ public class Menu {
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
     	Logger.register(o, "Orangutan", "o");
-        Logger.register(t1, "Tile", "t1");
+        Logger.register(entrance, "Tile", "entrance");
         Logger.register(t2, "Tile", "t2");
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
@@ -244,6 +244,7 @@ public class Menu {
         o.step(t2);
     }
     //8.
+    //TODO
     public void orangutanWon_FinitTime(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
@@ -272,6 +273,7 @@ public class Menu {
         o.increaseScore(25);
     }
     //9.
+    //TODO
     public void orangutanWon_FinitPanda(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
@@ -286,6 +288,7 @@ public class Menu {
         //loggerbe TODO
     }
     //10.
+    //TODO
     public void orangutanTakesTheExit(){
 
     }
@@ -293,27 +296,37 @@ public class Menu {
     public void tiredPandaEntersFotel(){
     	//Letrehozzuk a szukseges objektumokat
     	GameMap gm=GameMap.instance();
-    	AfraidPanda ap=new AfraidPanda(gm);
+    	TiredPanda ap=new TiredPanda(gm);
     	Tile t1=new Tile();
     	Fotel f=new Fotel();
     	Tile t2=new Tile();
+    	TiredPanda bp=new TiredPanda(gm);
+    	Tile t3=new Tile();
     	
     	//Inicializalas
     	t1.addNeighbor(t2);
-    	t2.addNeighbor(t1);    	
+    	t2.addNeighbor(t1);
+    	t1.addNeighbor(t3);
+    	t3.addNeighbor(t1);
     	t1.setEntity(f);
     	f.setTile(t1);    	
     	t2.setAnimal(ap);
-    	f.setTile(t2);
+    	ap.setTile(t2);
+    	t3.setAnimal(bp);
+    	bp.setTile(t3);
     	t1.addSubbedPanda(ap);
+    	t1.addSubbedPanda(bp);
     	ap.addSubbedTile(t1);
+    	bp.addSubbedTile(t1);
     	
     	//Logger
     	Logger.enable();
     	Logger.register(t1, "Tile", "t1");
     	Logger.register(t2, "Tile", "t2");
+    	Logger.register(t3, "Tile", "t3");
     	Logger.register(f, "Fotel", "f");
-    	Logger.register(ap, "AfraidPanda", "ap");
+    	Logger.register(ap, "TiredPanda", "ap");
+    	Logger.register(bp, "TiredPanda", "bp");
     	Logger.register(gm, "GameMap", "gm");
     	
     	//Metodus meghivasa

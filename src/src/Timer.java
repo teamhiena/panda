@@ -18,11 +18,15 @@ public class Timer {
 	}
 
 	public void Tick() {
+		Logger.enter(this, "Tick", new ArrayList<>());
 		//TODO
 		elapsedTime++;
+		Logger.exit(this, "Tick", null);
 	}
 
 	public int getTime() {
+		Logger.enter(this, "getTime", new ArrayList<>());
+		Logger.exit(this, "getTime", null);
 		return elapsedTime;
 	}
 
@@ -38,7 +42,7 @@ public class Timer {
 		Entities.add(e);
 	}
 
-	//csokkenti az idot parameterkent kapott masodperccel
+	//Csokkenti az idot parameterkent kapott masodperccel.
 	public void decreaseTime(int t) {
 		if (elapsedTime < t)
 			elapsedTime = 0;
@@ -46,8 +50,11 @@ public class Timer {
 			elapsedTime -= t;
 	}
 
-	//noveli az idot parameterkent kapott masodperccel
+	//Noveli az idot parameterkent kapott masodperccel.
 	public void increaseTime(int t) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		Logger.enter(this,"increaseTime", par);
+
 		elapsedTime += t;
 
 		//Minden eltelt Tick-re pollingoljuk, hogy lejart-e az ido és hogy nyert-e az Orangutan
@@ -73,22 +80,26 @@ public class Timer {
 			//Es vegul lejart az ido, game-over.
 			game.gameOver();
 		}
+
+		Logger.exit(this, "increaseTime", null);
 	}
 
-	//visszaadja a NonEnterableEntity interfeszu entitasokat
+	//Visszaadja a NonEnterableEntity interfeszu entitasokat
 	public ArrayList<NonEnterableEntity> getEntities() {
 		return Entities;
 	}
 
-	//visszaadja a steppable interfeszu entitasokat
+	//Visszaadja a steppable interfeszu entitasokat
 	public ArrayList<Steppable> getSteppables() {
 		return Steppable;
 	}
 
+	/**
+	 * A gamemap valtozo setter illetve getter fuggvenyei.
+	 */
 	public void setGamemap(GameMap gamemap) {
 		this.gamemap = gamemap;
 	}
-
 	public void setGame(Game game) {
 		this.game = game;
 	}

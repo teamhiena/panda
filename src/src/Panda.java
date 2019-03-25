@@ -6,22 +6,47 @@ public abstract class Panda extends Animal{
 	protected GameMap.Key hatesEntity;
 
 	//METODUSOK
+<<<<<<< HEAD
 	public void affectedBy(Entity e) {
 		//el tudom lepzelni hogy ennek semmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
 	}
 	
+=======
+	public void affectedBy(Arcade a){ }
+	public void affectedBy(Automat a) { }
+	public void affectedBy(Fotel f) { }
+	/**
+	 * Hozzaad egy csempet a panda subbedTiles listajahoz.
+	 */
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
 	public void addSubbedTile(Tile t) {
+		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		Logger.enter(this, "addSubbedTile", par);
 		subbedTiles.add(t);
+		Logger.exit(this, "addSubbedTile", null);
 	}
-	
+
+	/**
+	 * Kitorli a feliratkozott csempek listajat.
+	 */
 	public void clearSubbedTiles() {
+		Logger.enter(this, "clearSubbedTiles", new ArrayList<>());
 		subbedTiles.clear();
+		Logger.exit(this, "clearSubbedTiles", null);
 	}
-	
+
+	/**
+	 * A tile adattag getter fuggvenye.
+	 */
 	public Tile getTile() {
+		Logger.enter(this, "getTile", new ArrayList<>());
+		Logger.exit(this, "getTile", tile);
 		return tile;
 	}
-		
+
+	/**
+	 * A pandat a parameterben megadott mezore mozgatjuk.
+	 */
 	@Override
 	public boolean step(Tile newTile) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(newTile);
@@ -29,12 +54,12 @@ public abstract class Panda extends Animal{
 
 		boolean success = newTile.receiveAnimal(this);
 		if(success) {
-			tile.removePandaFromNeighborSubbedPandas(this); //panda eltavolitasa a szomszedokrol
-			subbedTiles.clear(); //panda feliratkozasainak torlese
+			tile.removePandaFromNeighborSubbedPandas(this); //Panda eltavolitasa a szomszedokrol.
+			subbedTiles.clear(); //Panda feliratkozasainak torlese
 			for(Tile newTileNeighbor:newTile.getNeighbors()) { 
 				if(map.getSpecificTiles(hatesEntity).contains(newTileNeighbor)) {
-					addSubbedTile(newTileNeighbor); //az uj helyen szomszedok felirasa pandara
-					newTileNeighbor.addSubbedPanda(this); //az uj helyen szomszedokra feliratkozasok					
+					addSubbedTile(newTileNeighbor); //Az uj helyen szomszedok felirasa pandara
+					newTileNeighbor.addSubbedPanda(this); //Az uj helyen szomszedokra feliratkozasok
 				}			
 			}
 			newTile.setAnimal(this);
@@ -46,12 +71,15 @@ public abstract class Panda extends Animal{
 		return success;
 	}
 
+	/**
+	 * A pandat "elkapja" a parameterben megadott orangutan.
+	 */
 	@Override
 	public boolean getCaughtBy(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "getCaughtBy", par);
 		
-		if(isFollowing()) //mar elkapott pandat nem kapunk el
+		if(isFollowing()) //Mar elkapott pandat nem kapunk el
 		{
 			Logger.exit(this, "getCaughtBy", false);
 			return false;

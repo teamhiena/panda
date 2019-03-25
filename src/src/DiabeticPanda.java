@@ -13,7 +13,6 @@ public class DiabeticPanda extends Panda {
 	}
 
 	//METÓDUSOK
-
 	/**
 	 * A pandat megijeszti egy csokiautomata.
 	 */

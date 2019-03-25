@@ -44,10 +44,10 @@ public class GameMap {
 		WardrobeExit,
 		Orangutan
 	}
-	
 
-
-	//visszater egy veletlenszeru szekreny kijarattal
+	/**
+	 * Visszater egy veletlenszeruen kivalasztott szekreny kijarattal.
+	 */
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
 
@@ -57,7 +57,9 @@ public class GameMap {
 		return t;
 	}
 
-	//visszaadja az exit csempet
+	/**
+	 * Visszaadja az exit csempet.
+	 */
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
 
@@ -67,7 +69,9 @@ public class GameMap {
 		return t;
 	}
 
-	//visszaadja a bejarat csempet
+	/**
+	 * Visszaadja a bejarat csempet
+	 */
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
 
@@ -77,7 +81,9 @@ public class GameMap {
 		return t;
 	}
 
-	//visszaadja az parameterkent kapott tipusu csempeket
+	/**
+	 * Visszaadja az parameterkent kapott tipusu csempeket.
+	 */
 	public ArrayList<Tile> getSpecificTiles(GameMap.Key key){
 		ArrayList<Object> par = new ArrayList<>(); par.add(key);
 		Logger.enter(this, "getSpecificTiles", par);
@@ -88,10 +94,14 @@ public class GameMap {
 
 	public void addSpecificTile(Tile t,Key key) {
 		listGetterMap.get(key).add(t);
-
-	//visszaadja a gyenge csempeket
+	}
+	/**
+	 * Visszaadja a gyenge csempeket.
+	 */
 	public ArrayList<WeakTile> getWeakTiles(){
-	//TODO
-	return new ArrayList<WeakTile>();
+		Logger.enter(this, "getWeakTiles", new ArrayList<>());
+		//TODO
+		Logger.exit(this, "getWeakTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
+		return new ArrayList<WeakTile>();
 	}
 }
