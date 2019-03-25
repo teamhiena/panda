@@ -59,11 +59,17 @@ public class Menu {
                 break;
             case 16: pandaInFreeroamStepsOnBrokenTile();
                 break;
+            default: System.out.println("Érvénytelen számot adott meg!");
+                break;
         }
     }
     //1.
     public void orangutanStepsOnTile(){
+<<<<<<< HEAD
         //letrehozzuk a szukseges objektumokat
+=======
+        //Letrehozzuk a szukseges objektumokat.
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         Tile t2 = new Tile();
@@ -76,6 +82,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
+
     }
     //2.
     public void orangutanStepsOnWeakTile(){
@@ -196,6 +203,7 @@ public class Menu {
     public void orangutanEntersWardrobe(){
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
+<<<<<<< HEAD
         Tile entrance = new Tile();
         Tile t1=new Tile();
         Tile t2=new Tile();
@@ -217,11 +225,40 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
+=======
+        Tile wt = new Tile(); //WardrobeTile
+        Wardrobe w1 = new Wardrobe(wt,gm);
+        
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(wt, "Tile", "wt");
+        Logger.register(w1, "Wardrobe", "w1");
+        
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
         
     }
     //8.
     public void orangutanWon(){
+        //Init
+        Game g = new Game();
+        GameMap gamemap = GameMap.instance();
 
+        //$FinitTime mode
+        System.out.println("FinitTime mode:");
+        //Init
+        g.setSelectedMode(Game.GameMode.FinitTime);
+        Timer t = Timer.instance(); t.setGamemap(gamemap); t.setGame(g);
+        //Time is over, megnézzük ki nyert, és mennyivel.TODO: Loggerkedés
+        t.increaseTime(60);
+
+        //$FinitPanda mode
+        System.out.println("\nFinitPanda mode:");
+        //Init
+        g.setSelectedMode(Game.GameMode.FinitPanda);
+        Orangutan o = new Orangutan();
+        o.setGame(g);
+        //Az egyik orangutannal meglepjuk FinitPanda mode-ban a gyozelemhez szukseges limitet TODO: Loggerkedés
+        o.increaseScore(25);
     }
     //9.
     public void orangutanTakesTheExit(){
@@ -242,6 +279,7 @@ public class Menu {
     //13.
     public void pandaEntersWardrobe(){
     	GameMap gm = GameMap.instance();
+<<<<<<< HEAD
         DiabeticPanda p = new DiabeticPanda(gm);
         Tile entrance = new Tile();
         Tile t1=new Tile();
@@ -264,6 +302,16 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
+=======
+        Orangutan o = new Orangutan();
+        Tile wt = new Tile(); //WardrobeTile
+        Wardrobe w1 = new Wardrobe(wt,gm);
+        
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(wt, "Tile", "wt");
+        Logger.register(w1, "Wardrobe", "w1");
+>>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
     }
     //14.
     public void pandaSteps(){

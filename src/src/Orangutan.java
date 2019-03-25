@@ -2,7 +2,14 @@ import java.util.ArrayList;
 
 public class Orangutan extends Animal {
     private int score = 0;
+    private Game game; //nem szep
 
+    //METODUSOK
+    /**
+     *
+     * @param t(Tile): Errre a mezore szeretnenk leptetni az orangutant.
+     * @return Megadja, hogy sikerult-e a muvelet.
+     */
     @Override
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
@@ -17,7 +24,7 @@ public class Orangutan extends Animal {
     	}
     	
     	Logger.exit(this, "step", null);
-    	return success; //csak teszteleshez
+    	return success;
     }
     
     public void increaseScore(int p) {
@@ -25,6 +32,13 @@ public class Orangutan extends Animal {
         Logger.enter(this, "increaseScore", par);
         score += p;
         Logger.exit(this, "increaseScore", null);
+
+        //Minden novelesnel megnezzuk, hogy elertuk-e a gyozelem szukseges pandaszamot
+        if(score >= 25 && game.getSelectedMode() == Game.GameMode.FinitPanda){
+            //Ha elértük, szólunk a játéknak hogy vége (viszont ehhez kell egy game referencia!)
+            game.SaveHighScore(score);
+            game.gameOver();
+        }
     }
     
     public int getPandaNum() {
@@ -38,7 +52,9 @@ public class Orangutan extends Animal {
     
     public void goToEntry() {
         Logger.enter(this, "goToEntry", new ArrayList<>());
-        //TODO
+
+        this.step(GameMap.instance().getEntryTile());
+
         Logger.exit(this, "goToEntry", new ArrayList<>());
     	
     }
@@ -56,5 +72,9 @@ public class Orangutan extends Animal {
         Logger.enter(this, "getCaughtBy", par);
         Logger.exit(this, "getCaughtBy", false);
         return false;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
