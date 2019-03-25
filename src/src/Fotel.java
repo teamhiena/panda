@@ -50,15 +50,23 @@ public class Fotel extends Entity{
 	 * Csokkenti a hatra levo idot.
 	 */
 	public void decrTimeLeft() {
+		Logger.enter(this, "decrTimeLeft", new ArrayList<>());
 		timeLeft--;
+		Logger.exit(this, "decrTimeLeft", null);
 	}
-	
+	/**
+	 * Ujrainditja az ido szamlalojat.
+	 */
 	public void resetTimeLeft() {
+		Logger.enter(this, "resetTimeLeft", new ArrayList<>());
 		timeLeft=100;
-	}
-	
+		Logger.exit(this, "resetTimeLeft", null);
+		}
+
+	/**
+	 * Nem biztos hogy van funkcioja.
+	 */
     public Panda getRandomSubbedPanda(){
-    	//full nem emlekszem ez mire jo (G)
     	Random vel=new Random();
     	return tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size()-1));    	
     } 
