@@ -67,8 +67,8 @@ public class Menu {
     public void orangutanStepsOnTile(){
         //Letrehozzuk a szukseges objektumokat.
         Orangutan o = new Orangutan();
-        Tile t1 = new Tile();
-        Tile t2 = new Tile();
+        Tile t1 = new Tile(); //Itt van most az orangutan.
+        Tile t2 = new Tile(); //Ide akarjuk leptetni.
 
         //Inicializalas
         o.setTile(t1);
@@ -79,7 +79,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
-        
+
         //Metodus meghivasa
         o.step(t2);
     }
@@ -89,6 +89,8 @@ public class Menu {
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
+
+        //Inicializalas
         t1.setAnimal(o);
         o.setTile(t1);
 
@@ -98,14 +100,18 @@ public class Menu {
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "WeakTile", "t2");
 
+        //Metodus meghivasa
+        o.step(t2);
+
     }
     //3.
     public void orangutanStepsOnBrokenTile(){
-        //letrehozzuk a szukseges objektumokat
+        //Letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
-        
+
+        //Inicializalas
         t1.setAnimal(o);
         o.setTile(t1);
         while(!t2.isBroken())
@@ -117,47 +123,47 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "WeakTile", "t2");
-        
+
+        //Metodus meghivasa
         o.step(t2);
     }
     //4.
     public void orangutanCannotEnterTile(){
-        //letrehozzuk a szukseges objektumokat
+        //Letrehozzuk a szukseges objektumokat
         Orangutan o = new Orangutan();
         Arcade a = new Arcade(); 
         Tile t1=new Tile();
+        Tile t2 = new Tile();
+
+        //Inicializalas
         t1.setAnimal(o);
         o.setTile(t1);
-        Tile t2 = new Tile();
         t2.setEntity(a);
-        o.step(t2);
-        
-        
 
         //Loggerbe regisztralas
         Logger.enable();
-        
         Logger.register(o, "Orangutan", "o");
         Logger.register(a, "Entity", "a");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
+
+        //Metodus meghivasa
+        o.step(t2);
     }
     //5.
     public void orangutanCatchesItsFirstPanda(){
-        //letrehozzuk a szukseges objektumokat
+        //Letrehozzuk a szukseges objektumokat
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
-        AfraidPanda p = new AfraidPanda(gm);        
-        
+        AfraidPanda p = new AfraidPanda(gm);
         Tile t1 = new Tile();
         Tile t2 = new Tile();
+
+        //Inicializalas
         t1.setAnimal(o);
         o.setTile(t1);
         t2.setAnimal(p);
         p.setTile(t2);
-        
-        o.step(t2);
-        
         
         //Loggerbe regisztralas
         Logger.enable();
@@ -166,9 +172,13 @@ public class Menu {
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
         Logger.register(p, "AfraidPanda", "p");
+
+        //Metodus meghivasa
+        o.step(t2);
     }
     //6.
     public void orangutanCatches(){
+        //Letrehozzuk a szukseges objektumokat
     	Orangutan o=new Orangutan();
     	Tile t1=new Tile();
     	Tile t2=new Tile();
@@ -176,16 +186,16 @@ public class Menu {
     	GameMap gm = GameMap.instance();
     	DiabeticPanda p1=new DiabeticPanda(gm);
     	AfraidPanda p2=new AfraidPanda(gm);
+
+    	//Inicializalas
     	t1.setAnimal(o);
     	o.setTile(t1);
     	t2.setAnimal(p1);
     	p1.setTile(t2);
     	t3.setAnimal(p2);
     	p2.setTile(t3);
-    	
-    	o.step(t2);
-    	o.step(t3);
-    	
+
+    	//Loggerbe regisztralas
     	Logger.enable();
         Logger.register(gm, "GameMap", "gm");
     	Logger.register(o, "Orangutan", "o");
@@ -194,12 +204,16 @@ public class Menu {
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
         Logger.register(t3, "Tile", "t3");
+
+        //Metodus(ok) meghivasa
+        o.step(t2);
+        o.step(t3);
     }
     //7.
     public void orangutanEntersWardrobe(){
+        //Letrehozzuk a szukseges objektumokat
     	GameMap gm = GameMap.instance();
         Orangutan o = new Orangutan();
-<<<<<<< HEAD
         Tile entrance = new Tile();
         Tile t1=new Tile();
         Tile t2=new Tile();
