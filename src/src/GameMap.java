@@ -11,7 +11,7 @@ public class GameMap {
 	
 	//KONSTRUKTOROK
 	private GameMap() {
-		listGetterMap.put(Key.WeakTile, new ArrayList<>());
+		listGetterMap.put(Key.WeakTile, new ArrayList<>()); //TODO kiszedni a weakTile-t külön
 		listGetterMap.put(Key.Arcade, new ArrayList<>());
 		listGetterMap.put(Key.Automat, new ArrayList<>());
 		listGetterMap.put(Key.Fotel, new ArrayList<>());
@@ -68,5 +68,10 @@ public class GameMap {
 		ArrayList<Tile> ret = listGetterMap.get(key);
 		Logger.exit(this, "getSpecificTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return ret;
+	}
+
+	public ArrayList<WeakTile> getWeakTiles(){
+		//TODO
+		return new ArrayList<WeakTile>();
 	}
 }

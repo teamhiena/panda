@@ -59,6 +59,8 @@ public class Menu {
                 break;
             case 16: pandaInFreeroamStepsOnBrokenTile();
                 break;
+            default: System.out.println("Érvénytelen számot adott meg!");
+                break;
         }
     }
     //1.

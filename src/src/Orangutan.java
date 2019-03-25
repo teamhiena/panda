@@ -38,7 +38,9 @@ public class Orangutan extends Animal {
     
     public void goToEntry() {
         Logger.enter(this, "goToEntry", new ArrayList<>());
-        //TODO
+
+        this.step(GameMap.instance().getEntryTile());
+
         Logger.exit(this, "goToEntry", new ArrayList<>());
     	
     }
