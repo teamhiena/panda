@@ -11,12 +11,13 @@ public class Game{
 		FinitTime
 	}
 
+ 	/*
 	public void main() {
 		Logger.enter(this, "main", new ArrayList<>());
 		//TODO
 
 		Logger.exit(this, "main", null);
-	}
+	}*/
 
 	//kezeli az orangutan kilepeset
 	public void exiting(Orangutan o) {
