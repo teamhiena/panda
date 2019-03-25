@@ -27,7 +27,6 @@ public class Menu {
     }
 
     public void manageUseCase(int chosenUseCase){
-        Logger.disable();
         switch(chosenUseCase) {            //A valasznak megfelelo eset inditasa
             case 1: orangutanStepsOnTile();
                 break;
@@ -297,27 +296,37 @@ public class Menu {
     public void tiredPandaEntersFotel(){
     	//Letrehozzuk a szukseges objektumokat
     	GameMap gm=GameMap.instance();
-    	AfraidPanda ap=new AfraidPanda(gm);
+    	TiredPanda ap=new TiredPanda(gm);
     	Tile t1=new Tile();
     	Fotel f=new Fotel();
     	Tile t2=new Tile();
+    	TiredPanda bp=new TiredPanda(gm);
+    	Tile t3=new Tile();
     	
     	//Inicializalas
     	t1.addNeighbor(t2);
-    	t2.addNeighbor(t1);    	
+    	t2.addNeighbor(t1);
+    	t1.addNeighbor(t3);
+    	t3.addNeighbor(t1);
     	t1.setEntity(f);
     	f.setTile(t1);    	
     	t2.setAnimal(ap);
-    	f.setTile(t2);
+    	ap.setTile(t2);
+    	t3.setAnimal(bp);
+    	bp.setTile(t3);
     	t1.addSubbedPanda(ap);
+    	t1.addSubbedPanda(bp);
     	ap.addSubbedTile(t1);
+    	bp.addSubbedTile(t1);
     	
     	//Logger
     	Logger.enable();
     	Logger.register(t1, "Tile", "t1");
     	Logger.register(t2, "Tile", "t2");
+    	Logger.register(t3, "Tile", "t3");
     	Logger.register(f, "Fotel", "f");
-    	Logger.register(ap, "AfraidPanda", "ap");
+    	Logger.register(ap, "TiredPanda", "ap");
+    	Logger.register(bp, "TiredPanda", "bp");
     	Logger.register(gm, "GameMap", "gm");
     	
     	//Metodus meghivasa
