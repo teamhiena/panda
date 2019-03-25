@@ -75,8 +75,6 @@ public class Tile {
     	else if(animal!=null) {
     		success=animal.getCaughtBy(o);
     	}
-    	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
-    	//pl nonenterableentity vagy egy hasznalatban levo fotel
     	Logger.exit(this, "receiveAnimal", success);
 		return success;
     }

@@ -4,7 +4,7 @@ public class WeakTile extends Tile {
 	private int numOfSteps=20;
 	private boolean isBroken=false;
 
-	//METÓDUSOK
+	//METODUSOK
 	public void reduceNumOfSteps() {
 		numOfSteps--;
 		if(numOfSteps<=0)
@@ -15,39 +15,47 @@ public class WeakTile extends Tile {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
 
-    	if(animal!=null && animal.getCaughtBy(o))
-    	if(animal.getCaughtBy(o))
-	    	{
-	    		
-	    	}
+    	if(isBroken()) {
+    		o.die();
+    		Logger.exit(this, "receiveAnimal", false);
+    		return false;    		
+    	}
+    	reduceNumOfSteps();
+    	boolean success=false;
+    	if(entity!=null)//ha van ott entiy akk megprobalok belelepni
+    		success=entity.stepIn(o); //ha nem enterable vagy panda ul benne akk false
+    	else if(animal!=null) {
+    		success=animal.getCaughtBy(o);
+    	}
 
-		Logger.exit(this, "receiveAnimal", true);
-    	return false; //csak tesztelés miatt
+		Logger.exit(this, "receiveAnimal", success);
+    	return false;
     }
     
     public boolean isBroken() {
     	return isBroken;
     }
 
-	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
-    //este ranezek (G)
+
     public boolean recieveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);
-
-    	if(animal!=null) //ha van ott allat akk fix off
-		{
+		
+    	if(isBroken()) {
+    		p.die();
+    		Logger.exit(this, "receiveAnimal", false);
+    		return false;
+    	}
+    	reduceNumOfSteps();
+		boolean success=false;
+		if(animal!=null) { //ha van ott allat akk fix off
 			Logger.exit(this, "receiveAnimal", false);
 			return false;
 		}
     	else if (entity!=null) { //ha van ott entity akkor attol fugg
-    		if (entity.stepIn(p)) { //bele lehet lepni
-				animal=p;
-			} 		
+    		success=entity.stepIn(p);		
     	}
-    	//nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
-    	//pl nonenterableentity vagy egy hasznalatban levo fotel
-		Logger.exit(this, "receiveAnimal", true);
-		return true; //csak tesztelés miatt
+    	Logger.exit(this, "receiveAnimal", success);
+		return success;
     }
 }
