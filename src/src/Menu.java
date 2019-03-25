@@ -65,24 +65,23 @@ public class Menu {
     }
     //1.
     public void orangutanStepsOnTile(){
-<<<<<<< HEAD
-        //letrehozzuk a szukseges objektumokat
-=======
         //Letrehozzuk a szukseges objektumokat.
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
         Orangutan o = new Orangutan();
         Tile t1 = new Tile();
         Tile t2 = new Tile();
+
+        //Inicializalas
         o.setTile(t1);
         t1.setAnimal(o);
-        o.step(t2);
 
         //Loggerbe regisztralas
         Logger.enable();;
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
-
+        
+        //Metodus meghivasa
+        o.step(t2);
     }
     //2.
     public void orangutanStepsOnWeakTile(){
@@ -92,9 +91,6 @@ public class Menu {
         WeakTile t2 = new WeakTile();
         t1.setAnimal(o);
         o.setTile(t1);
-        
-        o.step(t2);
-        
 
         //Loggerbe regisztralas
         Logger.enable();;
