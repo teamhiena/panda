@@ -10,7 +10,7 @@ public class GameMap {
 	private HashMap<GameMap.Key,ArrayList<Tile>> listGetterMap=new HashMap<GameMap.Key,ArrayList<Tile>>();
 	private EntryTile entry = new EntryTile();
 	private ExitTile exit = new ExitTile();
-	
+
 	//KONSTRUKTOROK
 	private GameMap() {
 		listGetterMap.put(Key.WeakTile, new ArrayList<>()); //TODO kiszedni a weakTile-t külön
@@ -22,19 +22,19 @@ public class GameMap {
 		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
 
 		//Ideiglenes, orangutan won-hoz egy Orangutant felolvas!
-		Tile t = new Tile(); t. setAnimal(new Orangutan());
+		Tile t = new Tile(); t. setAnimal(new Orangutan(new Game()));
 		listGetterMap.get(Key.Orangutan).add(t);
 	}
-	
+
 	static public GameMap instance() {
 		if (instance == null) instance = new GameMap();
 		return instance;
 	}
-	
+
 	public void finalize() {
 		instance = null;
 	}
-	
+
 	enum Key{
 		WeakTile,
 		Arcade,

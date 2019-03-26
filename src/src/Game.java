@@ -4,6 +4,7 @@ public class Game{
 	private int numberofplayers = 1;
 	private GameMode selectedMode;
 	private GameMap map;
+	private ArrayList<Orangutan> orangutans=new ArrayList<Orangutan>();
 
 	/**
 	 * A jatekmodok enumja.
@@ -11,6 +12,19 @@ public class Game{
 	enum GameMode{
 		FinitPanda,
 		FinitTime
+	}
+
+	public void addOrangutan(Orangutan o) {
+		ArrayList<Object> p=new ArrayList<>();
+		Logger.enter(this,"addOrangutan",p);
+		p.add(o);
+		orangutans.add(o);
+		Logger.exit(this, "addOrangutan", null);
+	}
+	public ArrayList<Orangutan> getOrangutans(){
+		Logger.enter(this, "getOrangutans", null);
+		Logger.exit(this, "getOrangutans", orangutans);
+		return orangutans;
 	}
 
 	/**
