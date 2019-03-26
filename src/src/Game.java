@@ -25,6 +25,7 @@ public class Game{
 	/**
 	 * Kezeli az orangutan kilepeset.
 	 */
+	//TODO: ez csak kilepteti az orangutant, de az ot koveto pandakat nem kezeli
 	public void exiting(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "exiting", par);

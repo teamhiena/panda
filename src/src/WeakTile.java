@@ -43,18 +43,15 @@ public class WeakTile extends Tile {
     	return isBroken;
     }
 
-<<<<<<< HEAD
 
-=======
 	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
     //este ranezek (G)
 	//Megcsinaltam (M)
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
+
     public boolean recieveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);
-<<<<<<< HEAD
-		
+
     	if(isBroken()) {
     		p.die();
     		Logger.exit(this, "receiveAnimal", false);
@@ -62,8 +59,7 @@ public class WeakTile extends Tile {
     	}
     	reduceNumOfSteps();
 		boolean success=false;
-		if(animal!=null) { //ha van ott allat akk fix off
-=======
+
 		if(!isBroken){
 			if(animal!=null) //ha van ott allat akk fix off
 			{
@@ -87,19 +83,17 @@ public class WeakTile extends Tile {
 			Logger.exit(this, "receiveAnimal", true);
 			return true;
 		}
-		else{
-			p.die();
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
-			Logger.exit(this, "receiveAnimal", false);
-			return false;
-		}
-<<<<<<< HEAD
-    	else if (entity!=null) { //ha van ott entity akkor attol fugg
+		else if(entity!=null) { //ha van ott entity akkor attol fugg
     		success=entity.stepIn(p);		
     	}
+        else{
+            p.die();
+
+            Logger.exit(this, "receiveAnimal", false);
+            return false;
+        }
     	Logger.exit(this, "receiveAnimal", success);
 		return success;
-=======
->>>>>>> branch 'master' of https://github.com/teamhiena/panda_szkeleton.git
+
     }
 }

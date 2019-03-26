@@ -284,12 +284,41 @@ public class Menu {
         Timer t = Timer.instance();
         t.setGamemap(gamemap);
         t.setGame(g);
+
+
         
         //loggerbe TODO
     }
     //10.
-    //TODO
+    //TODO: folyamatban van
     public void orangutanTakesTheExit(){
+        Game g = new Game();
+        GameMap gm = GameMap.instance();
+        g.setSelectedMode(Game.GameMode.FinitTime); // ez persze lehet FinitPanda mod is
+        Timer t = Timer.instance();
+        t.setGamemap(gm);
+        t.setGame(g);
+
+        Orangutan o = new Orangutan();
+        Tile exitTile = new ExitTile();
+        exitTile.setAnimal(o);
+        o.setTile(exitTile);
+
+        AfraidPanda p1 = new AfraidPanda(gm);
+        DiabeticPanda p2 = new DiabeticPanda(gm);
+        TiredPanda p3 = new TiredPanda(gm);
+
+        boolean p1Caught = false;
+        boolean p2Caught = false;
+        boolean p3Caught = false;
+
+        while(p1Caught == false)
+            p1Caught = p1.getCaughtBy(o);
+        while(p2Caught == false)
+            p2Caught = p2.getCaughtBy(o);
+        while(p3Caught == false)
+            p3Caught = p3.getCaughtBy(o);
+
 
     }
     //11.
