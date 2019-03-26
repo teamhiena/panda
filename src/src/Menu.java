@@ -290,12 +290,13 @@ public class Menu {
         Logger.register(g, "Game", "g");
         Logger.register(gamemap, "GameMap", "gameMap");
     }
-    //10.
+     //10.
     public void orangutanTakesTheExit(){
         Game g = new Game();
         GameMap gm = GameMap.instance();
         g.setSelectedMode(Game.GameMode.FinitTime); // ez persze lehet FinitPanda mod is
         Timer t = Timer.instance();
+
         t.setGamemap(gm);
         t.setGame(g);
 
@@ -304,26 +305,33 @@ public class Menu {
 
         AfraidPanda p1 = new AfraidPanda(gm);
 
+        //allatok steppable listaba felvetel
+        t.addSteppable(p1);
+        t.addSteppable(o);
+
         boolean p1Caught = false;
         while(p1Caught == false)
             p1Caught = p1.getCaughtBy(o);
-	
-	//exit csempet megelozo csempe init
+
+        //exit csempet megelozo csempe init
         Tile t1 = new Tile();
         t1.addNeighbour(exitTile);
         exitTile.addNeighbour(t1);
 
-	//a panda csempere helyezése
+        //a panda csempere helyezése
         p1.setTile(t1);
         t1.setAnimal(p1);
 
-	//az orangutan az exit csempere lep
+        //az orangutan az exit csempere lep
         exitTile.setAnimal(o);
-        o.setTile(exitTile); 
+        o.setTile(exitTile);
 
         g.exiting(o); //az orangutan elhagyja a mapot
         p1.step(exitTile);//a koveto panda az exit csempere lep
-	
+
+
+        t.removeSteppable(p1); //a koveto panda torlese a steppable listabol
+        p1 = null; //a koveto panda eltavolitasa
     }
     //11.
     public void tiredPandaEntersFotel(){
