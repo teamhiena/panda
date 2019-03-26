@@ -332,7 +332,6 @@ public class Menu {
         g.exiting(o); //az orangutan elhagyja a mapot
         p1.step(exitTile);//a koveto panda az exit csempere lep
 
-
         t.removeSteppable(p1); //a koveto panda torlese a steppable listabol
         p1 = null; //a koveto panda eltavolitasa
     }
