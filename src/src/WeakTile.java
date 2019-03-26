@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class WeakTile extends Tile {
+public class WeakTile extends Tile{
 	private int numOfSteps=20;
 	private boolean isBroken=false;
 
@@ -17,8 +17,9 @@ public class WeakTile extends Tile {
 	 * ha broken, die()-t hiv
 	 * ha entity, stepIn()-t hiv
 	 * ha allat, getCaught()-t hiv
-	 */	
-    public boolean receieveAnimal(Orangutan o) {
+	 */
+	@Override
+    public boolean receiveAnimal(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
 
@@ -53,7 +54,8 @@ public class WeakTile extends Tile {
 	 * ha allat, return false
 	 * ha entity, stepIn()-t hiv
 	 */
-    public boolean recieveAnimal(Panda p) {
+	@Override
+    public boolean receiveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);
 
