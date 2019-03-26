@@ -302,24 +302,35 @@ public class Menu {
 
         Orangutan o = new Orangutan();
         Tile exitTile = new ExitTile();
-        exitTile.setAnimal(o);
-        o.setTile(exitTile);
 
         AfraidPanda p1 = new AfraidPanda(gm);
         DiabeticPanda p2 = new DiabeticPanda(gm);
-        TiredPanda p3 = new TiredPanda(gm);
 
         boolean p1Caught = false;
-        boolean p2Caught = false;
-        boolean p3Caught = false;
+        boolean p2Caught = false
 
         while(p1Caught == false)
             p1Caught = p1.getCaughtBy(o);
         while(p2Caught == false)
             p2Caught = p2.getCaughtBy(o);
-        while(p3Caught == false)
-            p3Caught = p3.getCaughtBy(o);
 
+        Tile t1 = new Tile();
+        Tile t2 = new Tile();
+        t1.addNeighbour(t2);
+        t2.addNeighbour(t1);
+        exitTile.addNeighbour(t2);
+
+        p1.setTile(t1);
+        t1.setAnimal(p1);
+
+        p2.setTile(t2);
+        t2.setAnimal(p2);
+
+        exitTile.setAnimal(o);
+        o.setTile(exitTile);
+
+        //a pandaknak lepni kene elorebb, aztan eltunni a faszba
+        g.exiting(o);
 
     }
     //11.
