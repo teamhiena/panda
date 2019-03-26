@@ -21,6 +21,9 @@ public class TiredPanda extends Panda {
     	Logger.enter(this, "affectedBy", par);
     	//TODO
 		//El kell helyeznie a sajat magat a mezon.
+		tile.setAnimal(null);
+		f.getTile().setAnimal(this);
+		this.setTile(f.getTile());
 		Logger.exit(this, "affectedBy", null);
     }
 }
