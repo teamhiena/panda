@@ -301,6 +301,9 @@ public class Menu {
         t.setGame(g);
 
         Orangutan o = new Orangutan();
+
+	//entry es exit csempek letrehozasa
+	Tile entryTile = new EntryTile();
         Tile exitTile = new ExitTile();
 
         AfraidPanda p1 = new AfraidPanda(gm);
