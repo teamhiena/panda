@@ -318,8 +318,8 @@ public class Menu {
 
         //exit csempet megelozo csempe init
         Tile t1 = new Tile();
-        t1.addNeighbour(exitTile);
-        exitTile.addNeighbour(t1);
+        t1.addNeighbor(exitTile);
+        exitTile.addNeighbor(t1);
 
         //a panda csempere helyezése
         p1.setTile(t1);
