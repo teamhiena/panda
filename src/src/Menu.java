@@ -1,9 +1,9 @@
 /**
- * A szkeleton program (use-case-eket tartalmazó) menüjét kezelő osztály.
+ * A szkeleton program (use-case-eket tartalmaz) menujet kezelo osztalyly.
  */
 public class Menu {
     public void show(){
-        System.out.println("Az alábbi use-case-ekből választhat:\n\n"
+        System.out.println("Az alabbi useCase-ekbol valaszthat:\n\n"
                 +"1. Orangutan steps on Tile\n"
                 +"2. Orangutan steps on WeakTile\n"
                 +"3. Orangutan steps on BrokenTile\n"
@@ -22,8 +22,8 @@ public class Menu {
                 +"16. Panda in row steps on BrokenTile\n"
                 +"17. Panda in freeroam steps on BrokenTile\n"
                 +"---\n"
-                +"0. Kilépés\n"
-                +"A választott UseCase: ");
+                +"0. Kilepes\n"
+                +"A valasztott UseCase: ");
     }
 
     public void manageUseCase(int chosenUseCase){
@@ -63,7 +63,7 @@ public class Menu {
                 break;
             case 17: pandaInFreeroamStepsOnBrokenTile();
                 break;
-            default: System.out.println("Érvénytelen számot adott meg!");
+            default: System.out.println("Ervenytelen szamot adott meg!");
                 break;
         }
     }
