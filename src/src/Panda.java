@@ -60,9 +60,9 @@ public abstract class Panda extends Animal{
 					newTileNeighbor.addSubbedPanda(this); //Az uj helyen szomszedokra feliratkozasok
 				}			
 			}
-			newTile.setAnimal(this);
+			/*newTile.setAnimal(this);
 			tile.setAnimal(null);
-			tile=newTile;			
+			tile=newTile;*/
 		}
 
 		Logger.exit(this, "step", success);
@@ -82,7 +82,6 @@ public abstract class Panda extends Animal{
 			Logger.exit(this, "getCaughtBy", false);
 			return false;
 		}
-		
 		
 		setIsFollowing(true);
 		setFollowing(o);

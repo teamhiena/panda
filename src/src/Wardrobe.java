@@ -27,7 +27,7 @@ public class Wardrobe extends Entity {
 		}
 		boolean success;
 		do{
-			Tile exit=map.getRandomWardrobeExitTile();
+			Tile exit = map.getRandomWardrobeExitTile();
 			success = o.step(exit);
 			if(success) {
 				previousExitTile=exit;				

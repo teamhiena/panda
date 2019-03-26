@@ -45,8 +45,13 @@ public class Tile {
             Logger.exit(this, "receiveAnimal", false);
             return false;
         }
-        else if (entity!=null) { //ha van ott entity akkor attol fugg
-            success=entity.stepIn(p);
+        else if (entity != null) { //ha van ott entity akkor attol fugg
+            success = entity.stepIn(p);
+        }
+        else if (entity == null){
+            this.setAnimal(p);
+            p.getTile().setAnimal(null);
+            p.setTile(this);
         }
         Logger.exit(this, "receiveAnimal", success);
         return success;
@@ -74,6 +79,11 @@ public class Tile {
             success = entity.stepIn(o); //Ha nem enterable vagy panda ul benne akkor false.
         else if(animal != null) {
             success=animal.getCaughtBy(o);
+        }
+        else if (entity == null){
+            this.setAnimal(o);
+            o.getTile().setAnimal(null);
+            o.setTile(this);
         }
 
         //Nincs ott allat de olyan entity van amibe (most) nem lehet belelepni

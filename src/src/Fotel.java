@@ -27,8 +27,8 @@ public class Fotel extends Entity implements MakesEffect{
 	 * @return
 	 */
 	public boolean stepIn(Panda p) {
-		if (tile.getAnimal()!=null) return false; //Nem valoszinu, hogy szukseges. DE biztonsaagos.
-		enteredFrom=p.getTile();
+		if (tile.getAnimal()!= null) return false; //Nem valoszinu, hogy szukseges. DE biztonsaagos.
+		enteredFrom = p.getTile();
 		resetTimeLeft();
 		p.affectedBy(this);
 		return true;		

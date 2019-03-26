@@ -20,6 +20,7 @@ public class TiredPanda extends Panda {
 		ArrayList<Object> par = new ArrayList<>(); par.add(f);
     	Logger.enter(this, "affectedBy", par);
     	//TODO
+		//El kell helyeznie a sajat magat a mezon.
 		Logger.exit(this, "affectedBy", null);
     }
 }

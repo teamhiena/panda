@@ -13,15 +13,7 @@ public class Orangutan extends Animal {
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
     	Logger.enter(this, "step", par);
-    	
-    	boolean success=t.receiveAnimal(this);
-    	if(success)
-    	{
-    		t.setAnimal(this);
-			tile.setAnimal(null);
-			tile=t;	
-    	}
-    	
+    	boolean success = t.receiveAnimal(this);
     	Logger.exit(this, "step", success);
     	return success;
     }
