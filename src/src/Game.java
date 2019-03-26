@@ -22,8 +22,8 @@ public class Game{
 		Logger.exit(this, "addOrangutan", null);
 	}
 	public ArrayList<Orangutan> getOrangutans(){
-		Logger.enter(this, "getOrangutans", null);
-		Logger.exit(this, "getOrangutans", orangutans);
+		Logger.enter(this, "getOrangutans", new ArrayList<>());
+		Logger.exit(this, "getOrangutans", null);
 		return orangutans;
 	}
 

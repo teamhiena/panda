@@ -99,4 +99,10 @@ public class GameMap {
 		Logger.exit(this, "getWeakTiles", null); //Mivel egy listat adunk, ezt nagyon nehez abrazolni
 		return new ArrayList<WeakTile>();
 	}
+	/**
+	 * EntryTile adattag setter fuggvenye
+	 */
+	public void setEntry(EntryTile e){
+		entry = e;
+	}
 }

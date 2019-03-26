@@ -5,8 +5,8 @@ public class Orangutan extends Animal {
     private Game game;
 
     public Orangutan(Game g) {
-        Game game = new Game();
         g.addOrangutan(this);
+        game = g;
     }
 
     //METODUSOK
@@ -20,12 +20,12 @@ public class Orangutan extends Animal {
         Logger.enter(this, "step", par);
 
         boolean success=t.receiveAnimal(this);
-        if(success)
+        /*if(success)
         {
             t.setAnimal(this);
             tile.setAnimal(null);
             tile=t;
-        }
+        }*/
 
         Logger.exit(this, "step", success);
         return success;

@@ -17,13 +17,16 @@ public abstract class Animal implements Steppable{
     }
         
     //METODUSOKK
+
+    /**
+     * Ez a metodus hivodik meg, amikor az allat "meghal".
+     */
     public void die(){
         Logger.enter(this, "die", new ArrayList<>());
-
+        //TODO
         Logger.exit(this, "die", null);
 
     }
-    //METODUSOK
     /**
      * Tile adattag getter/setter fuggvenye.
      */
@@ -57,9 +60,10 @@ public abstract class Animal implements Steppable{
         return ret;
     }
     public void setIsFollowing(boolean f){
-       // ArrayList<Object> par = new ArrayList<>(); par.add(a);
-       // Logger.enter(this, "setFollowing", par);
+       ArrayList<Object> par = new ArrayList<>(); par.add(f);
+       Logger.enter(this, "setIsFollowing", par);
         isFollowing = f;
+        Logger.exit(this, "setIsFollowing", null);
     }
 
     /**

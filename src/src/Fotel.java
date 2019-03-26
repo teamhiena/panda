@@ -22,7 +22,7 @@ public class Fotel extends Entity implements MakesEffect{
 	}
 
 	/**
-	 * Egy panda megprobal belepni a fotelbe.
+	 * Egy panda megprobal belepni a fotelbe. Implementacios okobol neki kell elvegezni a "magara helyezest".
 	 * @param p
 	 * @return
 	 */

@@ -70,7 +70,8 @@ public class Menu {
     //1.
     public void orangutanStepsOnTile(){
         //Letrehozzuk a szukseges objektumokat.
-        Orangutan o = new Orangutan();
+        Game g = new Game();
+        Orangutan o = new Orangutan(g);
         Tile t1 = new Tile(); //Itt van most az orangutan.
         Tile t2 = new Tile(); //Ide akarjuk leptetni.
 
@@ -83,6 +84,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
@@ -90,7 +92,8 @@ public class Menu {
     //2.
     public void orangutanStepsOnWeakTile(){
         //letrehozzuk a szukseges objektumokat
-        Orangutan o = new Orangutan();
+        Game g = new Game();
+        Orangutan o = new Orangutan(g);
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
 
@@ -103,6 +106,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "WeakTile", "t2");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
@@ -111,7 +115,8 @@ public class Menu {
     //3.
     public void orangutanStepsOnBrokenTile(){
         //Letrehozzuk a szukseges objektumokat
-        Orangutan o = new Orangutan();
+        Game g = new Game();
+        Orangutan o = new Orangutan(g);
         Tile t1 = new Tile();
         WeakTile t2 = new WeakTile();
 
@@ -127,6 +132,7 @@ public class Menu {
         Logger.register(o, "Orangutan", "o");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "WeakTile", "t2");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
@@ -134,7 +140,8 @@ public class Menu {
     //4.
     public void orangutanCannotEnterTile(){
         //Letrehozzuk a szukseges objektumokat
-        Orangutan o = new Orangutan();
+        Game g = new Game();
+        Orangutan o = new Orangutan(g);
         Arcade a = new Arcade(); 
         Tile t1=new Tile();
         Tile t2 = new Tile();
@@ -150,6 +157,7 @@ public class Menu {
         Logger.register(a, "Entity", "a");
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
@@ -158,7 +166,8 @@ public class Menu {
     public void orangutanCatchesItsFirstPanda(){
         //Letrehozzuk a szukseges objektumokat
     	GameMap gm = GameMap.instance();
-        Orangutan o = new Orangutan();
+    	Game g = new Game();
+        Orangutan o = new Orangutan(g);
         AfraidPanda p = new AfraidPanda(gm);
         Tile t1 = new Tile();
         Tile t2 = new Tile();
@@ -176,6 +185,7 @@ public class Menu {
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
         Logger.register(p, "AfraidPanda", "p");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
@@ -183,7 +193,8 @@ public class Menu {
     //6.
     public void orangutanCatches(){
         //Letrehozzuk a szukseges objektumokat
-    	Orangutan o=new Orangutan();
+        Game g = new Game();
+    	Orangutan o=new Orangutan(g);
     	Tile t1=new Tile();
     	Tile t2=new Tile();
     	Tile t3=new Tile();
@@ -208,6 +219,7 @@ public class Menu {
         Logger.register(t1, "Tile", "t1");
         Logger.register(t2, "Tile", "t2");
         Logger.register(t3, "Tile", "t3");
+        Logger.register(g, "Game", "g");
 
         //Metodus(ok) meghivasa
         o.step(t2);
@@ -217,7 +229,8 @@ public class Menu {
     public void orangutanEntersWardrobe(){
         //Letrehozzuk a szukseges objektumokat
     	GameMap gm = GameMap.instance();
-        Orangutan o = new Orangutan();
+    	Game g = new Game();
+        Orangutan o = new Orangutan(g);
         Tile entrance = new Tile();
         Tile t2=new Tile(); //WardrobeTile
         Tile exit=new Tile();
@@ -239,45 +252,40 @@ public class Menu {
         Logger.register(exit, "Tile", "exit");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
+        Logger.register(g, "Game", "g");
 
         //Metodus meghivasa
         o.step(t2);
     }
     //8.
-    //TODO
     public void orangutanWon_FinitTime(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
         GameMap gameMap = GameMap.instance();
+        Orangutan o =  new Orangutan(g);
+        Timer t = Timer.instance();
 
         //Inicializalas
         g.setSelectedMode(Game.GameMode.FinitTime);
-        Timer t = Timer.instance();
         t.setGamemap(gameMap);
         t.setGame(g);
-        //Time is over, megnezzuk ki nyert, es mennyivel.
-        t.increaseTime(60);
 
-        //Init
-        g.setSelectedMode(Game.GameMode.FinitPanda);
-        Orangutan o = new Orangutan();
-        o.setGame(g);
-        
         //Loggerbe regisztralas
         Logger.enable();
         Logger.register(g, "Game", "g");
         Logger.register(gameMap, "GameMap", "gameMap");
         Logger.register(o, "Orangutan", "o");
-        
-        //Az egyik orangutannal meglepjuk FinitPanda mode-ban a gyozelemhez szukseges limitet TODO: Loggerkedes
-        o.increaseScore(25);
+        Logger.register(t, "Timer", "t");
+
+        //Metodus meghivasa
+        t.increaseTime(60);
     }
     //9.
-    //TODO
     public void orangutanWon_FinitPanda(){
         //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
         GameMap gamemap = GameMap.instance();
+        Orangutan o=new Orangutan(g);
 
         //Inicializalas
         g.setSelectedMode(Game.GameMode.FinitPanda);
@@ -288,26 +296,30 @@ public class Menu {
         //Loggerbe regisztralas
         Logger.enable();
         Logger.register(g, "Game", "g");
+        Logger.register(o, "Orangutan", "o");
         Logger.register(gamemap, "GameMap", "gameMap");
+        Logger.register(t, "Timer", "t");
+
+        //Metodus meghivasa
+        o.increaseScore(25);
+
     }
      //10.
     public void orangutanTakesTheExit(){
+        //Letrehozzuk a szukseges objektumokat
         Game g = new Game();
         GameMap gm = GameMap.instance();
-        g.setSelectedMode(Game.GameMode.FinitTime); // ez persze lehet FinitPanda mod is
         Timer t = Timer.instance();
+        Orangutan o = new Orangutan(g);
+        AfraidPanda p1 = new AfraidPanda(gm);
+        EntryTile entryTile = new EntryTile();
+        ExitTile exitTile = new ExitTile();
+        Tile t1 = new Tile();
 
+        //Inicializalas
+        g.setSelectedMode(Game.GameMode.FinitTime); // ez persze lehet FinitPanda mod is
         t.setGamemap(gm);
         t.setGame(g);
-
-        Orangutan o = new Orangutan();
-
-	//entry es exit csempek letrehozasa
-	Tile entryTile = new EntryTile();
-        Tile exitTile = new ExitTile();
-
-        AfraidPanda p1 = new AfraidPanda(gm);
-
         //allatok steppable listaba felvetel
         t.addSteppable(p1);
         t.addSteppable(o);
@@ -317,7 +329,6 @@ public class Menu {
             p1Caught = p1.getCaughtBy(o);
 
         //exit csempet megelozo csempe init
-        Tile t1 = new Tile();
         t1.addNeighbor(exitTile);
         exitTile.addNeighbor(t1);
 
@@ -329,9 +340,23 @@ public class Menu {
         exitTile.setAnimal(o);
         o.setTile(exitTile);
 
+        //gamemaphez hozza kell adni az entryt
+        gm.setEntry(entryTile);
+
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(g, "Game", "g");
+        Logger.register(gm, "GameMap", "gm");
+        Logger.register(t, "Timer", "t");
+        Logger.register(o, "Orangutan", "o");
+        Logger.register(p1, "AfraidPanda", "p1");
+        Logger.register(entryTile, "EntryTile", "entryTile");
+        Logger.register(exitTile, "ExitTile", "exitTile");
+        Logger.register(t1, "Tile", "t1");
+
+        //METODUS(OK) meghivasa
         g.exiting(o); //az orangutan elhagyja a mapot
         p1.step(exitTile);//a koveto panda az exit csempere lep
-
         t.removeSteppable(p1); //a koveto panda torlese a steppable listabol
         p1 = null; //a koveto panda eltavolitasa
     }
@@ -497,7 +522,7 @@ public class Menu {
     }
     //16.
     public void pandaInRowStepsOnBrokenTile(){
-
+        System.out.println("Ezt sajna nem volt idonk megcsinalni!:(");
     }
     //17.
     public void pandaInFreeroamStepsOnBrokenTile(){
