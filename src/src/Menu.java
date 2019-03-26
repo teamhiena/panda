@@ -291,7 +291,6 @@ public class Menu {
         Logger.register(gamemap, "GameMap", "gameMap");
     }
     //10.
-    //TODO: folyamatban van
     public void orangutanTakesTheExit(){
         Game g = new Game();
         GameMap gm = GameMap.instance();
@@ -302,25 +301,29 @@ public class Menu {
 
         Orangutan o = new Orangutan();
         Tile exitTile = new ExitTile();
-        exitTile.setAnimal(o);
-        o.setTile(exitTile);
 
         AfraidPanda p1 = new AfraidPanda(gm);
-        DiabeticPanda p2 = new DiabeticPanda(gm);
-        TiredPanda p3 = new TiredPanda(gm);
 
         boolean p1Caught = false;
-        boolean p2Caught = false;
-        boolean p3Caught = false;
-
         while(p1Caught == false)
             p1Caught = p1.getCaughtBy(o);
-        while(p2Caught == false)
-            p2Caught = p2.getCaughtBy(o);
-        while(p3Caught == false)
-            p3Caught = p3.getCaughtBy(o);
+	
+	//exit csempet megelozo csempe init
+        Tile t1 = new Tile();
+        t1.addNeighbour(exitTile);
+        exitTile.addNeighbour(t1);
 
+	//a panda csempere helyezése
+        p1.setTile(t1);
+        t1.setAnimal(p1);
 
+	//az orangutan az exit csempere lep
+        exitTile.setAnimal(o);
+        o.setTile(exitTile); 
+
+        g.exiting(o); //az orangutan elhagyja a mapot
+        p1.step(exitTile);//a koveto panda az exit csempere lep
+	
     }
     //11.
     public void tiredPandaEntersFotel(){
