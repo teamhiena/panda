@@ -50,9 +50,8 @@ public class GameMap {
 	 */
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
-
-		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
-
+		Random vel = new Random();
+		Tile t = listGetterMap.get(Key.WardrobeExit).get(vel.nextInt(listGetterMap.get(Key.WardrobeExit).size()));
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}
@@ -62,9 +61,7 @@ public class GameMap {
 	 */
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
-
 		ExitTile t = exit;
-
 		Logger.exit(this, "getExitTile", t);
 		return t;
 	}
@@ -74,9 +71,7 @@ public class GameMap {
 	 */
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
-
 		EntryTile t = entry;
-
 		Logger.exit(this, "getEntryTile", t);
 		return t;
 	}

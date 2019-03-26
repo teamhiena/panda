@@ -428,25 +428,26 @@ public class Menu {
     	GameMap gm = GameMap.instance();
         DiabeticPanda p = new DiabeticPanda(gm);
         Tile entrance = new Tile();
-        Tile t1=new Tile();
         Tile t2=new Tile(); //WardrobeTile
-        Tile exit=new Tile();
+        Tile exit = new Tile();
+        Tile exit2 = new Tile();
 
         //Inicializalas
-        t1.setAnimal(p);
-        p.setTile(t1);
+        entrance.setAnimal(p);
+        p.setTile(entrance);
         Wardrobe w=new Wardrobe(entrance,gm);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
+        gm.addSpecificTile(exit2, GameMap.Key.WardrobeExit);
 
         //Loggerbe regisztralas
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
-    	Logger.register(p, "Orangutan", "p");
-        Logger.register(t1, "Tile", "t1");
+    	Logger.register(p, "Panda", "p");
         Logger.register(t2, "Tile", "t2");
         Logger.register(exit, "Tile", "exit");
+        Logger.register(exit2, "Tile", "exit2");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
 

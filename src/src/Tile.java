@@ -40,8 +40,8 @@ public class Tile {
         ArrayList<Object> par = new ArrayList<>(); par.add(p);
         Logger.enter(this, "receiveAnimal", par);
 
-        boolean success=false;
-        if(animal!=null) { //ha van ott allat akk fix off
+        boolean success=true;
+        if(animal != null) { //ha van ott allat akk fix off
             Logger.exit(this, "receiveAnimal", false);
             return false;
         }
@@ -71,7 +71,7 @@ public class Tile {
 
         boolean success=true;
         if(entity != null)//Ha van ott entiy akk megprobalok belelepni.
-            success=entity.stepIn(o); //Ha nem enterable vagy panda ul benne akkor false.
+            success = entity.stepIn(o); //Ha nem enterable vagy panda ul benne akkor false.
         else if(animal != null) {
             success=animal.getCaughtBy(o);
         }

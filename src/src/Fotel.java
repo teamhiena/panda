@@ -75,7 +75,7 @@ public class Fotel extends Entity implements MakesEffect{
     	Logger.enter(this, "getRandomSubbedPanda", new ArrayList<>());
     	int a = tile.getSubbedPandas().size();
     	Random vel=new Random();
-    	Panda ret=tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size())); 
+    	Panda ret  =tile.getSubbedPandas().get(vel.nextInt(tile.getSubbedPandas().size()));
     	Logger.exit(this, "getRandomSubbedPanda", ret);
     	return ret;
     }
@@ -83,7 +83,7 @@ public class Fotel extends Entity implements MakesEffect{
 	@Override
 	public void makeEffect() {
 		Logger.enter(this, "makeEffect", new ArrayList<>());
-		Panda p=getRandomSubbedPanda();
+		Panda p = getRandomSubbedPanda();
 		p.step(tile);
 		Logger.exit(this, "makeEffect", null);		
 	}   
