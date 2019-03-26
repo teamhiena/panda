@@ -12,7 +12,7 @@ public class Tile {
 	private ArrayList<Panda> subbedPandas=new ArrayList<Panda>();
 
 	//METODUSOK
-	/*
+	/**
 	 * A Tile-rol elenged egy Animalt, azaz ezutan ures.
 	 */
     public void releaseAnimal(){
@@ -29,7 +29,7 @@ public class Tile {
     	animal=a;
     	Logger.exit(this, "setAnimal", null);
     }
-    /*
+    /**
      * Atveszi a Pandat
      * Ha az adott Tile-on all allat, akkor nem veszi at az allatot
      * Ha az adott Tile-on entitas all, akkor az entitastol fugg, mi tortenik ott
@@ -57,7 +57,7 @@ public class Tile {
     }
 
     
-    /*
+    /**
      * Atveszi a Orangutant
      * Ha az adott Tile-on all allat, akkor nem veszi at az allatot
      * Ha az adott Tile-on entitas all, akkor az entitastol fugg, mi tortenik ott

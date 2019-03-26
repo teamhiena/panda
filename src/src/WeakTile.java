@@ -12,7 +12,12 @@ public class WeakTile extends Tile {
 			isBroken=true;
 		Logger.exit(this, "reduceNumOfSteps", null);
 	}
-	//este ranezek (G)
+	
+	/**
+	 * ha broken, die()-t hiv
+	 * ha entity, stepIn()-t hiv
+	 * ha allat, getCaught()-t hiv
+	 */	
     public boolean receieveAnimal(Orangutan o) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(o);
 		Logger.enter(this, "receiveAnimal", par);
@@ -42,12 +47,12 @@ public class WeakTile extends Tile {
 		Logger.exit(this, "isBroken", isBroken);
     	return isBroken;
     }
-
-
-	//Ezt nem igazan vagom mi tortenik, de ebbe meg kene hivni a reducenumofsteps()-et
-    //este ranezek (G)
-	//Megcsinaltam (M)
-
+	
+	/**
+	 * ha broken, die()-t hiv
+	 * ha allat, return false
+	 * ha entity, stepIn()-t hiv
+	 */
     public boolean recieveAnimal(Panda p) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(p);
 		Logger.enter(this, "receiveAnimal", par);
@@ -75,8 +80,6 @@ public class WeakTile extends Tile {
 					return false;
 				}
 			}
-			/*Nincs ott allat de olyan entity van amibe (most) nem lehet belelepni
-			pl. nonenterableentity vagy egy hasznalatban levo fotel*/
 
 			//Ilyenkor mar mindenkeppen be tudtunk lepni a csempere.
 			this.reduceNumOfSteps();
