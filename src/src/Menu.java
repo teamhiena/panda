@@ -285,9 +285,10 @@ public class Menu {
         t.setGamemap(gamemap);
         t.setGame(g);
 
-
-        
-        //loggerbe TODO
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(g, "Game", "g");
+        Logger.register(gamemap, "GameMap", "gameMap");
     }
     //10.
     //TODO: folyamatban van
