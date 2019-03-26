@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Egy entitast megvalosito absztrakt ososztaly.
  */
@@ -11,5 +13,10 @@ public abstract class Entity {
 	 */
 	public void setTile(Tile t) {
 		tile=t;
+	}
+	public Tile getTile(){
+		Logger.enter(this, "getTile", new ArrayList<>());
+		Logger.exit(this, "getTile", tile);
+		return tile;
 	}
 }

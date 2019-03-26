@@ -10,7 +10,7 @@ public class GameMap {
 	private HashMap<GameMap.Key,ArrayList<Tile>> listGetterMap=new HashMap<GameMap.Key,ArrayList<Tile>>();
 	private EntryTile entry = new EntryTile();
 	private ExitTile exit = new ExitTile();
-	
+
 	//KONSTRUKTOROK
 	private GameMap() {
 		listGetterMap.put(Key.WeakTile, new ArrayList<>()); //TODO kiszedni a weakTile-t külön
@@ -22,19 +22,19 @@ public class GameMap {
 		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
 
 		//Ideiglenes, orangutan won-hoz egy Orangutant felolvas!
-		Tile t = new Tile(); t. setAnimal(new Orangutan());
+		Tile t = new Tile(); t. setAnimal(new Orangutan(new Game()));
 		listGetterMap.get(Key.Orangutan).add(t);
 	}
-	
+
 	static public GameMap instance() {
 		if (instance == null) instance = new GameMap();
 		return instance;
 	}
-	
+
 	public void finalize() {
 		instance = null;
 	}
-	
+
 	enum Key{
 		WeakTile,
 		Arcade,
@@ -50,9 +50,8 @@ public class GameMap {
 	 */
 	public Tile getRandomWardrobeExitTile() {
 		Logger.enter(this, "getRandomWardrobeExitTile", new ArrayList<>());
-
-		Tile t = listGetterMap.get(Key.WardrobeExit).get(new Random().nextInt(listGetterMap.get(Key.WardrobeExit).size()-1));
-
+		Random vel = new Random();
+		Tile t = listGetterMap.get(Key.WardrobeExit).get(vel.nextInt(listGetterMap.get(Key.WardrobeExit).size()));
 		Logger.exit(this, "getRandomWardrobeExitTile", t);
 		return t;
 	}
@@ -62,9 +61,7 @@ public class GameMap {
 	 */
 	public Tile getExitTile() {
 		Logger.enter(this, "getExitTile", new ArrayList<>());
-
 		ExitTile t = exit;
-
 		Logger.exit(this, "getExitTile", t);
 		return t;
 	}
@@ -74,9 +71,7 @@ public class GameMap {
 	 */
 	public Tile getEntryTile() {
 		Logger.enter(this, "getEntryTile", new ArrayList<>());
-
 		EntryTile t = entry;
-
 		Logger.exit(this, "getEntryTile", t);
 		return t;
 	}

@@ -50,31 +50,25 @@ public class Timer {
 			elapsedTime -= t;
 	}
 
-	//Noveli az idot parameterkent kapott masodperccel.
+	/**Noveli az idot parameterkent kapott masodperccel es megnezi lejart-e az ido, ha igen cselekszik
+	 */
 	public void increaseTime(int t) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(t);
 		Logger.enter(this,"increaseTime", par);
 
 		elapsedTime += t;
 
-		//Minden eltelt Tick-re pollingoljuk, hogy lejart-e az ido és hogy nyert-e az Orangutan
+		//Minden eltelt Tick-re pollingoljuk, hogy lejart-e az ido hogy nyert-e az Orangutan
 		if (elapsedTime >= 60 && game.getSelectedMode() == Game.GameMode.FinitTime) {
-			//Orangutanok kinyerese
-			ArrayList<Tile> orangutantiles = gamemap.getSpecificTiles(GameMap.Key.Orangutan);
-			ArrayList<Orangutan> orangutans = new ArrayList<>();
-			for (Tile item : orangutantiles) {
-				orangutans.add((Orangutan) item.getAnimal());
-			}
+			if (game.getOrangutans().size()>1){
 
-			//Attol fuggoen hogy hany jatekos modban vagyunk allitjuk be a HighScore-t
-			Orangutan[] oarray = new Orangutan[2];
-			if (orangutans.size() == 2) {
-				oarray[0] = orangutans.get(0);
-				oarray[1] = orangutans.get(1);
+				int[] scores=new int[2];
+				scores[0]=game.getOrangutans().get(0).getScore() ;
+				scores[1]=game.getOrangutans().get(1).getScore() ;
 
-				game.SaveHighScore((oarray[0].getScore() > oarray[1].getScore()) ? oarray[0].getScore() : oarray[1].getScore());
+				game.SaveHighScore(scores[0]>scores[1]? scores[0] : scores[1]);
 			} else {
-				game.SaveHighScore(orangutans.get(0).getScore());
+				game.SaveHighScore(game.getOrangutans().get(0).getScore());
 			}
 
 			//Es vegul lejart az ido, game-over.

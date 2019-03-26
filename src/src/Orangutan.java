@@ -4,6 +4,11 @@ public class Orangutan extends Animal {
     private int score = 0;
     private Game game;
 
+    public Orangutan(Game g) {
+        Game game = new Game();
+        g.addOrangutan(this);
+    }
+
     //METODUSOK
     /**
      * @param t(Tile): Errre a mezore szeretnenk leptetni az orangutant.
@@ -12,18 +17,18 @@ public class Orangutan extends Animal {
     @Override
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
-    	Logger.enter(this, "step", par);
-    	
-    	boolean success=t.receiveAnimal(this);
-    	if(success)
-    	{
-    		t.setAnimal(this);
-			tile.setAnimal(null);
-			tile=t;	
-    	}
-    	
-    	Logger.exit(this, "step", success);
-    	return success;
+        Logger.enter(this, "step", par);
+
+        boolean success=t.receiveAnimal(this);
+        if(success)
+        {
+            t.setAnimal(this);
+            tile.setAnimal(null);
+            tile=t;
+        }
+
+        Logger.exit(this, "step", success);
+        return success;
     }
 
     /**
@@ -42,13 +47,14 @@ public class Orangutan extends Animal {
         }
         Logger.exit(this, "increaseScore", null);
     }
-    
+
     public int getPandaNum() {
         Logger.enter(this, "getPandaNum", new ArrayList<>());
         //return mindfuck recursive fuggveny(?) nem hinnem hogy szukseg van most ra (M)
         //TODO
         int ret = 0;
         Logger.exit(this, "getPandaNum", ret);
+
         return ret;
     }
 
@@ -68,7 +74,7 @@ public class Orangutan extends Animal {
         Logger.enter(this, "getScore", new ArrayList<>());
         int ret = score;
         Logger.exit(this, "getScore", ret);
-    	return ret;
+        return ret;
     }
 
     /**

@@ -1,9 +1,9 @@
 /**
- * A szkeleton program (use-case-eket tartalmazó) menüjét kezelő osztály.
+ * A szkeleton program (use-case-eket tartalmaz) menujet kezelo osztalyly.
  */
 public class Menu {
     public void show(){
-        System.out.println("Az alábbi use-case-ekből választhat:\n\n"
+        System.out.println("Az alabbi useCase-ekbol valaszthat:\n\n"
                 +"1. Orangutan steps on Tile\n"
                 +"2. Orangutan steps on WeakTile\n"
                 +"3. Orangutan steps on BrokenTile\n"
@@ -22,8 +22,8 @@ public class Menu {
                 +"16. Panda in row steps on BrokenTile\n"
                 +"17. Panda in freeroam steps on BrokenTile\n"
                 +"---\n"
-                +"0. Kilépés\n"
-                +"A választott UseCase: ");
+                +"0. Kilepes\n"
+                +"A valasztott UseCase: ");
     }
 
     public void manageUseCase(int chosenUseCase){
@@ -63,7 +63,7 @@ public class Menu {
                 break;
             case 17: pandaInFreeroamStepsOnBrokenTile();
                 break;
-            default: System.out.println("Érvénytelen számot adott meg!");
+            default: System.out.println("Ervenytelen szamot adott meg!");
                 break;
         }
     }
@@ -284,13 +284,56 @@ public class Menu {
         Timer t = Timer.instance();
         t.setGamemap(gamemap);
         t.setGame(g);
-        
-        //loggerbe TODO
-    }
-    //10.
-    //TODO
-    public void orangutanTakesTheExit(){
 
+        //Loggerbe regisztralas
+        Logger.enable();
+        Logger.register(g, "Game", "g");
+        Logger.register(gamemap, "GameMap", "gameMap");
+    }
+     //10.
+    public void orangutanTakesTheExit(){
+        Game g = new Game();
+        GameMap gm = GameMap.instance();
+        g.setSelectedMode(Game.GameMode.FinitTime); // ez persze lehet FinitPanda mod is
+        Timer t = Timer.instance();
+
+        t.setGamemap(gm);
+        t.setGame(g);
+
+        Orangutan o = new Orangutan();
+
+	//entry es exit csempek letrehozasa
+	Tile entryTile = new EntryTile();
+        Tile exitTile = new ExitTile();
+
+        AfraidPanda p1 = new AfraidPanda(gm);
+
+        //allatok steppable listaba felvetel
+        t.addSteppable(p1);
+        t.addSteppable(o);
+
+        boolean p1Caught = false;
+        while(p1Caught == false)
+            p1Caught = p1.getCaughtBy(o);
+
+        //exit csempet megelozo csempe init
+        Tile t1 = new Tile();
+        t1.addNeighbor(exitTile);
+        exitTile.addNeighbor(t1);
+
+        //a panda csempere helyezése
+        p1.setTile(t1);
+        t1.setAnimal(p1);
+
+        //az orangutan az exit csempere lep
+        exitTile.setAnimal(o);
+        o.setTile(exitTile);
+
+        g.exiting(o); //az orangutan elhagyja a mapot
+        p1.step(exitTile);//a koveto panda az exit csempere lep
+
+        t.removeSteppable(p1); //a koveto panda torlese a steppable listabol
+        p1 = null; //a koveto panda eltavolitasa
     }
     //11.
     public void tiredPandaEntersFotel(){
@@ -398,25 +441,26 @@ public class Menu {
     	GameMap gm = GameMap.instance();
         DiabeticPanda p = new DiabeticPanda(gm);
         Tile entrance = new Tile();
-        Tile t1=new Tile();
         Tile t2=new Tile(); //WardrobeTile
-        Tile exit=new Tile();
+        Tile exit = new Tile();
+        Tile exit2 = new Tile();
 
         //Inicializalas
-        t1.setAnimal(p);
-        p.setTile(t1);
+        entrance.setAnimal(p);
+        p.setTile(entrance);
         Wardrobe w=new Wardrobe(entrance,gm);
         t2.setEntity(w);
         w.setTile(t2);
         gm.addSpecificTile(exit, GameMap.Key.WardrobeExit);
+        gm.addSpecificTile(exit2, GameMap.Key.WardrobeExit);
 
         //Loggerbe regisztralas
         Logger.enable();
         Logger.register(gm, "GameMap", "gm");
-    	Logger.register(p, "Orangutan", "p");
-        Logger.register(t1, "Tile", "t1");
+    	Logger.register(p, "Panda", "p");
         Logger.register(t2, "Tile", "t2");
         Logger.register(exit, "Tile", "exit");
+        Logger.register(exit2, "Tile", "exit2");
         Logger.register(w, "Wardrobe", "w");
         Logger.register(entrance, "Tile", "entrance");
 

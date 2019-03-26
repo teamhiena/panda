@@ -27,8 +27,8 @@ public class Wardrobe extends Entity {
 		}
 		boolean success;
 		do{
-			Tile exit=map.getRandomWardrobeExitTile();
-			success=o.step(exit);
+			Tile exit = map.getRandomWardrobeExitTile();
+			success = o.step(exit);
 			if(success) {
 				previousExitTile=exit;				
 			}
@@ -54,9 +54,9 @@ public class Wardrobe extends Entity {
 		boolean success;
 		do {
 			if(p.isFollowing())
-				success=p.step(previousExitTile);
+				success = p.step(previousExitTile);
 			else
-				success=p.step(map.getRandomWardrobeExitTile());
+				success = p.step(map.getRandomWardrobeExitTile());
 		}while(!success);
 
 		Logger.exit(this, "stepIn", success);

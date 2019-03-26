@@ -6,12 +6,17 @@ public abstract class Panda extends Animal{
 	protected GameMap.Key hatesEntity;
 
 	//METODUSOK
+	public void affectedBy(Entity e) {
+		//el tudom lepzelni hogy ennek semmi ertelme mert ugyis csak ugyanolyan parameterrel lehet overrideolni (G)
+	}
+
 	public void affectedBy(Arcade a){ }
 	public void affectedBy(Automat a) { }
 	public void affectedBy(Fotel f) { }
 	/**
 	 * Hozzaad egy csempet a panda subbedTiles listajahoz.
 	 */
+
 	public void addSubbedTile(Tile t) {
 		ArrayList<Object> par = new ArrayList<>(); par.add(t);
 		Logger.enter(this, "addSubbedTile", par);
@@ -55,9 +60,9 @@ public abstract class Panda extends Animal{
 					newTileNeighbor.addSubbedPanda(this); //Az uj helyen szomszedokra feliratkozasok
 				}			
 			}
-			newTile.setAnimal(this);
+			/*newTile.setAnimal(this);
 			tile.setAnimal(null);
-			tile=newTile;			
+			tile=newTile;*/
 		}
 
 		Logger.exit(this, "step", success);
@@ -77,7 +82,6 @@ public abstract class Panda extends Animal{
 			Logger.exit(this, "getCaughtBy", false);
 			return false;
 		}
-		
 		
 		setIsFollowing(true);
 		setFollowing(o);
