@@ -94,4 +94,16 @@ public class Orangutan extends Animal {
     public void setGame(Game game) {
         this.game = game;
     }
+    /**
+     * Elengedi az ot koveto pandak kezet.
+     */
+    public void releasePandas()
+    {
+        if(isFollowing == true)
+        {
+            following.release();
+            following = null;
+            isFollowing = false;
+        }
+    }
 }

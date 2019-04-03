@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public abstract class Animal implements Steppable{
     protected Tile tile; //Ezen all az allat.
     private Tile nextTile=null; //Ez lesz a kovetkezo mezo, amire lepni fog.
-    protected Animal followedBy=null; //Ez az allat koveti.
-    private Animal following=null; //Ezt az allatot koveti.
-    private  boolean isFollowedBy = false; //Megadja, hogy koveti-e valakit.
-    private boolean isFollowing = false; //Megadja, hogy kovet-e valakit.
+    protected Panda followedBy=null; //Ez az allat koveti.
+    protected Panda following=null; //Ezt az allatot koveti.
+    protected boolean isFollowedBy = false; //Megadja, hogy koveti-e valakit.
+    protected boolean isFollowing = false; //Megadja, hogy kovet-e valakit.
     
     //KONSTRUKTOROK
     public Animal(Tile t) {
@@ -42,10 +42,10 @@ public abstract class Animal implements Steppable{
     /**
     * Following adattag setter fuggvenye.
     */
-	public void setFollowing(Animal a) {
-        ArrayList<Object> par = new ArrayList<>(); par.add(a);
+	public void setFollowing(Panda p) {
+        ArrayList<Object> par = new ArrayList<>(); par.add(p);
         Logger.enter(this, "setFollowing", par);
-		following=a;
+		following=p;
         Logger.exit(this, "setFollowing", null);
 	}
 
@@ -69,10 +69,10 @@ public abstract class Animal implements Steppable{
     /**
      * FollowedBy adattag setter fuggvenye.
      */
-    public void setFollowedBy(Animal a) {
-        ArrayList<Object> par = new ArrayList<>(); par.add(a);
+    public void setFollowedBy(Panda p) {
+        ArrayList<Object> par = new ArrayList<>(); par.add(p);
         Logger.enter(this, "setFollowedBy", par);
-        followedBy = a;
+        followedBy = p;
         Logger.exit(this, "setFollowedBy", null);
     }
 

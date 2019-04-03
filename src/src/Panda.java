@@ -96,4 +96,16 @@ public abstract class Panda extends Animal{
 		Logger.exit(this, "getCaughtBy", true);
 		return true;
 	}
+	/**
+	 * Elengedi az ot koveto ill. annak a pandanak a kezet akit o kovet.
+	 */
+	public void release()
+	{
+		following = null;
+		isFollowing = false;
+		if(isFollowedBy){
+			followedBy.release();
+
+		}
+	}
 }
