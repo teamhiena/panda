@@ -18,6 +18,7 @@ public class Orangutan extends Animal {
     public boolean step(Tile t) {
         ArrayList<Object> par = new ArrayList<>(); par.add(t);
         Logger.enter(this, "step", par);
+        //ha elkap valakit akkor nem kell lépni a tobbi pandanak
 
         boolean success=t.receiveAnimal(this);
         if(success)

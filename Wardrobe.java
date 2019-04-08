@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * A szekrenyt(Wardrobe) megvalosito osztaly.
  */
 public class Wardrobe extends Entity {
-	private Tile previousExitTile=null;
+	private Tile previousExitTile=null; 
 	private Tile entrance;
 	private GameMap map; //TODO: inicializalni
 	 
@@ -31,7 +31,7 @@ public class Wardrobe extends Entity {
 		do{
 			Tile exit = map.getRandomWardrobeExitTile();
 			success = o.step(exit);
-			if(success) {
+			if(success&&o.followedBy!=null) {
 				previousExitTile=exit;				
 			}
 				
@@ -57,8 +57,10 @@ public class Wardrobe extends Entity {
 		do {
 			if(p.isFollowing())
 				success = p.step(previousExitTile);
-			else
+			else {
 				success = p.step(map.getRandomWardrobeExitTile());
+				previousExitTile=null;
+			}
 		}while(!success);
 
 		Logger.exit(this, "stepIn", success);
