@@ -53,7 +53,8 @@ public class Timer {
 	/**Noveli az idot parameterkent kapott masodperccel es megnezi lejart-e az ido, ha igen cselekszik
 	 */
 	public void increaseTime(int t) {
-		ArrayList<Object> par = new ArrayList<>(); par.add(t);
+		ArrayList<Object> par = new ArrayList<>(); 
+		par.add(t);
 		Logger.enter(this,"increaseTime", par);
 
 		elapsedTime += t;

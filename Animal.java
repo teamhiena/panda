@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public abstract class Animal implements Steppable{
     protected Tile tile; //Ezen all az allat.
-    private Tile nextTile=null; //Ez lesz a kovetkezo mezo, amire lepni fog.
+    protected Tile nextTile=null; //Ez lesz a kovetkezo mezo, amire lepni fog.
     protected Panda followedBy=null; //Ez az allat koveti.
     protected Panda following=null; //Ezt az allatot koveti.
     //protected boolean isFollowedBy = false; //Megadja, hogy koveti-e valakit.

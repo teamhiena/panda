@@ -20,13 +20,11 @@ public class Orangutan extends Animal {
         Logger.enter(this, "step", par);
 
         boolean success=t.receiveAnimal(this);
-        /*if(success)
+        if(success)
         {
-            t.setAnimal(this);
-            tile.setAnimal(null);
-            tile=t;
-        }*/
-
+        	if(followedBy!=null)
+        		followedBy.setNextTile(tile);
+        }
         Logger.exit(this, "step", success);
         return success;
     }

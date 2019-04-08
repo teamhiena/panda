@@ -107,4 +107,8 @@ public abstract class Panda extends Animal{
 			followedBy.release();
 		}
 	}
+	
+	public void setNextTile(Tile t) {
+		nextTile=t;
+	}
 }

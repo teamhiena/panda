@@ -13,17 +13,18 @@ public class GameMap {
 
 	//KONSTRUKTOROK
 	private GameMap() {
-		listGetterMap.put(Key.WeakTile, new ArrayList<>()); //TODO kiszedni a weakTile-t külön
-		listGetterMap.put(Key.Arcade, new ArrayList<>());
-		listGetterMap.put(Key.Automat, new ArrayList<>());
-		listGetterMap.put(Key.Fotel, new ArrayList<>());
-		listGetterMap.put(Key.Wardrobe, new ArrayList<>());
-		listGetterMap.put(Key.WardrobeExit, new ArrayList<>());
-		listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
+		listGetterMap.put(Key.WeakTile, new ArrayList<Tile>()); //TODO kiszedni a weakTile-t külön
+		listGetterMap.put(Key.Arcade, new ArrayList<Tile>());
+		listGetterMap.put(Key.Automat, new ArrayList<Tile>());
+		listGetterMap.put(Key.Fotel, new ArrayList<Tile>());
+		
+		listGetterMap.put(Key.Wardrobe, new ArrayList<Tile>());
+		listGetterMap.put(Key.WardrobeExit, new ArrayList<Tile>());
+		//listGetterMap.put(Key.Orangutan, new ArrayList<>()); //TODO kiszedni orangutanos Tile-okat
 
 		//Ideiglenes, orangutan won-hoz egy Orangutant felolvas!
-		Tile t = new Tile(); t. setAnimal(new Orangutan(new Game()));
-		listGetterMap.get(Key.Orangutan).add(t);
+		//Tile t = new Tile(); t. setAnimal(new Orangutan(new Game()));
+		//listGetterMap.get(Key.Orangutan).add(t);
 	}
 
 	static public GameMap instance() {
@@ -42,7 +43,7 @@ public class GameMap {
 		Fotel,
 		Wardrobe,
 		WardrobeExit,
-		Orangutan
+		//Orangutan
 	}
 
 	/**

@@ -11,6 +11,8 @@ public class Wardrobe extends Entity {
 	public Wardrobe(Tile e, GameMap gm) {
 		entrance=e;
 		map = gm;
+		gm.addSpecificTile(entrance, GameMap.Key.WardrobeExit);
+		gm.addSpecificTile(tile, GameMap.Key.Wardrobe);
 	}
 
 	/**
