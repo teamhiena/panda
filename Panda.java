@@ -83,15 +83,15 @@ public abstract class Panda extends Animal{
 			return false;
 		}
 		
-		setIsFollowing(true);
-		setFollowing(o);
+		//setIsFollowing(true);
+		//setFollowing(o);
 		if(o.isFollowedBy()){
-			setIsFollowedBy(true);
+			//setIsFollowedBy(true);
 			setFollowedBy(o.followedBy);
 			followedBy.setFollowing(this);			
 		}
 		o.setFollowedBy(this);
-		o.setIsFollowedBy(true);
+		//o.setIsFollowedBy(true);
 		
 		Logger.exit(this, "getCaughtBy", true);
 		return true;
@@ -102,10 +102,9 @@ public abstract class Panda extends Animal{
 	public void release()
 	{
 		following = null;
-		isFollowing = false;
-		if(isFollowedBy){
+		//isFollowing = false;
+		if(/*isFollowedBy*/followedBy!=null){
 			followedBy.release();
-
 		}
 	}
 }

@@ -5,8 +5,8 @@ public abstract class Animal implements Steppable{
     private Tile nextTile=null; //Ez lesz a kovetkezo mezo, amire lepni fog.
     protected Panda followedBy=null; //Ez az allat koveti.
     protected Panda following=null; //Ezt az allatot koveti.
-    protected boolean isFollowedBy = false; //Megadja, hogy koveti-e valakit.
-    protected boolean isFollowing = false; //Megadja, hogy kovet-e valakit.
+    //protected boolean isFollowedBy = false; //Megadja, hogy koveti-e valakit.
+    //protected boolean isFollowing = false; //Megadja, hogy kovet-e valakit.
     
     //KONSTRUKTOROK
     public Animal(Tile t) {
@@ -59,12 +59,12 @@ public abstract class Animal implements Steppable{
         Logger.exit(this, "isFollowing", ret);
         return ret;
     }
-    public void setIsFollowing(boolean f){
+   /* public void setIsFollowing(boolean f){
        ArrayList<Object> par = new ArrayList<>(); par.add(f);
        Logger.enter(this, "setIsFollowing", par);
         isFollowing = f;
         Logger.exit(this, "setIsFollowing", null);
-    }
+    }*/
 
     /**
      * FollowedBy adattag setter fuggvenye.
@@ -86,12 +86,12 @@ public abstract class Animal implements Steppable{
         Logger.exit(this, "isFollowedBy", ret);
     	return ret;
     }
-    public void setIsFollowedBy(boolean f){
+    /*public void setIsFollowedBy(boolean f){
         ArrayList<Object> par = new ArrayList<>(); par.add(f);
         Logger.enter(this, "setFollowedBy", par);
         isFollowedBy = f;
         Logger.exit(this, "setFollowedBy", null);
-    }
+    }*/
 
     /**
      *

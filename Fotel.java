@@ -53,8 +53,13 @@ public class Fotel extends Entity implements MakesEffect{
 		if(!isEmpty())//
 			timeLeft--;
 		
-		if(timeLeft<=0)
-			tile.getAnimal().step(enteredFrom);
+		if(timeLeft<=0) {
+			boolean success;
+			do {
+				success=tile.getAnimal().step(enteredFrom);				
+			} while(!success);
+			
+		}
 		
 		Logger.exit(this, "decrTimeLeft", null);
 	}
